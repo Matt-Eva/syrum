@@ -1,25 +1,24 @@
 class UsersController < ApplicationController
 
-    # POST / signup 
+ 
+    # POST /signup
     def signup 
         user = User.create!(user_params)
         session[:user_id] = user.id
         render json: user, status: 201
-    end
+    end     
 
     def me
-        user = User.find_by(id: session[:user_id])
-        if user
-          render json: user
-        else
-          render_unauthorized
-        end
+        # check if user is logged in if the session user ID exists 
+        # byebug
+        user = User.find(session[:user_id])
+        render json: user, status: :ok
     end 
 
     private
 
     def user_params
-      params.permit(:id, :username, :name, :password)
-    end
+        params.permit(:username, :password)
+    end 
 
 end
