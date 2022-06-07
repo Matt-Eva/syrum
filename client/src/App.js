@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css';
-import Login from './Pages/Login';
+// import Login from './Pages/Login';
+import Home from './Pages/Home';
+import NavBar from './Components/NavBar';
 
 function App() {
 
@@ -16,9 +19,18 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Login setUser={setUser}/>
-    </div>
+    <>
+      {/* <NavBar
+        setUser={setUser}
+      />
+      <Routes>
+        <Route
+          exact
+          path="/"
+        />
+        <Route path="/home" element={<Home/>}/>
+      </Routes> */}
+    </>
   );
 }
 
