@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const NavBar = ({ setUser }) => {
     // let navigate = useNavigate();
@@ -14,7 +14,9 @@ const NavBar = ({ setUser }) => {
   
     return (
       <>
-     {/* <NavLink to="/home">home</NavLink> */}
+      <nav>
+      <Link to="/home">home</Link>
+      </nav>
         <button>logout</button>
       </>
     );

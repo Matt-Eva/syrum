@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './App.css';
-// import Login from './Pages/Login';
+import Login from './Pages/Login';
 import Home from './Pages/Home';
 import NavBar from './Components/NavBar';
 
@@ -18,12 +18,22 @@ function App() {
     });
   }, []);
 
+  if (!user) {
+    return (
+      <>
+      <Login
+        setUser={setUser}
+      />
+      </>
+    );
+  }
+
   return (
     <>
       {/* <NavBar
         setUser={setUser}
-      />
-      <Routes>
+      /> */}
+      {/* <Routes>
         <Route
           exact
           path="/"
