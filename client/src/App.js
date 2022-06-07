@@ -18,28 +18,20 @@ function App() {
     });
   }, []);
 
-  if (!user) {
-    return (
-      <>
-      <Login
-        setUser={setUser}
-      />
-      </>
-    );
-  }
+  if (!user) return <Login onLogin={setUser} />;
 
   return (
     <>
-      {/* <NavBar
+      <NavBar
         setUser={setUser}
-      /> */}
-      {/* <Routes>
+      />
+      <Routes>
         <Route
           exact
           path="/"
         />
         <Route path="/home" element={<Home/>}/>
-      </Routes> */}
+      </Routes>
     </>
   );
 }
