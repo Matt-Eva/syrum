@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const SignUpForm = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-//   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -19,7 +19,7 @@ const SignUpForm = ({ setUser }) => {
       body: JSON.stringify({
         username,
         password,
-        // password_confirmation: passwordConfirmation,
+        password_confirmation: passwordConfirmation,
       }),
     }).then((r) => {
       setIsLoading(false);
@@ -42,7 +42,7 @@ const SignUpForm = ({ setUser }) => {
           onChange={(e) => setUsername(e.target.value)}
         />
 
-        <label htmlFor="password">Password</label>
+        <label>Password</label>
         <input
           type="password"
           id="password"
@@ -51,14 +51,14 @@ const SignUpForm = ({ setUser }) => {
         //   autoComplete="current-password"
         />
 
-        {/* <label htmlFor="password">Password Confirmation</label>
+        <label>Password Confirmation</label>
         <input
           type="password"
           id="password_confirmation"
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
-        /> */}
+        />
         <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
         {/* <button>submit</button> */}
         {/* <h1>{errors}</h1> */}
