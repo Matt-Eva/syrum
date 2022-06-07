@@ -1,7 +1,7 @@
 const Home = () => {
     return (
         <>
-        home
+        Welcome to Your World of Skincare!
         </>
     )
 }
