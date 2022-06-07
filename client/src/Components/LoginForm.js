@@ -4,7 +4,7 @@ const LoginForm = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
-//   const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -45,8 +45,7 @@ const LoginForm = ({ setUser }) => {
         />
         {/* <button variant="fill" color="primary" type="submit"> */}
         <button type='submit'>
-          {/* {isLoading ? "Loading..." : "Login"} */}
-            Login
+          {isLoading ? "Loading..." : "Login"}
         </button>
         {/* {errors.map((err) => (
           <h3 key={err}>{err}</h3>

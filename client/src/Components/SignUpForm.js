@@ -60,8 +60,7 @@ const SignUpForm = ({ setUser }) => {
           autoComplete="current-password"
         />
         <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
-        {/* <button>submit</button> */}
-        {/* <h1>{errors}</h1> */}
+        <h1>{errors}</h1>
     </form>
   );
 }
