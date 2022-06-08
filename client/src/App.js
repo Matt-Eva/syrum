@@ -5,6 +5,7 @@ import Login from './Pages/Login';
 import Home from './Pages/Home';
 import NavBar from './Components/NavBar';
 import Profile from './Components/Profile';
+import FollowList from './Components/FollowList';
 
 const App = () => {
 
@@ -60,8 +61,10 @@ const App = () => {
           exact
           path="/"
         />
-        <Route path="/home" element={<Home/>}/>
+        <Route path="/dashboard" element={<Home/>}/>
         <Route path="/my-profile" element={<Profile/>}/>
+        <Route path="/followers" element={<FollowList followers={followers} />}/>
+        <Route path="/following" element={<FollowList following={following}/>}/>
       </Routes>
     </>
   );
