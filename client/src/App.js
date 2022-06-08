@@ -4,7 +4,7 @@ import './App.css';
 import Login from './Pages/Login';
 import Home from './Pages/Home';
 import NavBar from './Components/NavBar';
-import Profile from './Components/Profile';
+import Profile from './Pages/Profile';
 import FollowList from './Components/FollowList';
 import ProductCollection from './Components/ProductCollection'
 
@@ -56,7 +56,7 @@ const App = () => {
           path="/"
         />
         <Route path="/home" element={<Home/>}/>
-        <Route path="/my-profile" element={<Profile/>}/>
+        <Route path="/my-profile" element={<Profile user={user}/>}/>
         <Route path="/my-products" element={<ProductCollection user={user} />}/>
         <Route path="/followers" element={<FollowList followers={followers} />}/>
         <Route path="/following" element={<FollowList following={following}/>}/>
