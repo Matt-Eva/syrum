@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom"
+import RoutineCollection from "../Components/RoutineCollection";
+const Profile = ( { user } ) => {
 
-const Profile = () => {
+
     let navigate = useNavigate();
 
     const seeFollowers = () => {
@@ -13,11 +15,12 @@ const Profile = () => {
         console.log('see your following')
     }
 
+
     return (
         <>
             <button onClick={seeFollowers}>Followers</button>
             <button onClick={seeFollowing}>Following</button>
-        this is your profile
+            <RoutineCollection user={user}/>
         </>
     )
 }
