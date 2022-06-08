@@ -4,10 +4,15 @@ import './App.css';
 import Login from './Pages/Login';
 import Home from './Pages/Home';
 import NavBar from './Components/NavBar';
+import Profile from './Components/Profile';
 
-function App() {
+const App = () => {
 
   const [user, setUser] = useState(null);
+  const [products, setProducts] = useState([])
+  const [followers, setFollowers] = useState([])
+  const [following, setFollowing] = useState([])
+
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -16,6 +21,32 @@ function App() {
       }
     });
   }, []);
+
+  useEffect(() => {
+    fetch("/my-products").then((r) => {
+      if (r.ok) {
+        r.json().then((products) => setProducts(products));
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    fetch("/my-followers").then((r) => {
+      if (r.ok) {
+        r.json().then((followers) => setFollowers(followers));
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    fetch("/my-following").then((r) => {
+      if (r.ok) {
+        r.json().then((following) => setFollowing(following));
+      }
+    });
+  }, []);
+
+  console.log(following)
 
   if (!user) return <Login onLogin={setUser} />;
 
@@ -30,6 +61,7 @@ function App() {
           path="/"
         />
         <Route path="/home" element={<Home/>}/>
+        <Route path="/my-profile" element={<Profile/>}/>
       </Routes>
     </>
   );
