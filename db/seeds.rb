@@ -1,8 +1,11 @@
 alex = User.create(username: 'Alex', password: '123')
 sean = User.create(username: 'Sean', password: 'abc')
 
-alex_follower = Follow.create(follower_id: sean.id, followed_user_id: alex.id)
-sean_follower = Follow.create(follower_id: alex.id, followed_user_id: sean.id)
+alex_follower = Follow.create(follower: sean, followed_user: alex)
+sean_follower = Follow.create(follower: alex, followed_user: sean)
+
+# alex_follower = Follow.create(follower_id: sean.id, followed_user_id: alex.id)
+# sean_follower = Follow.create(follower_id: alex.id, followed_user_id: sean.id)
 
 
 vit_c = Product.create(name: "CE Ferulic", brand: "SkinCeuticals", ingredients: "synergistic antioxidant combination of 15% pure vitamin C (L-ascorbic acid), 1% vitamin E (alpha tocopherol), and 0.5% ferulic acid", notes: "can be a little sticky. I like it mixed with moisturizer", user_id: alex.id)
