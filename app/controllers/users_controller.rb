@@ -25,10 +25,15 @@ class UsersController < ApplicationController
         render json: user.followed_users
     end
 
-    def my_products
-        user = User.find(session[:user_id])
-        render json: user.products, status: :ok
-    end
+    # def my_products
+    #     user = User.find(session[:user_id])
+    #     render json: user.products, status: :ok
+    # end
+
+    # def one_product
+    #     user = User.find(session[:user_id])
+
+    # end
 
     private
 
