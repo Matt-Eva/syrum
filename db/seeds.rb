@@ -7,5 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-user1 = User.create(username: 'Alex', password_digest: '123')
+alex = User.create(username: 'Alex', password_digest: '123')
+sean = User.create(username: 'Sean', password_digest: 'abc')
+
+
+
+
+# vit_c = Product.create(name: "CE Ferulic", brand: "SkinCeuticals")
 
