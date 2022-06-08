@@ -33,20 +33,23 @@ ActiveRecord::Schema.define(version: 2022_06_08_042120) do
   end
 
   create_table "routines", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "title"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_routines_on_user_id"
   end
 
   create_table "steps", force: :cascade do |t|
     t.integer "number"
     t.string "instructions"
-    t.integer "product_id"
-    t.integer "routine_id"
+    t.bigint "product_id"
+    t.bigint "routine_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_steps_on_product_id"
+    t.index ["routine_id"], name: "index_steps_on_routine_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,4 +59,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_042120) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "routines", "users"
+  add_foreign_key "steps", "products"
+  add_foreign_key "steps", "routines"
 end
