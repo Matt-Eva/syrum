@@ -9,16 +9,26 @@ class UsersController < ApplicationController
     end     
 
     def me
-        # check if user is logged in if the session user ID exists 
-        # byebug
         user = User.find(session[:user_id])
         render json: user, status: :ok
     end 
 
+    # USERS FOLLOWING ME
     def my_followers
         user = User.find(session[:user_id])
         render json: user.followers, status: :ok
     end 
+
+    # USERS I AM FOLLOWING
+    def my_following
+        user = User.find(session[:user_id])
+        render json: user.followed_users
+    end
+
+    def my_products
+        user = User.find(session[:user_id])
+        render json: user.products, status: :ok
+    end
 
     private
 
