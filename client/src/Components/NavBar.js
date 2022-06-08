@@ -15,8 +15,8 @@ const NavBar = ({ setUser }) => {
     <>
       <nav>
         <Link to="/dashboard">Dashboard</Link>
-        <Link to="/my-profile">My Profile</Link>
-        {/* <Link to="/my-routines">My Routines</Link> */}
+        <Link to="/my-profile">My Profile</Link>        
+        <Link to="/my-products">My Products</Link>
       </nav>
       <div>
         <button onClick={logout}>logout</button>
