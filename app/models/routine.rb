@@ -4,7 +4,7 @@ class Routine < ApplicationRecord
     has_many :steps
     has_many :products, through: :steps
 
-    validates :steps, presence: true
+    # validates :steps, presence: true
 
 
 end

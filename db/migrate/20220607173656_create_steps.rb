@@ -3,8 +3,8 @@ class CreateSteps < ActiveRecord::Migration[6.1]
     create_table :steps do |t|
       t.integer :number
       t.string :instructions
-      t.integer :product_id
-      t.integer :routine_id
+      t.references :product, foreign_key: true, nil: false
+      t.references :routine, foreign_key: true, nil: false
 
       t.timestamps
     end
