@@ -34,15 +34,15 @@ ActiveRecord::Schema.define(version: 2022_06_08_042120) do
 
   create_table "routines", force: :cascade do |t|
     t.integer "user_id"
-    t.string "time_of_day"
-    t.string "reason"
-    t.string "notes"
+    t.string "title"
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "steps", force: :cascade do |t|
     t.integer "number"
+    t.string "instructions"
     t.integer "product_id"
     t.integer "routine_id"
     t.datetime "created_at", precision: 6, null: false
