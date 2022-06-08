@@ -1,8 +1,18 @@
 alex = User.create(username: 'Alex', password: '123')
-sean = User.create(username: 'Sean', password: 'abc')
+sean = User.create(username: 'Sean', password: '123')
+daniel = User.create(username: 'Daniel', password: '123')
+james = User.create(username: 'James', password: '123')
+alice = User.create(username: 'Alice', password: '123')
+jeff = User.create(username: 'Jeff', password: '123')
 
-alex_follower = Follow.create(follower: sean, followed_user: alex)
+
+alex_follower1 = Follow.create(follower: sean, followed_user: alex)
+alex_follower2 = Follow.create(follower: james, followed_user: alex)
+alex_follower3 = Follow.create(follower: daniel, followed_user: alex)
 sean_follower = Follow.create(follower: alex, followed_user: sean)
+james_follower = Follow.create(follower: alex, followed_user: james)
+
+
 
 # alex_follower = Follow.create(follower_id: sean.id, followed_user_id: alex.id)
 # sean_follower = Follow.create(follower_id: alex.id, followed_user_id: sean.id)
