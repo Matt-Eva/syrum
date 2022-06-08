@@ -15,6 +15,11 @@ class UsersController < ApplicationController
         render json: user, status: :ok
     end 
 
+    def my_followers
+        user = User.find(session[:user_id])
+        render json: user.followers, status: :ok
+    end 
+
     private
 
     def user_params
