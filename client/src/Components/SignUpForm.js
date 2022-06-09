@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from '@mui/material';
 
 const SignUpForm = ({ setUser }) => {
   const [username, setUsername] = useState("");
@@ -59,7 +60,7 @@ const SignUpForm = ({ setUser }) => {
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
         />
-        <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+        <Button variant="contained" type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
         <h1>{errors}</h1>
     </form>
   );
