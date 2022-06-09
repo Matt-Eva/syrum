@@ -1,8 +1,9 @@
 class User < ApplicationRecord
 
-    has_many :products
+     
     has_many :routines
     has_many :steps, through: :routines
+    has_many :products, through: :steps
 
         # returns an array of follows a user gave to someone else
     has_many :given_follows, foreign_key: :follower_id, class_name: "Follow"

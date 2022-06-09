@@ -14,7 +14,7 @@ const NavBar = ({ setUser }) => {
   return (
     <>
       <nav>
-        <Link to="/dashboard">Dashboard</Link>
+        <Link to="/home">Home</Link>
         <Link to="/my-profile">My Profile</Link>        
         <Link to="/my-products">My Products</Link>
       </nav>

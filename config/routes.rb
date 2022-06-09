@@ -9,10 +9,13 @@ Rails.application.routes.draw do
   get '/me', to: 'users#me'
   get '/my-followers', to: 'users#my_followers'
   get '/my-following', to: 'users#my_following'
+  # get '/routine-steps', to: 'routines#routine_steps'
 
   resources :users do
     resources :products, only: [:index, :show]
-    resources :routines, only: [:index]
+    resources :routines, only: [:index, :show] do
+      resources :steps, only: [:index]
+    end
   end
 
 
