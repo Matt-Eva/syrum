@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const AddSteps = ({ user, routineId }) => {
+const AddSteps = ({ user, routineId, products }) => {
   const [formData, setFormData] = useState("");
 
   let navigate = useNavigate()
@@ -20,9 +20,8 @@ const AddSteps = ({ user, routineId }) => {
     const newStep = {
       number: formData.one,
       routine_id: routineId,
-      // change me
-      product_id: 1,
-      instructions: formData.instructions
+      instructions: formData.instructions,
+      product_id: formData.product_id
     };
     fetch(`/users/${user.id}/routines/${routineId}/steps`, {
       method: "POST",
@@ -32,6 +31,8 @@ const AddSteps = ({ user, routineId }) => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        navigate('/my-profile')
+
       });
     // navigate("/add-steps");
     // get form data
@@ -39,6 +40,8 @@ const AddSteps = ({ user, routineId }) => {
     // get id of new routine
     // navigate to /users/1/routines/{new_id}
   };
+  console.log(formData)
+  console.log(products)
 
   return (
     <>
@@ -57,14 +60,21 @@ const AddSteps = ({ user, routineId }) => {
           placeholder="instructions"
           value={formData.instructions}
         />
-        {/* <input
-          onChange={handleChange}
-          type="text"
-          name="three"
-          placeholder="Step 3"
-          value={formData.three}
-        /> */}
-        {/* <AddStep routineId={routineId} /> */}
+        <label>
+        <select name={'product_id'} value={formData.product_id} onChange={handleChange}>
+         <option>Select a product from your products</option>
+         {products.map(
+                  (product) => {
+                    return (
+                        <>
+                        <option value={product.id} key={product.id}>
+                            {product.name}
+                        </option>
+                        </>
+                    )}
+                  )}
+         </select>
+        </label>
         <button type="submit">Complete your Routine!</button>
       </form>
     </>

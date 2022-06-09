@@ -21,6 +21,8 @@ const App = () => {
   const [formData, setFormData] = useState('')
   // wait should the formdata be an object starting out?
   const [routineId, setRoutineId] = useState('')
+  const [products, setProducts] = useState([])
+
 
   let navigate = useNavigate()
 
@@ -88,11 +90,11 @@ const App = () => {
         />
         <Route path="/home" element={<Home/>}/>
         <Route path="/my-profile" element={<Profile user={user}/>}/>
-        <Route path="/my-products" element={<ProductCollection user={user} />}/>
+        <Route path="/my-products" element={<ProductCollection user={user} products={products} setProducts={setProducts} />}/>
         <Route path="/followers" element={<FollowList followers={followers} />}/>
         <Route path="/following" element={<FollowList following={following}/>}/>
         <Route path="/new-routine" element={<Routine addNewRoutine={addNewRoutine} formData={formData} setFormData={setFormData} user={user}/>}/>
-        <Route path="/add-steps" element={<AddSteps user={user} routineId={routineId}/>}/>
+        <Route path="/add-steps" element={<AddSteps user={user} routineId={routineId} products={products}/>}/>
         <Route path="/new-product" element={<AddProduct user={user} />}/>
       </Routes>
     </>
