@@ -63,6 +63,7 @@ const App = () => {
         <Route path="/followers" element={<FollowList followers={followers} />}/>
         <Route path="/following" element={<FollowList following={following}/>}/>
         <Route path="/new-routine" element={<Routine />}/>
+        {/* <Route path="/new-product" element={<Product />}/> */}
       </Routes>
     </>
   );

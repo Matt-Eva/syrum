@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from '@mui/material';
 
 const LoginForm = ({ setUser }) => {
   const [username, setUsername] = useState("");
@@ -8,7 +9,7 @@ const LoginForm = ({ setUser }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // setIsLoading(true);
+    setIsLoading(true);
     fetch("/login", {
       method: "POST",
       headers: {
@@ -16,7 +17,7 @@ const LoginForm = ({ setUser }) => {
       },
       body: JSON.stringify({ username, password }),
     }).then((r) => {
-    //   setIsLoading(false);
+      setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => setUser(user));
       } else {
@@ -31,7 +32,7 @@ const LoginForm = ({ setUser }) => {
         <input
           type="text"
           id="username"
-        //   autoComplete="off"
+          autoComplete="off"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
@@ -39,14 +40,14 @@ const LoginForm = ({ setUser }) => {
         <input
           type="password"
           id="password"
-        //   autoComplete="current-password"
+          autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {/* <button variant="fill" color="primary" type="submit"> */}
-        <button type='submit'>
+        <Button variant="contained" type='submit' color='primary'>
           {isLoading ? "Loading..." : "Login"}
-        </button>
+        </Button>
+        <h3>{errors}</h3>
         {/* {errors.map((err) => (
           <h3 key={err}>{err}</h3>
         ))} */}

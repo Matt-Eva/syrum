@@ -14,12 +14,17 @@ class RoutinesController < ApplicationController
         render json: routine
     end
 
-    def routine_steps
-        user = User.find(params[:user_id])
+    def create 
+        user = User.find(session[:user_id])
+        new_routine = user.routines.create!(routine_params)
+        render json: new_routine, status: :created
+    end 
+    
+    private
 
-        routines = user.routines.steps
-        render json: routines
-    end
+    def routine_params
+        params.permit(:title, :description)
+    end 
 
 
 end

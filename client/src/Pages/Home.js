@@ -11,6 +11,7 @@ const Home = () => {
 
     const addProduct = () => {
         console.log('add product!')
+        // navigate('/new-product')
     }
 
 
