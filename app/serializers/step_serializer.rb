@@ -1,3 +1,9 @@
 class StepSerializer < ActiveModel::Serializer
-  attributes :id, :number, :instructions, :product_id, :routine_id
+  attributes :id, :number, :instructions
+
+  belongs_to :product
+
+  # def product
+  #   self.product
+  # end
 end

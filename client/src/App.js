@@ -7,6 +7,8 @@ import NavBar from './Components/NavBar';
 import Profile from './Pages/Profile';
 import FollowList from './Components/FollowList';
 import ProductCollection from './Components/ProductCollection'
+import Routine from './Pages/Routine';
+
 
 const App = () => {
 
@@ -60,6 +62,7 @@ const App = () => {
         <Route path="/my-products" element={<ProductCollection user={user} />}/>
         <Route path="/followers" element={<FollowList followers={followers} />}/>
         <Route path="/following" element={<FollowList following={following}/>}/>
+        <Route path="/new-routine" element={<Routine />}/>
       </Routes>
     </>
   );
