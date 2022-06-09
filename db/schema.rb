@@ -27,9 +27,10 @@ ActiveRecord::Schema.define(version: 2022_06_08_042120) do
     t.string "brand"
     t.string "ingredients"
     t.string "notes"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "routines", force: :cascade do |t|
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_042120) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "products", "users"
   add_foreign_key "routines", "users"
   add_foreign_key "steps", "products"
   add_foreign_key "steps", "routines"

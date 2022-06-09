@@ -5,7 +5,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.string :brand
       t.string :ingredients
       t.string :notes
-      t.integer :user_id
+      t.references :user, foreign_key: true, nil: false
 
       t.timestamps
     end

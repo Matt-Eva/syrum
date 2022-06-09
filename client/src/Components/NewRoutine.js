@@ -1,8 +1,4 @@
-import { useState } from 'react'
-
-const NewRoutine = () => {
-
-    const [formData, setFormData] = useState('')
+const NewRoutine = ( { addNewRoutine, setFormData, formData } ) => {
 
     const handleChange = (e) => {
         const value = e.target.value;
@@ -10,23 +6,9 @@ const NewRoutine = () => {
         setFormData({...formData, [name]: value})
       }
 
-    // console.log(formData)
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(e.target.value)
-        const newRoutine = {
-            title: formData.title,
-            description: formData.description
-        }
-        // fetch('')
-        // get form data
-        // post to backend
-        // get id of new routine
-        // navigate to /users/1/routines/{new_id}
-    }
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={addNewRoutine}>
         <input
           onChange={handleChange}
           type="text"
@@ -41,7 +23,6 @@ const NewRoutine = () => {
           placeholder="Routine description"
           value={formData.description}
         />
-        {/* <AddStep routine={routine} /> */}
         <button type="submit">Create</button>
       </form>
     </>
