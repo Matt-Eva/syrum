@@ -19,7 +19,10 @@ const AddSteps = ({ user, routineId }) => {
     console.log(e.target.value);
     const newStep = {
       number: formData.one,
-      routine_id: routineId
+      routine_id: routineId,
+      // change me
+      product_id: 1,
+      instructions: formData.instructions
     };
     fetch(`/users/${user.id}/routines/${routineId}/steps`, {
       method: "POST",
