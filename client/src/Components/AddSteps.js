@@ -1,11 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const AddSteps = ({ user, routineId, products }) => {
-  const [formData, setFormData] = useState("");
+const AddSteps = ({ user, routineId }) => {
+  const [formData, setFormData] = useState({
+    number: '',
+    routine_id: '',
+    instructions: '',
+    product_id: ''
+  });
+  const [products, setProducts] = useState('')
+
 
   let navigate = useNavigate()
 
+  useEffect(() => {
+    fetch(`/users/${user.id}/products`).then((r) => {
+      if (r.ok) {
+        r.json().then((products) => setProducts(products));
+      }
+    });
+  }, []);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -34,11 +48,6 @@ const AddSteps = ({ user, routineId, products }) => {
         navigate('/my-profile')
 
       });
-    // navigate("/add-steps");
-    // get form data
-    // post to backend
-    // get id of new routine
-    // navigate to /users/1/routines/{new_id}
   };
   console.log(formData)
   console.log(products)
@@ -63,7 +72,7 @@ const AddSteps = ({ user, routineId, products }) => {
         <label>
         <select name={'product_id'} value={formData.product_id} onChange={handleChange}>
          <option>Select a product from your products</option>
-         {products.map(
+         {products ? products.map(
                   (product) => {
                     return (
                         <>
@@ -72,7 +81,7 @@ const AddSteps = ({ user, routineId, products }) => {
                         </option>
                         </>
                     )}
-                  )}
+                  ) : null }
          </select>
         </label>
         <button type="submit">Complete your Routine!</button>

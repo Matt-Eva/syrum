@@ -1,6 +1,8 @@
 import {useEffect, useState } from 'react'
 import ProductItem from './ProductItem';
-const ProductCollection = ( { user, products, setProducts } ) => {
+const ProductCollection = ( { user } ) => {
+    const [products, setProducts] = useState([]);
+
 
     useEffect(() => {
         fetch(`/users/${user.id}/products`).then((r) => {

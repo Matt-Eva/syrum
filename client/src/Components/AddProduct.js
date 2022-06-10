@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const AddProduct = ({ user }) => {
   let navigate = useNavigate();
@@ -11,32 +11,29 @@ const AddProduct = ({ user }) => {
     setProductData({ ...productData, [name]: value });
   };
 
-//   const addNewProduct = (e) => {
-//     e.preventDefault();
-//     console.log(e.target.value);
-//     const newProduct = {
-//       name: productData.title,
-//       instructions: productData.instructions,
-//       brand: productData.brand,
-//       notes: productData.notes,
-//     };
-//     fetch(`/users/${user.id}/products`, {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify(newProduct),
-//     })
-//       .then((response) => response.json())
-//       .then((data) => console.log(data));
-//     navigate("/my-products");
-//     // get form data
-//     // post to backend
-//     // get id of new routine
-//     // navigate to /users/1/routines/{new_id}
-//   };
+  const addNewProduct = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+    const newProduct = {
+      name: productData.title,
+      instructions: productData.instructions,
+      brand: productData.brand,
+      notes: productData.notes,
+      user_id: user.id
+    };
+    fetch(`/users/${user.id}/products`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newProduct),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+    navigate("/my-products");
+  };
 
   return (
     <>
-      <form onSubmit={() => console.log('handle sumbit')}>
+      <form onSubmit={addNewProduct}>
         <input
           onChange={handleChange}
           type="text"
