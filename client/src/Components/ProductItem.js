@@ -1,16 +1,14 @@
 import { Card } from '@mui/material';
 
 
-const ProductItem = ( { product, user, deleteProduct } ) => {
+const ProductItem = ( { product, user } ) => {
     const { name, brand, ingredients, notes } = product
 
     const handleDelete = (e) => {
-        // console.log('delete this product!')
-        // fetch(`/users/${user.id}/products/${product.id}`, {
-        // method: 'DELETE'
-        // })
-        deleteProduct(product)
-        // console.log(product)
+        fetch(`/users/${user.id}/products/${product.id}`, {
+        method: 'DELETE'
+        })
+        // deleteProduct(product)
     }
 
     const editProduct = () => {
@@ -18,7 +16,7 @@ const ProductItem = ( { product, user, deleteProduct } ) => {
     }
     return (
         <div>
-            {/* <Card variant="outlined"> */}
+            <Card variant="outlined">
             <h1>PRODUCT</h1>
             <h3>{name}</h3>
             <h3>{brand}</h3>
@@ -26,7 +24,7 @@ const ProductItem = ( { product, user, deleteProduct } ) => {
             <h3>{notes}</h3>
             <button onClick={() => handleDelete()}>delete</button>
             <button onClick={editProduct}>edit</button>
-            {/* </Card> */}
+            </Card>
         </div>
     )
 }

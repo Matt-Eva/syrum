@@ -10,6 +10,7 @@ import ProductCollection from "./Components/ProductCollection";
 import Routine from "./Pages/Routine";
 import StepsForm from "./Components/StepsForm";
 import ProductForm from "./Components/ProductForm";
+import NavigationBar from "./Pages/NavigationBar";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -73,7 +74,8 @@ const App = () => {
 
   return (
     <>
-      <NavBar setUser={setUser} />
+    <NavigationBar user={user} setUser={setUser}/>
+      {/* <NavBar setUser={setUser} /> */}
       <Routes>
         <Route exact path="/" />
         <Route path="/home" element={<Home />} />
