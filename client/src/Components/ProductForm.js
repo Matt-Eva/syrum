@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const AddProduct = ({ user }) => {
+const ProductForm = ({ user }) => {
   let navigate = useNavigate();
   const [productData, setProductData] = useState("");
 
@@ -68,4 +68,4 @@ const AddProduct = ({ user }) => {
   );
 };
 
-export default AddProduct;
+export default ProductForm;

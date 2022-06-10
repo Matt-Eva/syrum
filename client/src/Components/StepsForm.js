@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const AddSteps = ({ user, routineId }) => {
+const StepForms = ({ user, routineId }) => {
   const [formData, setFormData] = useState({
     number: '',
     routine_id: '',
@@ -90,4 +90,4 @@ const AddSteps = ({ user, routineId }) => {
   );
 };
 
-export default AddSteps;
+export default StepForms;

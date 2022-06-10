@@ -8,8 +8,8 @@ import Profile from "./Pages/Profile";
 import FollowList from "./Components/FollowList";
 import ProductCollection from "./Components/ProductCollection";
 import Routine from "./Pages/Routine";
-import AddSteps from "./Components/AddSteps";
-import AddProduct from "./Components/AddProduct";
+import StepsForm from "./Components/StepsForm";
+import ProductForm from "./Components/ProductForm";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -110,10 +110,10 @@ const App = () => {
         <Route
           path="/add-steps"
           element={
-            <AddSteps user={user} routineId={routineId} />
+            <StepsForm user={user} routineId={routineId} />
           }
         />
-        <Route path="/new-product" element={<AddProduct user={user} />} />
+        <Route path="/new-product" element={<ProductForm user={user} />} />
       </Routes>
     </>
   );
