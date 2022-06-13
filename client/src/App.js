@@ -11,6 +11,8 @@ import Routine from "./Pages/Routine";
 import StepsForm from "./Components/StepsForm";
 import ProductForm from "./Components/ProductForm";
 import NavigationBar from "./Pages/NavigationBar";
+import ResponsiveAppBar from "./Components/test";
+import MenuAppBar from "./Components/AppBarWithMenu";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -74,7 +76,7 @@ const App = () => {
 
   return (
     <>
-    <NavigationBar user={user} setUser={setUser}/>
+    <MenuAppBar user={user} setUser={setUser}/>
       {/* <NavBar setUser={setUser} /> */}
       <Routes>
         <Route exact path="/" />
