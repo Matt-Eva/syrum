@@ -8,7 +8,7 @@ import Profile from "./Pages/Profile";
 import FollowList from "./Components/FollowList";
 import ProductCollection from "./Components/ProductCollection";
 import Routine from "./Pages/Routine";
-import StepsForm from "./Components/StepsForm";
+import AddSteps from "./Components/AddSteps";
 import ProductForm from "./Components/ProductForm";
 import NavigationBar from "./Pages/NavigationBar";
 import ResponsiveAppBar from "./Components/test";
@@ -76,7 +76,7 @@ const App = () => {
 
   return (
     <>
-    <MenuAppBar user={user} setUser={setUser}/>
+    <NavigationBar user={user} setUser={setUser}/>
       {/* <NavBar setUser={setUser} /> */}
       <Routes>
         <Route exact path="/" />
@@ -114,7 +114,7 @@ const App = () => {
         <Route
           path="/add-steps"
           element={
-            <StepsForm user={user} routineId={routineId} />
+            <AddSteps user={user} routineId={routineId} />
           }
         />
         <Route path="/new-product" element={<ProductForm user={user} />} />
