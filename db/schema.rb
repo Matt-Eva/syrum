@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_06_08_042120) do
     t.string "brand"
     t.string "ingredients"
     t.string "notes"
+    t.string "image"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -5,6 +5,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.string :brand
       t.string :ingredients
       t.string :notes
+      t.string :image
       t.references :user, foreign_key: true, nil: false
 
       t.timestamps
