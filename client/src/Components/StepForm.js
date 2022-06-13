@@ -18,6 +18,12 @@ const StepForm = ({ handleStep, products }) => {
     e.preventDefault();
 
     handleStep(stepFormData);
+    setStepFormData({
+      number: "",
+      // routine_id: "",
+      instructions: "",
+      product_id: "",
+    })
   };
 
   return (
