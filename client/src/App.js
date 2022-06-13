@@ -13,6 +13,8 @@ import ProductForm from "./Components/ProductForm";
 import NavigationBar from "./Pages/NavigationBar";
 import ResponsiveAppBar from "./Components/test";
 import MenuAppBar from "./Components/AppBarWithMenu";
+import Container from '@mui/material/Container';
+
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -76,6 +78,7 @@ const App = () => {
 
   return (
     <>
+    <Container maxWidth="xl">
     <NavigationBar user={user} setUser={setUser}/>
       {/* <NavBar setUser={setUser} /> */}
       <Routes>
@@ -119,6 +122,8 @@ const App = () => {
         />
         <Route path="/new-product" element={<ProductForm user={user} />} />
       </Routes>
+    </Container>
+    
     </>
   );
 };
