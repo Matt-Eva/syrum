@@ -3,17 +3,10 @@ import { useNavigate } from "react-router-dom";
 import StepForm from "./StepForm";
 
 const AddSteps = ({ user, routineId }) => {
-  // const [stepFormData, setStepFormData] = useState({
-  //   number: '',
-  //   routine_id: '',
-  //   instructions: '',
-  //   product_id: ''
-  // });
-  const [products, setProducts] = useState('')
-  const [steps, setSteps] = useState([])
+  const [products, setProducts] = useState("");
+  const [steps, setSteps] = useState([]);
 
-
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   useEffect(() => {
     fetch(`/users/${user.id}/products`).then((r) => {
@@ -23,44 +16,12 @@ const AddSteps = ({ user, routineId }) => {
     });
   }, []);
 
-  // const handleChange = (e) => {
-  //   const value = e.target.value;
-  //   const name = e.target.name;
-  //   setStepFormData({ ...stepFormData, [name]: value });
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(routineId);
-  //   const newStep = {
-  //     number: stepFormData.number,
-  //     routine_id: routineId,
-  //     instructions: stepFormData.instructions,
-  //     product_id: stepFormData.product_id
-  //   };
-  //   fetch(`/users/${user.id}/routines/${routineId}/steps`, {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(newStep),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       // setStepFormData({
-  //       //   number: '',
-  //       //   routine_id: routineId,
-  //       //   instructions: '',
-  //       //   product_id: ''
-  //       // })
-  //     });
-  // };
-
   const createStep = (stepData) => {
     const newStep = {
       number: stepData.number,
       routine_id: routineId,
       instructions: stepData.instructions,
-      product_id: stepData.product_id
+      product_id: stepData.product_id,
     };
     fetch(`/users/${user.id}/routines/${routineId}/steps`, {
       method: "POST",
@@ -70,62 +31,31 @@ const AddSteps = ({ user, routineId }) => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setSteps([...steps, data])
-        // setStepFormData({
-        //   number: '',
-        //   routine_id: routineId,
-        //   instructions: '',
-        //   product_id: ''
-        // })
+        setSteps([...steps, data]);
       });
+  };
+
+  const stepObjs = steps.map((step) => {
+    return <>
+      <h2>Added Step #{step.number}</h2>
+      {/* <h2>{step.instructions}</h2> */}
+    </>;
+  });
+
+  const sendSteps = (e) => {
+    navigate('/my-profile')
   }
 
-  const stepObjs = steps.map(step => {
-    return <h2>{step.number}</h2>
-  })
-
-
   return (
-    // <>
-    //   <form onSubmit={handleSubmit}>
-    //     <input
-    //       onChange={handleChange}
-    //       type="number"
-    //       name="number"
-    //       placeholder="Step Number"
-    //       value={stepFormData.number}
-    //     />
-    //     <input
-    //       onChange={handleChange}
-    //       type="text"
-    //       name="instructions"
-    //       placeholder="instructions"
-    //       value={stepFormData.instructions}
-    //     />
-    //     <label>
-    //     <select name={'product_id'} value={stepFormData.product_id} onChange={handleChange}>
-    //      <option>Select a product from your products</option>
-    //      {products ? products.map(
-    //               (product) => {
-    //                 return (
-    //                     <>
-    //                     <option value={product.id} key={product.id}>
-    //                         {product.name}
-    //                     </option>
-    //                     </>
-    //                 )}
-    //               ) : null }
-    //      </select>
-    //     </label>
-    //     <button type="submit" onClick={handleSubmit}>Add another step!</button>
-    //     <button type="submit" onClick={handleSubmit}>Complete your Routine!</button>
-    //   </form>
-    // </>
-
     <>
-    {stepObjs}
-    
-    <StepForm  handleStep={createStep} routineId={routineId} products={products}/>
+      {stepObjs}
+
+      <StepForm
+        handleStep={createStep}
+        routineId={routineId}
+        products={products}
+      />
+      <button onClick={sendSteps}>Done with Steps</button>
     </>
   );
 };
