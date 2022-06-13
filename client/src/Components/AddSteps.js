@@ -10,6 +10,7 @@ const AddSteps = ({ user, routineId }) => {
   //   product_id: ''
   // });
   const [products, setProducts] = useState('')
+  const [steps, setSteps] = useState([])
 
 
   let navigate = useNavigate()
@@ -69,6 +70,7 @@ const AddSteps = ({ user, routineId }) => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        setSteps([...steps, data])
         // setStepFormData({
         //   number: '',
         //   routine_id: routineId,
@@ -77,6 +79,11 @@ const AddSteps = ({ user, routineId }) => {
         // })
       });
   }
+
+  const stepObjs = steps.map(step => {
+    return <h2>{step.number}</h2>
+  })
+
 
   return (
     // <>
@@ -114,10 +121,11 @@ const AddSteps = ({ user, routineId }) => {
     //     <button type="submit" onClick={handleSubmit}>Complete your Routine!</button>
     //   </form>
     // </>
-    <>
-    <StepForm  handleStep={createStep} routineId={routineId} products={products}/>
-    <StepForm  handleStep={createStep} routineId={routineId} products={products}/>
 
+    <>
+    {stepObjs}
+    
+    <StepForm  handleStep={createStep} routineId={routineId} products={products}/>
     </>
   );
 };

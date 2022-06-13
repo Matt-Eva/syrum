@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 
-const StepForm = ( { handleStep, products, routineId }) => {
+const StepForm = ( { handleStep, products }) => {
     const [stepFormData, setStepFormData] = useState({
         number: '',
         routine_id: '',
