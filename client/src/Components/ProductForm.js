@@ -1,5 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { Button } from '@mui/material';
+
 
 const ProductForm = ({ user }) => {
   let navigate = useNavigate();
@@ -19,7 +23,8 @@ const ProductForm = ({ user }) => {
       instructions: productData.instructions,
       brand: productData.brand,
       notes: productData.notes,
-      user_id: user.id
+      image: productData.image,
+      user_id: user.id,
     };
     fetch(`/users/${user.id}/products`, {
       method: "POST",
@@ -33,37 +38,61 @@ const ProductForm = ({ user }) => {
 
   return (
     <>
-      <form onSubmit={addNewProduct}>
-        <input
-          onChange={handleChange}
-          type="text"
-          name="name"
-          placeholder="Product name"
-          value={productData.name}
-        />
-        <input
-          onChange={handleChange}
-          type="text"
-          name="instructions"
-          placeholder="Product instructions"
-          value={productData.instructions}
-        />
-        <input
-          onChange={handleChange}
-          type="text"
-          name="brand"
-          placeholder="Product brand"
-          value={productData.brand}
-        />
-        <input
-          onChange={handleChange}
-          type="text"
-          name="notes"
-          placeholder="Product notes"
-          value={productData.notes}
-        />
-        <button type="submit">Create</button>
-      </form>
+      <Box
+        component="form"
+        mt={2}
+        // alignItems='center'
+        sx={{
+          "& > :not(style)": { m: 1, width: "25ch" },
+          alignItems: 'center',
+          alignContent: 'center',
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <form onSubmit={addNewProduct}>
+        <TextField id="outlined-basic" label="Product Name" variant="outlined" 
+          // <input
+            onChange={handleChange}
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={productData.name}
+          />
+          {/* <input */}
+          <TextField label="Production Instructions" variant="outlined" 
+            onChange={handleChange}
+            type="text"
+            name="instructions"
+            placeholder="Instructions"
+            value={productData.instructions}
+          />
+          {/* <input */}
+          <TextField label="Product Brand" variant="outlined"
+            onChange={handleChange}
+            type="text"
+            name="brand"
+            placeholder="Brand"
+            value={productData.brand}
+          />
+          {/* <input */}
+          <TextField label="Product Photo" variant="outlined"
+            onChange={handleChange}
+            type="text"
+            name="photo"
+            placeholder="Photo"
+            value={productData.image}
+          />
+           <TextField label="Additional Notes" variant="outlined"
+            onChange={handleChange}
+            type="text"
+            name="notes"
+            placeholder="Notes"
+            value={productData.notes}
+          />
+          <Button type="submit" variant="contained">Create</Button>
+        </form>
+      </Box>
     </>
   );
 };
