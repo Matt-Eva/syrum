@@ -14,6 +14,8 @@ import MenuItem from "@mui/material/MenuItem";
 import { LinkContainer } from "react-router-bootstrap";
 import { useNavigate } from "react-router-dom";
 import AdbIcon from "@mui/icons-material/Adb";
+import Link from '@mui/material/Link';
+
 
 const pages = ["home", "profile", "products"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -101,19 +103,19 @@ const ResponsiveAppBar = ({ user, setUser }) => {
               }}
             >
               <MenuItem key="home" onClick={handleCloseNavMenu}>
-                <LinkContainer exact to="/home">
+                <Link href="/">
                   <Typography textAlign="center">Home</Typography>
-                </LinkContainer>
+                </Link>
               </MenuItem>
               <MenuItem key="profile" onClick={handleCloseNavMenu}>
-                <LinkContainer to="/my-profile">
+                <Link to="/my-profile">
                   <Typography textAlign="center">My Profile</Typography>
-                </LinkContainer>
+                </Link>
               </MenuItem>
               <MenuItem key="products" onClick={handleCloseNavMenu}>
-                <LinkContainer to="/my-products">
+                <Link to="/my-products">
                   <Typography textAlign="center">My Products</Typography>
-                </LinkContainer>
+                </Link>
               </MenuItem>
             </Menu>
           </Box>

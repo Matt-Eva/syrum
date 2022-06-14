@@ -103,7 +103,7 @@ const NavigationBar = ({ user, setUser }) => {
               onClose={handleCloseNavMenu}
             >
               <MenuItem key="home" onClick={handleCloseNavMenu}>
-                <LinkContainer exact to="/home">
+                <LinkContainer exact to="/">
                   <Typography textAlign="center">Home</Typography>
                 </LinkContainer>
               </MenuItem>

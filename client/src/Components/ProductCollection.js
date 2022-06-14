@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
-import {
-  ImageList,
-  ImageListItem,
-  ImageListItemBar,
-  Container,
-} from "@mui/material";
+import { ImageList, Container } from "@mui/material";
+import ProductItem from "./ProductItem";
 
 const ProductCollection = ({ user }) => {
   const [products, setProducts] = useState([]);
@@ -18,22 +14,7 @@ const ProductCollection = ({ user }) => {
   }, []);
 
   const productList = products.map((product) => {
-    return (
-      <ImageListItem key={product.id}>
-        <img
-          src={`${product.image}`}
-          srcSet={`${product.image}`}
-          alt={product.title}
-          loading="lazy"
-        />
-        <ImageListItemBar
-          title={product.name}
-          subtitle={<span>from: {product.brand}</span>}
-          position="below"
-          align="center"
-        />
-      </ImageListItem>
-    );
+    return <ProductItem key={product.id} product={product} user={user} />;
   });
   return (
     <Container>
