@@ -19,7 +19,7 @@ const StepForm = ({ handleStep, products }) => {
   });
 
   const handleChange = (e) => {
-    console.log(e.target.value)
+    console.log(e.target.value);
     const value = e.target.value;
     const name = e.target.name;
     setStepFormData({ ...stepFormData, [name]: value });
@@ -27,7 +27,7 @@ const StepForm = ({ handleStep, products }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.value)
+    console.log(e.target.value);
     handleStep(stepFormData);
     setStepFormData({
       number: "",
@@ -37,6 +37,7 @@ const StepForm = ({ handleStep, products }) => {
     });
   };
 
+  console.log(stepFormData);
   return (
     <>
       <FormControl onSubmit={handleSubmit}>
@@ -74,25 +75,26 @@ const StepForm = ({ handleStep, products }) => {
             placeholder="instructions"
             value={stepFormData.instructions}
           />
-          <FormControl>
+          <InputLabel id="select-label">Products</InputLabel>
           <Select
+            labelId="select-label"
+            id="select-label"
+            name="product_id"
             value={stepFormData.product_id}
-            label="Select a Product!"
             onChange={handleChange}
+            label="Products"
           >
-            {/* <InputLabel>Select A Product</InputLabel> */}
             {products
               ? products.map((product) => {
                   return (
-                      <MenuItem value={product.id} key={product.id}>
-                        {product.name}
-                      </MenuItem>
+                    <MenuItem value={product.id} key={product.id}>
+                      {product.name}
+                    </MenuItem>
                   );
                 })
               : null}
           </Select>
-          </FormControl>
-          
+
           {/* <label>
             <select
               name={"product_id"}

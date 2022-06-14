@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import StepForm from "./StepForm";
+import { Button } from "@mui/material";
 
 const AddSteps = ({ user, routineId }) => {
   const [products, setProducts] = useState("");
@@ -57,7 +58,7 @@ const AddSteps = ({ user, routineId }) => {
         routineId={routineId}
         products={products}
       />
-      <button onClick={sendSteps}>Done with Steps</button>
+      <Button variant="contained" onClick={sendSteps}>Done with Steps - Complete Routine</Button>
     </>
   );
 };
