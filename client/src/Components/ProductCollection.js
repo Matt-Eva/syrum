@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import ProductItem from "./ProductItem";
-import { Grid } from "@mui/material";
-import Card from "@mui/material/Card";
+import {
+  ImageList,
+  ImageListItem,
+  ImageListItemBar,
+  Container,
+} from "@mui/material";
 
-// import "./ProductCollection.css";
 const ProductCollection = ({ user }) => {
   const [products, setProducts] = useState([]);
 
@@ -17,29 +19,26 @@ const ProductCollection = ({ user }) => {
 
   const productList = products.map((product) => {
     return (
-      <Card variant="outlined" sx={{ maxWidth: "15rem" }}>
-        <ProductItem user={user} product={product} key={product.id} />
-      </Card>
+      <ImageListItem key={product.id}>
+        <img
+          src={`${product.image}`}
+          srcSet={`${product.image}`}
+          alt={product.title}
+          loading="lazy"
+        />
+        <ImageListItemBar
+          title={product.name}
+          subtitle={<span>from: {product.brand}</span>}
+          position="below"
+          align="center"
+        />
+      </ImageListItem>
     );
   });
-
-  console.log(products);
-
   return (
-    // <div className="product-container">
-    <Grid
-      // className="product-container"
-      container
-      spacing={1}
-      columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-      justifyContent="center"
-      alignItems="center"
-      direction="row"
-      cols={3}
-      // p={2}
-    >
-      <ul>{productList}</ul>
-    </Grid>
+    <Container>
+      <ImageList>{productList}</ImageList>
+    </Container>
   );
 };
 
