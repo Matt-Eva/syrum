@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button, Typography, FormControl } from "@mui/material";
 
-const ProductForm = ({ user }) => {
+const ProductForm = ({ user, submitFun }) => {
   let navigate = useNavigate();
   const [productData, setProductData] = useState("");
 
@@ -14,10 +14,9 @@ const ProductForm = ({ user }) => {
     setProductData({ ...productData, [name]: value });
   };
 
-  const addNewProduct = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
-    const newProduct = {
+    const productObj = {
       name: productData.name,
       ingredients: productData.ingredients,
       brand: productData.brand,
@@ -25,19 +24,22 @@ const ProductForm = ({ user }) => {
       image: productData.image,
       user_id: user.id,
     };
-    fetch(`/users/${user.id}/products`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newProduct),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    submitFun(productObj)
+    // call function here 
+    // fetch(`/users/${user.id}/products`, {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(productObj),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data));
+    // navigate("/my-products");
     navigate("/my-products");
   };
 
   return (
     <>
-      <FormControl onSubmit={addNewProduct}>
+      <FormControl onSubmit={handleSubmit}>
         <Box
           component="form"
           mt={2}
