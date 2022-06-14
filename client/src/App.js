@@ -78,10 +78,9 @@ const App = () => {
   return (
     <>
       <Container maxWidth="xl">
-        <NavigationBar user={user} setUser={setUser} />
+        <NavBar user={user} setUser={setUser} />
         {/* <NavBar setUser={setUser} /> */}
         <Routes>
-          {/* <Route exact path="/" /> */}
           <Route exact path="/" element={<Home />} />
           <Route path="/my-profile" element={<Profile user={user} />} />
           <Route
@@ -89,8 +88,6 @@ const App = () => {
             element={
               <ProductCollection
                 user={user}
-                // products={products}
-                // setProducts={setProducts}
               />
             }
           />
