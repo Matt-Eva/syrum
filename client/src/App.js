@@ -73,7 +73,7 @@ const App = () => {
   };
   console.log(routineId);
 
-  if (!user) return <Login onLogin={setUser} />;
+  if (!user) return <Login setUser={setUser} />;
 
   return (
     <>
@@ -81,8 +81,8 @@ const App = () => {
         <NavigationBar user={user} setUser={setUser} />
         {/* <NavBar setUser={setUser} /> */}
         <Routes>
-          <Route exact path="/" />
-          <Route path="/home" element={<Home />} />
+          {/* <Route exact path="/" /> */}
+          <Route exact path="/" element={<Home />} />
           <Route path="/my-profile" element={<Profile user={user} />} />
           <Route
             path="/my-products"
