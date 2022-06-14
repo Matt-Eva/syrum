@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
+import { FormControl } from '@mui/material';
 
 
 const ProductForm = ({ user }) => {
@@ -35,10 +36,10 @@ const ProductForm = ({ user }) => {
       .then((data) => console.log(data));
     navigate("/my-products");
   };
-
+// the box doesn't like when the form is nested inside of it? 
   return (
     <>
-      <Box
+      {/* <Box
         component="form"
         mt={2}
         // alignItems='center'
@@ -49,7 +50,7 @@ const ProductForm = ({ user }) => {
         }}
         noValidate
         autoComplete="off"
-      >
+      > */}
         <form onSubmit={addNewProduct}>
         <TextField id="outlined-basic" label="Product Name" variant="outlined" 
           // <input
@@ -91,8 +92,8 @@ const ProductForm = ({ user }) => {
             value={productData.notes}
           />
           <Button type="submit" variant="contained">Create</Button>
-        </form>
-      </Box>
+          </form>
+      {/* </Box> */}
     </>
   );
 };

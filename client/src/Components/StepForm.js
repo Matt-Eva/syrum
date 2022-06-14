@@ -30,14 +30,14 @@ const StepForm = ({ handleStep, products }) => {
 
   return (
     <>
-      <Box
+      {/* <Box
         component="form"
         sx={{
           "& > :not(style)": { m: 1, width: "25ch" },
         }}
         noValidate
         autoComplete="off"
-      >
+      > */}
         <form onSubmit={handleSubmit}>
         <TextField id="outlined-basic" label="Step Number" variant="outlined" 
         onChange={handleChange}
@@ -82,7 +82,7 @@ const StepForm = ({ handleStep, products }) => {
           </label>
           <button type="submit">Add Step</button>
         </form>
-      </Box>
+      {/* </Box> */}
     </>
   );
 };
