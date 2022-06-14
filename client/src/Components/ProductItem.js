@@ -2,13 +2,19 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { ImageListItem, ImageListItemBar } from "@mui/material";
+import { Button, ImageListItem, ImageListItemBar } from "@mui/material";
 
 const ProductItem = ({ product, user }) => {
   const { id, name, brand, ingredients, notes, image } = product;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const deleteProduct = (e) => {
+    fetch(`/users/${user.id}/products/${product.id}`, {
+      method: "DELETE",
+    });
+  };
 
   const style = {
     position: "absolute",
@@ -40,6 +46,8 @@ const ProductItem = ({ product, user }) => {
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             {ingredients}
           </Typography>
+          <Button>Edit Product</Button>
+          <Button onClick={deleteProduct}>Delete Product</Button>
         </Box>
       </Modal>
 
@@ -57,18 +65,3 @@ const ProductItem = ({ product, user }) => {
 };
 
 export default ProductItem;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
