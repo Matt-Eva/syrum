@@ -19,8 +19,8 @@ const ProductForm = ({ user }) => {
     e.preventDefault();
     console.log(e.target.value);
     const newProduct = {
-      name: productData.title,
-      instructions: productData.instructions,
+      name: productData.name,
+      ingredients: productData.ingredients,
       brand: productData.brand,
       notes: productData.notes,
       image: productData.image,
@@ -64,13 +64,13 @@ const ProductForm = ({ user }) => {
         />
         {/* <input */}
         <TextField
-          label="Production Instructions"
+          label="Productre ingredients"
           variant="outlined"
           onChange={handleChange}
           type="text"
-          name="instructions"
-          placeholder="Instructions"
-          value={productData.instructions}
+          name="ingredients"
+          placeholder="ingredients"
+          value={productData.ingredients}
         />
         {/* <input */}
         <TextField
@@ -83,13 +83,13 @@ const ProductForm = ({ user }) => {
           value={productData.brand}
         />
         {/* <input */}
-        <TextField
-          label="Product Photo"
+        <input
+          label="Product Image"
           variant="outlined"
           onChange={handleChange}
           type="text"
-          name="photo"
-          placeholder="Photo"
+          name="image"
+          placeholder="Image"
           value={productData.image}
         />
         <TextField
