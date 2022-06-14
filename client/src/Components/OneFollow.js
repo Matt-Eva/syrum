@@ -1,7 +1,3 @@
 const oneFollow = () => {
-    return (
-        <div>
-            this is one follower
-        </div>
-    )
-}
+  return <div>this is one follower</div>;
+};

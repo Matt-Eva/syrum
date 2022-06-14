@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from '@mui/material';
+import { Button } from "@mui/material";
 
 const SignUpForm = ({ setUser }) => {
   const [username, setUsername] = useState("");
@@ -34,36 +34,38 @@ const SignUpForm = ({ setUser }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-        <label type="username">Username</label>
-        <input
-          type="text"
-          id="username"
+      <label type="username">Username</label>
+      <input
+        type="text"
+        id="username"
         //   autoComplete="off"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
 
-        <label>Password</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+      <label>Password</label>
+      <input
+        type="password"
+        id="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
         //   autoComplete="current-password"
-        />
+      />
 
-        <label>Password Confirmation</label>
-        <input
-          type="password"
-          id="password_confirmation"
-          value={passwordConfirmation}
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-          autoComplete="current-password"
-        />
-        <Button variant="contained" type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
-        <h1>{errors}</h1>
+      <label>Password Confirmation</label>
+      <input
+        type="password"
+        id="password_confirmation"
+        value={passwordConfirmation}
+        onChange={(e) => setPasswordConfirmation(e.target.value)}
+        autoComplete="current-password"
+      />
+      <Button variant="contained" type="submit">
+        {isLoading ? "Loading..." : "Sign Up"}
+      </Button>
+      <h1>{errors}</h1>
     </form>
   );
-}
+};
 
 export default SignUpForm;

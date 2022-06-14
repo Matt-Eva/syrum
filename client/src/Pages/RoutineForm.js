@@ -1,10 +1,5 @@
 const RoutineForm = () => {
+  return <div></div>;
+};
 
-    return (
-        <div>
-
-        </div>
-    )
-}
-
-export default RoutineForm
+export default RoutineForm;
