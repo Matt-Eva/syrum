@@ -1,8 +1,10 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-import { Button, ImageListItem, ImageListItemBar } from "@mui/material";
+// import Typography from "@mui/material/Typography";
+// import Modal from "@mui/material/Modal";
+import { Button, ImageListItem, ImageListItemBar, Modal, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 
 const ProductItem = ({ product, user, deleteProduct }) => {
   const { id, name, brand, ingredients, notes, image } = product;
@@ -10,12 +12,19 @@ const ProductItem = ({ product, user, deleteProduct }) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  let navigate = useNavigate();
+
   const handleDelete = (e) => {
     fetch(`/users/${user.id}/products/${product.id}`, {
       method: "DELETE",
     });
     deleteProduct(product)
   };
+
+  const handleEdit = (e) => {
+      console.log('edit me!')
+      navigate(`/edit-product/${product.id}`)
+  }
 
   const style = {
     position: "absolute",
@@ -47,7 +56,7 @@ const ProductItem = ({ product, user, deleteProduct }) => {
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             My notes: {notes}
           </Typography>
-          <Button>Edit Product</Button>
+          <Button onClick={handleEdit}>Edit Product</Button>
           <Button onClick={handleDelete}>Delete Product</Button>
         </Box>
       </Modal>

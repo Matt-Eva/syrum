@@ -11,6 +11,7 @@ import Routine from "./Pages/Routine";
 import AddSteps from "./Components/AddSteps";
 import ProductForm from "./Components/ProductForm";
 import Container from "@mui/material/Container";
+import EditProduct from "./Components/EditProduct";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -66,7 +67,17 @@ const App = () => {
       });
     navigate("/add-steps");
   };
-  console.log(routineId);
+
+
+  const addNewProduct = (productObj) => {
+    fetch(`/users/${user.id}/products`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(productObj),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+  }
 
   if (!user) return <Login setUser={setUser} />;
 
@@ -108,7 +119,8 @@ const App = () => {
             path="/add-steps"
             element={<AddSteps user={user} routineId={routineId} />}
           />
-          <Route path="/new-product" element={<ProductForm user={user} />} />
+          <Route path="/new-product" element={<ProductForm user={user} submitFun={addNewProduct} />} />
+          <Route path="/edit-product/:id" element={<EditProduct user={user} />} />
         </Routes>
       </Container>
     </>
