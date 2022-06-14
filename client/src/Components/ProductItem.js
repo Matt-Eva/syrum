@@ -4,16 +4,17 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { Button, ImageListItem, ImageListItemBar } from "@mui/material";
 
-const ProductItem = ({ product, user }) => {
+const ProductItem = ({ product, user, deleteProduct }) => {
   const { id, name, brand, ingredients, notes, image } = product;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const deleteProduct = (e) => {
+  const handleDelete = (e) => {
     fetch(`/users/${user.id}/products/${product.id}`, {
       method: "DELETE",
     });
+    deleteProduct(product)
   };
 
   const style = {
@@ -38,16 +39,16 @@ const ProductItem = ({ product, user }) => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            {name}
+            Name: {name}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {notes}
+            Ingredients: {ingredients}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            {ingredients}
+            My notes: {notes}
           </Typography>
           <Button>Edit Product</Button>
-          <Button onClick={deleteProduct}>Delete Product</Button>
+          <Button onClick={handleDelete}>Delete Product</Button>
         </Box>
       </Modal>
 

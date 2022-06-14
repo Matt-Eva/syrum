@@ -10,22 +10,17 @@ import ProductCollection from "./Components/ProductCollection";
 import Routine from "./Pages/Routine";
 import AddSteps from "./Components/AddSteps";
 import ProductForm from "./Components/ProductForm";
-import NavigationBar from "./Pages/NavigationBar";
-import ResponsiveAppBar from "./Components/test";
-import MenuAppBar from "./Components/AppBarWithMenu";
 import Container from "@mui/material/Container";
 
 const App = () => {
   const [user, setUser] = useState(null);
   const [followers, setFollowers] = useState([]);
   const [following, setFollowing] = useState([]);
+  const [routineId, setRoutineId] = useState("");
   const [formData, setFormData] = useState({
     title: "",
     description: "",
   });
-  // wait should the formdata be an object starting out?
-  const [routineId, setRoutineId] = useState("");
-  // const [products, setProducts] = useState([]);
 
   let navigate = useNavigate();
 
@@ -77,9 +72,8 @@ const App = () => {
 
   return (
     <>
-      <Container maxWidth="xl">
+      <Container maxWidth="md">
         <NavBar user={user} setUser={setUser} />
-        {/* <NavBar setUser={setUser} /> */}
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/my-profile" element={<Profile user={user} />} />
