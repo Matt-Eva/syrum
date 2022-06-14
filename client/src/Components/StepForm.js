@@ -1,6 +1,14 @@
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
+import {
+  Button,
+  Typography,
+  FormControl,
+  TextField,
+  Box,
+  Select,
+  MenuItem,
+  InputLabel,
+} from "@mui/material";
 
 const StepForm = ({ handleStep, products }) => {
   const [stepFormData, setStepFormData] = useState({
@@ -11,6 +19,7 @@ const StepForm = ({ handleStep, products }) => {
   });
 
   const handleChange = (e) => {
+    console.log(e.target.value)
     const value = e.target.value;
     const name = e.target.name;
     setStepFormData({ ...stepFormData, [name]: value });
@@ -18,7 +27,7 @@ const StepForm = ({ handleStep, products }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    console.log(e.target.value)
     handleStep(stepFormData);
     setStepFormData({
       number: "",
@@ -30,62 +39,85 @@ const StepForm = ({ handleStep, products }) => {
 
   return (
     <>
-      {/* <Box
-        component="form"
-        sx={{
-          "& > :not(style)": { m: 1, width: "25ch" },
-        }}
-        noValidate
-        autoComplete="off"
-      > */}
-      <form onSubmit={handleSubmit}>
-        <TextField
-          id="outlined-basic"
-          label="Step Number"
-          variant="outlined"
-          onChange={handleChange}
-          type="text"
-          name="number"
-          placeholder="Step Number"
-          value={stepFormData.number}
-        />
-        {/* <input
+      <FormControl onSubmit={handleSubmit}>
+        <Box
+          component="form"
+          mt={2}
+          // align="center"
+          // justify="center"
+          sx={{
+            "& > :not(style)": { m: 1, width: "25ch" },
+            alignItems: "center",
+            alignContent: "center",
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <Typography id="step-form" variant="h6" component="h2">
+            Create Your New Routine. Add steps on the next page!
+          </Typography>
+          <TextField
+            label="Step Number"
+            variant="outlined"
             onChange={handleChange}
             type="text"
             name="number"
             placeholder="Step Number"
             value={stepFormData.number}
-          /> */}
-        <input
-          onChange={handleChange}
-          type="text"
-          name="instructions"
-          placeholder="instructions"
-          value={stepFormData.instructions}
-        />
-        <label>
-          <select
-            name={"product_id"}
+          />
+          <TextField
+            label="Step Instructions"
+            variant="outlined"
+            onChange={handleChange}
+            type="text"
+            name="instructions"
+            placeholder="instructions"
+            value={stepFormData.instructions}
+          />
+          <FormControl>
+          <Select
             value={stepFormData.product_id}
+            label="Select a Product!"
             onChange={handleChange}
           >
-            <option>Select a product from your products</option>
+            {/* <InputLabel>Select A Product</InputLabel> */}
             {products
               ? products.map((product) => {
                   return (
-                    <>
-                      <option value={product.id} key={product.id}>
+                      <MenuItem value={product.id} key={product.id}>
                         {product.name}
-                      </option>
-                    </>
+                      </MenuItem>
                   );
                 })
               : null}
-          </select>
-        </label>
-        <button type="submit">Add Step</button>
-      </form>
-      {/* </Box> */}
+          </Select>
+          </FormControl>
+          
+          {/* <label>
+            <select
+              name={"product_id"}
+              value={stepFormData.product_id}
+              onChange={handleChange}
+            >
+              <option>Select a product from your products</option>
+              {products
+                ? products.map((product) => {
+                    return (
+                      <>
+                        <option value={product.id} key={product.id}>
+                          {product.name}
+                        </option>
+                      </>
+                    );
+                  })
+                : null}
+            </select>
+          </label> */}
+          <Button type="submit" variant="contained">
+            Add a Step
+          </Button>
+        </Box>
+      </FormControl>
     </>
   );
 };

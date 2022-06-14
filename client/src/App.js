@@ -51,7 +51,6 @@ const App = () => {
 
   const addNewRoutine = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
     const newRoutine = {
       title: formData.title,
       description: formData.description,

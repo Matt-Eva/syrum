@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import { Button, Typography, FormControl } from "@mui/material";
+import { Button, Typography, FormControl, TextField } from "@mui/material";
 
 const ProductForm = ({ user, submitFun }) => {
   let navigate = useNavigate();
@@ -25,15 +24,6 @@ const ProductForm = ({ user, submitFun }) => {
       user_id: user.id,
     };
     submitFun(productObj)
-    // call function here 
-    // fetch(`/users/${user.id}/products`, {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(productObj),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data));
-    // navigate("/my-products");
     navigate("/my-products");
   };
 
