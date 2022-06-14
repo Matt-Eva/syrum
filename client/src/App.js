@@ -13,16 +13,15 @@ import ProductForm from "./Components/ProductForm";
 import NavigationBar from "./Pages/NavigationBar";
 import ResponsiveAppBar from "./Components/test";
 import MenuAppBar from "./Components/AppBarWithMenu";
-import Container from '@mui/material/Container';
-
+import Container from "@mui/material/Container";
 
 const App = () => {
   const [user, setUser] = useState(null);
   const [followers, setFollowers] = useState([]);
   const [following, setFollowing] = useState([]);
   const [formData, setFormData] = useState({
-    title: '',
-    description: ""
+    title: "",
+    description: "",
   });
   // wait should the formdata be an object starting out?
   const [routineId, setRoutineId] = useState("");
@@ -78,52 +77,49 @@ const App = () => {
 
   return (
     <>
-    <Container maxWidth="xl">
-    <NavigationBar user={user} setUser={setUser}/>
-      {/* <NavBar setUser={setUser} /> */}
-      <Routes>
-        <Route exact path="/" />
-        <Route path="/home" element={<Home />} />
-        <Route path="/my-profile" element={<Profile user={user} />} />
-        <Route
-          path="/my-products"
-          element={
-            <ProductCollection
-              user={user}
-              // products={products}
-              // setProducts={setProducts}
-            />
-          }
-        />
-        <Route
-          path="/followers"
-          element={<FollowList followers={followers} />}
-        />
-        <Route
-          path="/following"
-          element={<FollowList following={following} />}
-        />
-        <Route
-          path="/new-routine"
-          element={
-            <Routine
-              addNewRoutine={addNewRoutine}
-              formData={formData}
-              setFormData={setFormData}
-              user={user}
-            />
-          }
-        />
-        <Route
-          path="/add-steps"
-          element={
-            <AddSteps user={user} routineId={routineId} />
-          }
-        />
-        <Route path="/new-product" element={<ProductForm user={user} />} />
-      </Routes>
-    </Container>
-    
+      <Container maxWidth="xl">
+        <NavigationBar user={user} setUser={setUser} />
+        {/* <NavBar setUser={setUser} /> */}
+        <Routes>
+          <Route exact path="/" />
+          <Route path="/home" element={<Home />} />
+          <Route path="/my-profile" element={<Profile user={user} />} />
+          <Route
+            path="/my-products"
+            element={
+              <ProductCollection
+                user={user}
+                // products={products}
+                // setProducts={setProducts}
+              />
+            }
+          />
+          <Route
+            path="/followers"
+            element={<FollowList followers={followers} />}
+          />
+          <Route
+            path="/following"
+            element={<FollowList following={following} />}
+          />
+          <Route
+            path="/new-routine"
+            element={
+              <Routine
+                addNewRoutine={addNewRoutine}
+                formData={formData}
+                setFormData={setFormData}
+                user={user}
+              />
+            }
+          />
+          <Route
+            path="/add-steps"
+            element={<AddSteps user={user} routineId={routineId} />}
+          />
+          <Route path="/new-product" element={<ProductForm user={user} />} />
+        </Routes>
+      </Container>
     </>
   );
 };

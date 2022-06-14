@@ -32,8 +32,8 @@ const NavigationBar = ({ user, setUser }) => {
   };
 
   const profile = () => {
-    navigate('/my-profile')
-  }
+    navigate("/my-profile");
+  };
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -57,8 +57,8 @@ const NavigationBar = ({ user, setUser }) => {
     <AppBar position="static" sx={{ borderRadius: 16 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-        {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
-        {/* <Typography
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+          {/* <Typography
             variant="h6"
             noWrap
             component="a"
@@ -76,7 +76,7 @@ const NavigationBar = ({ user, setUser }) => {
             LOGO
           </Typography> */}
           <Box sx={{ flexGrow: 1.1 }}>
-          {/* <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}> */}
+            {/* <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}> */}
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -141,7 +141,7 @@ const NavigationBar = ({ user, setUser }) => {
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-          {/* <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}> */}
+            {/* <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}> */}
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -235,18 +235,12 @@ const NavigationBar = ({ user, setUser }) => {
               onClose={handleCloseUserMenu}
             >
               <MenuItem key="logout" onClick={handleCloseUserMenu}>
-                <Typography
-                  onClick={logout}
-                  textAlign="center"
-                >
+                <Typography onClick={logout} textAlign="center">
                   Logout
                 </Typography>
               </MenuItem>
               <MenuItem key="profile" onClick={handleCloseUserMenu}>
-                <Typography
-                  onClick={profile}
-                  textAlign="center"
-                >
+                <Typography onClick={profile} textAlign="center">
                   Profile
                 </Typography>
               </MenuItem>

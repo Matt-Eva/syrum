@@ -1,10 +1,9 @@
-const NewRoutine = ( { addNewRoutine, setFormData, formData } ) => {
-
-    const handleChange = (e) => {
-        const value = e.target.value;
-        const name = e.target.name;
-        setFormData({...formData, [name]: value})
-      }
+const NewRoutine = ({ addNewRoutine, setFormData, formData }) => {
+  const handleChange = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
+    setFormData({ ...formData, [name]: value });
+  };
 
   return (
     <>

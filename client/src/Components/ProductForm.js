@@ -1,10 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import { Button } from '@mui/material';
-import { FormControl } from '@mui/material';
-
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import { Button } from "@mui/material";
+import { FormControl } from "@mui/material";
 
 const ProductForm = ({ user }) => {
   let navigate = useNavigate();
@@ -36,7 +35,7 @@ const ProductForm = ({ user }) => {
       .then((data) => console.log(data));
     navigate("/my-products");
   };
-// the box doesn't like when the form is nested inside of it? 
+  // the box doesn't like when the form is nested inside of it?
   return (
     <>
       {/* <Box
@@ -51,48 +50,61 @@ const ProductForm = ({ user }) => {
         noValidate
         autoComplete="off"
       > */}
-        <form onSubmit={addNewProduct}>
-        <TextField id="outlined-basic" label="Product Name" variant="outlined" 
+      <form onSubmit={addNewProduct}>
+        <TextField
+          id="outlined-basic"
+          label="Product Name"
+          variant="outlined"
           // <input
-            onChange={handleChange}
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={productData.name}
-          />
-          {/* <input */}
-          <TextField label="Production Instructions" variant="outlined" 
-            onChange={handleChange}
-            type="text"
-            name="instructions"
-            placeholder="Instructions"
-            value={productData.instructions}
-          />
-          {/* <input */}
-          <TextField label="Product Brand" variant="outlined"
-            onChange={handleChange}
-            type="text"
-            name="brand"
-            placeholder="Brand"
-            value={productData.brand}
-          />
-          {/* <input */}
-          <TextField label="Product Photo" variant="outlined"
-            onChange={handleChange}
-            type="text"
-            name="photo"
-            placeholder="Photo"
-            value={productData.image}
-          />
-           <TextField label="Additional Notes" variant="outlined"
-            onChange={handleChange}
-            type="text"
-            name="notes"
-            placeholder="Notes"
-            value={productData.notes}
-          />
-          <Button type="submit" variant="contained">Create</Button>
-          </form>
+          onChange={handleChange}
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={productData.name}
+        />
+        {/* <input */}
+        <TextField
+          label="Production Instructions"
+          variant="outlined"
+          onChange={handleChange}
+          type="text"
+          name="instructions"
+          placeholder="Instructions"
+          value={productData.instructions}
+        />
+        {/* <input */}
+        <TextField
+          label="Product Brand"
+          variant="outlined"
+          onChange={handleChange}
+          type="text"
+          name="brand"
+          placeholder="Brand"
+          value={productData.brand}
+        />
+        {/* <input */}
+        <TextField
+          label="Product Photo"
+          variant="outlined"
+          onChange={handleChange}
+          type="text"
+          name="photo"
+          placeholder="Photo"
+          value={productData.image}
+        />
+        <TextField
+          label="Additional Notes"
+          variant="outlined"
+          onChange={handleChange}
+          type="text"
+          name="notes"
+          placeholder="Notes"
+          value={productData.notes}
+        />
+        <Button type="submit" variant="contained">
+          Create
+        </Button>
+      </form>
       {/* </Box> */}
     </>
   );

@@ -16,28 +16,30 @@ const ProductCollection = ({ user }) => {
   }, []);
 
   const productList = products.map((product) => {
-    return <Card variant="outlined" sx={{ maxWidth: "15rem" }}>
+    return (
+      <Card variant="outlined" sx={{ maxWidth: "15rem" }}>
         <ProductItem user={user} product={product} key={product.id} />
-        </Card>
+      </Card>
+    );
   });
 
   console.log(products);
 
   return (
     // <div className="product-container">
-      <Grid
-        // className="product-container"
-        container
-        spacing={1}
-        columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-        justifyContent="center"
-        alignItems="center"
-        direction="row"
-        cols={3}
-        // p={2}
-      >
-        <ul>{productList}</ul>
-      </Grid>
+    <Grid
+      // className="product-container"
+      container
+      spacing={1}
+      columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+      justifyContent="center"
+      alignItems="center"
+      direction="row"
+      cols={3}
+      // p={2}
+    >
+      <ul>{productList}</ul>
+    </Grid>
   );
 };
 

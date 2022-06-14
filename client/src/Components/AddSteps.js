@@ -36,15 +36,17 @@ const AddSteps = ({ user, routineId }) => {
   };
 
   const stepObjs = steps.map((step) => {
-    return <>
-      <h2>Added Step #{step.number}</h2>
-      {/* <h2>{step.instructions}</h2> */}
-    </>;
+    return (
+      <>
+        <h2>Added Step #{step.number}</h2>
+        {/* <h2>{step.instructions}</h2> */}
+      </>
+    );
   });
 
   const sendSteps = (e) => {
-    navigate('/my-profile')
-  }
+    navigate("/my-profile");
+  };
 
   return (
     <>

@@ -20,8 +20,8 @@ const ProductItem = ({ product, user }) => {
     console.log("edit this product!");
   };
   return (
-      <>
-       <CardMedia component="img" height="200" image={image} alt={name} />
+    <>
+      <CardMedia component="img" height="200" image={image} alt={name} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           Product: {name}
@@ -41,8 +41,8 @@ const ProductItem = ({ product, user }) => {
           Delete Product
         </Button>
       </CardActions>
-      </>
-    );
+    </>
+  );
 };
 
 export default ProductItem;
