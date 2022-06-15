@@ -41,6 +41,10 @@ const ProductItem = ({ product, user, deleteProduct }) => {
     p: 4,
   };
 
+  // const showRemove = () => {
+  //   return user.id === parseInt(params.userId)
+  // }
+
   return (
     <>
       <Modal

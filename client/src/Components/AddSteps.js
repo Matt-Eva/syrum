@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import StepForm from "./StepForm";
 import { Button } from "@mui/material";
 
+// needs styling - how am i going to alert the user when a step has been added?ß
+
 const AddSteps = ({ user, routineId }) => {
   const [products, setProducts] = useState("");
   const [steps, setSteps] = useState([]);

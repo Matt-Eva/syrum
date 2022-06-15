@@ -1,7 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import RoutineCollection from "../Components/RoutineCollection";
 const Profile = ({ user }) => {
   let navigate = useNavigate();
+  const params = useParams();
+
+  console.log(params)
 
   const seeFollowers = () => {
     navigate("/followers");
@@ -17,7 +20,7 @@ const Profile = ({ user }) => {
     <>
       <button onClick={seeFollowers}>Followers</button>
       <button onClick={seeFollowing}>Following</button>
-      <RoutineCollection user={user} />
+      <RoutineCollection user={user} viewedUserId={params.userId} />
     </>
   );
 };
