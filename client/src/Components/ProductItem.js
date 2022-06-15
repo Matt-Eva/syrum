@@ -9,7 +9,7 @@ import {
   Box,
 } from "@mui/material";
 
-const ProductItem = ({ product, user, deleteProduct }) => {
+const ProductItem = ({ product, user, deleteProduct, viewedUserId }) => {
   const { id, name, brand, ingredients, notes, image } = product;
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -41,9 +41,9 @@ const ProductItem = ({ product, user, deleteProduct }) => {
     p: 4,
   };
 
-  // const showRemove = () => {
-  //   return user.id === parseInt(params.userId)
-  // }
+  const showRemove = () => {
+    return user.id === parseInt(viewedUserId)
+  }
 
   return (
     <>
@@ -63,8 +63,8 @@ const ProductItem = ({ product, user, deleteProduct }) => {
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             My notes: {notes}
           </Typography>
-          <Button onClick={handleEdit}>Edit Product</Button>
-          <Button onClick={handleDelete}>Delete Product</Button>
+          {showRemove() && <Button onClick={handleEdit}>Edit Product</Button>}
+          {showRemove() &&<Button onClick={handleDelete}>Delete Product</Button>}
         </Box>
       </Modal>
 
