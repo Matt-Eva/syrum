@@ -1,17 +1,20 @@
 import { useState } from "react";
 import LoginForm from "../Components/LoginForm";
 import SignUpForm from "../Components/SignUpForm";
+import SignIn from "../Components/TestingLogin";
+import SignUp from "../Components/TestingSignUp";
 import { Button } from "@mui/material";
 
-const Login = ({ setUser }) => {
+const Login = ({ user, setUser }) => {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
     <>
+    {/* <SignIn user={user} setUser={setUser} /> */}
       {showLogin ? (
         <>
-          <LoginForm setUser={setUser} />
-          <p>
+          <SignIn setUser={setUser} setShowLogin={setShowLogin} />
+          {/* <p>
             Don't have an account? &nbsp;
             <Button
               variant="contained"
@@ -20,12 +23,12 @@ const Login = ({ setUser }) => {
             >
               Sign Up
             </Button>
-          </p>
+          </p> */}
         </>
       ) : (
         <>
-          <SignUpForm setUser={setUser} />
-          <p>
+          <SignUp setUser={setUser} setShowLogin={setShowLogin} />
+          {/* <p>
             Already have an account? &nbsp;
             <Button
               variant="contained"
@@ -34,7 +37,7 @@ const Login = ({ setUser }) => {
             >
               Log In
             </Button>
-          </p>
+          </p> */}
         </>
       )}
     </>
