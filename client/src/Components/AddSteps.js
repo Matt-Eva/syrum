@@ -13,7 +13,9 @@ import {
   ListItemText,
   List,
   Stack,
+  Paper,
 } from "@mui/material";
+import { styled } from '@mui/material/styles';
 
 // needs styling - how am i going to alert the user when a step has been added?ß
 
@@ -50,21 +52,26 @@ const AddSteps = ({ user, routineId }) => {
       });
   };
 
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
+
   const stepObjs = steps.map((step) => {
     return (
       <>
-        <Stack
-          justifyContent="space-evenly"
-          alignItems="center"
-          // spacing={3}
-          direction={{ xs: "column", sm: "row" }}
-          spacing={{ xs: 1, sm: 2, md: 4 }}
-        >
+        <Stack>
+          <Item>
           <Card>
             <CardContent>Added Step Number: {step.number}!</CardContent>
             <CardContent>Instructions: {step.instructions}</CardContent>
             <CardContent>Product info?</CardContent>
           </Card>
+          </Item>
+
         </Stack>
       </>
     );
@@ -77,6 +84,8 @@ const AddSteps = ({ user, routineId }) => {
   return (
     <>
       <Grid>
+      {stepObjs}
+
         <StepForm
           handleStep={createStep}
           routineId={routineId}
@@ -85,7 +94,6 @@ const AddSteps = ({ user, routineId }) => {
         <Button variant="contained" onClick={sendSteps}>
           Complete Routine
         </Button>
-        <div>{stepObjs}</div>
       </Grid>
     </>
   );

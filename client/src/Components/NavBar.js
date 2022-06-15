@@ -54,7 +54,8 @@ const NavBar = ({ user, setUser }) => {
     <AppBar position="static" sx={{ borderRadius: 16 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1.1 }}>
+          {/* <Box sx={{ flexGrow: 1.1 }}> */}
+          <Box>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -111,9 +112,7 @@ const NavBar = ({ user, setUser }) => {
               color: "inherit",
               textDecoration: "none",
             }}
-          >
-            SYRUM
-          </Typography>
+          >SYRUM</Typography>
           <Box sx={{ flexGrow: 0 }}>
             <Button
               onClick={handleCloseNavMenu}
