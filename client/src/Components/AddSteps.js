@@ -47,7 +47,7 @@ const AddSteps = ({ user, routineId }) => {
   });
 
   const sendSteps = (e) => {
-    navigate("/my-profile");
+    navigate(`/users/${user.id}/profile`);
   };
 
   return (

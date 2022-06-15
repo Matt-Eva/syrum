@@ -86,21 +86,21 @@ const App = () => {
         <NavBar user={user} setUser={setUser} />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route path="users/:userId/profile" element={<Profile user={user} />} />
+          <Route path="/users/:userId/profile" element={<Profile user={user} />} />
           <Route
-            path={`users/${user.id}/products`}
+            path={"/users/:userId/products"}
             element={<ProductCollection user={user} />}
           />
           <Route
-            path={`users/${user.id}/followers`}
+            path={"/users/:userId/followers"}
             element={<FollowList followers={followers} />}
           />
           <Route
-            path={`users/${user.id}/following`}
+            path={"/users/:userId/following"}
             element={<FollowList following={following} />}
           />
           <Route
-            path={`users/${user.id}/new-routine`}
+            path={`/new-routine`}
             element={
               <Routine
                 addNewRoutine={addNewRoutine}
@@ -111,11 +111,11 @@ const App = () => {
             }
           />
           <Route
-            path={`users/${user.id}/add-steps`}
+            path={`/add-steps`}
             element={<AddSteps user={user} routineId={routineId} />}
           />
           <Route
-            path={`users/${user.id}/new-product`}
+            path={`/new-product`}
             element={<ProductForm user={user} submitFun={addNewProduct} />}
           />
           <Route

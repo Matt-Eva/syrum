@@ -5,12 +5,12 @@ import ProductItem from "./ProductItem";
 
 const ProductCollection = ({ user }) => {
   const [products, setProducts] = useState([]);
-  const { userId } = useParams();
+  const params = useParams();
 
-  console.log(userId)
+  console.log(params)
 
   useEffect(() => {
-    fetch(`/users/${user.id}/products`).then((r) => {
+    fetch(`/users/${params.userId}/products`).then((r) => {
       if (r.ok) {
         r.json().then((products) => setProducts(products));
       }
@@ -29,6 +29,7 @@ const ProductCollection = ({ user }) => {
         product={product}
         user={user}
         deleteProduct={deleteProduct}
+        viewedUserId={params.userId}
       />
     );
   });

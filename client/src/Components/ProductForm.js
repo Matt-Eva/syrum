@@ -23,7 +23,7 @@ const ProductForm = ({ user, submitFun }) => {
       user_id: user.id,
     };
     submitFun(productObj);
-    navigate("/my-products");
+    navigate(`/users/${user.id}/products`);
   };
 
   return (

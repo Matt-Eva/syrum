@@ -21,7 +21,7 @@ const RoutineDetails = ({ user }) => {
     fetch(`/users/${user.id}/routines/${params.id}`, {
       method: "DELETE",
     });
-    navigate("/my-profile");
+    navigate(`/users/${user.id}/profile`);
   };
 
   if (!currentRoutine) return <></>;

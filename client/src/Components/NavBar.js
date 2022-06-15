@@ -86,12 +86,12 @@ const NavBar = ({ user, setUser }) => {
                 </LinkContainer>
               </MenuItem>
               <MenuItem key="profile" onClick={handleCloseNavMenu}>
-                <LinkContainer to={`users/${user.id}/profile`}>
+                <LinkContainer to={`/users/${user.id}/profile`}>
                   <Typography textAlign="center">My Profile</Typography>
                 </LinkContainer>
               </MenuItem>
               <MenuItem key="products" onClick={handleCloseNavMenu}>
-                <LinkContainer to={`users/${user.id}/products`}>
+                <LinkContainer to={`/users/${user.id}/products`}>
                   <Typography textAlign="center">My Products</Typography>
                 </LinkContainer>
               </MenuItem>
