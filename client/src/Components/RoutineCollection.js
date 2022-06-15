@@ -11,7 +11,7 @@ const RoutineCollection = ({ user, viewedUserId }) => {
         r.json().then((routines) => setRoutines(routines));
       }
     });
-  }, []);
+  }, [viewedUserId]);
 
   const routineList = routines.map((routine) => {
     return <RoutineCard routine={routine} key={routine.id} viewedUserId={viewedUserId} />;

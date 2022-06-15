@@ -15,7 +15,7 @@ const ProductCollection = ({ user }) => {
         r.json().then((products) => setProducts(products));
       }
     });
-  }, []);
+  }, [params]);
 
   const deleteProduct = (productObj) => {
     const oneLess = products.filter((product) => productObj !== product);
