@@ -13,6 +13,8 @@ import ProductForm from "./Components/ProductForm";
 import Container from "@mui/material/Container";
 import EditProduct from "./Components/EditProduct";
 import RoutineDetails from "./Components/RoutineDetails";
+import SignUpForm from "./Components/SignUpForm";
+import SignUp from "./Components/TestingSignUp";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -78,7 +80,7 @@ const App = () => {
       .then((data) => console.log(data));
   };
 
-  if (!user) return <Login setUser={setUser} />;
+  if (!user) return <Login setUser={setUser} user={user} />;
 
   return (
     <>
@@ -87,6 +89,7 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/users/:userId/profile" element={<Profile user={user} />} />
+          <Route path='/signup' element={<SignUp setUser={setUser} />}/> 
           <Route
             path={"/users/:userId/products"}
             element={<ProductCollection user={user} />}
