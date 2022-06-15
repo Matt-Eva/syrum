@@ -9,12 +9,12 @@ import {
   Container,
 } from "@mui/material";
 
-const RoutineCard = ({ routine }) => {
+const RoutineCard = ({ routine, viewedUserId }) => {
   const { id, title } = routine;
   let navigate = useNavigate();
 
   const routineDetails = () => {
-    navigate(`/routine-details/${id}`);
+    navigate(`/users/${viewedUserId}/routine-details/${id}`);
     console.log(routine.id);
   };
 

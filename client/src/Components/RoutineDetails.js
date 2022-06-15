@@ -5,19 +5,20 @@ import { Button } from "@mui/material";
 
 const RoutineDetails = ({ user }) => {
   const [currentRoutine, setCurrentRoutine] = useState("");
-  const routine = useParams();
   let navigate = useNavigate();
 
+  const params = useParams();
+
   useEffect(() => {
-    fetch(`/users/${user.id}/routines/${routine.id}`).then((r) => {
+    fetch(`/users/${params.userId}/routines/${params.id}`).then((r) => {
       if (r.ok) {
         r.json().then((routine) => setCurrentRoutine(routine));
       }
     });
-  }, [routine.id, user.id]);
+  }, []);
 
   const removeRoutine = () => {
-    fetch(`/users/${user.id}/routines/${routine.id}`, {
+    fetch(`/users/${user.id}/routines/${params.id}`, {
       method: "DELETE",
     });
     navigate("/my-profile");
@@ -29,12 +30,16 @@ const RoutineDetails = ({ user }) => {
     return <StepAccordion step={step} key={step.id} />;
   });
 
+  const showRemove = () => {
+    return user.id === parseInt(params.userId)
+  }
+
   return (
     <>
       {currentRoutine.title}
       {currentRoutine.description}
       {stepList}
-      <Button onClick={removeRoutine}>Remove this routine</Button>
+      {showRemove() && <Button onClick={removeRoutine}>Remove this routine</Button>}
     </>
   );
 };
