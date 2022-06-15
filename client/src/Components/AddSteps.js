@@ -15,7 +15,7 @@ import {
   Stack,
   Paper,
 } from "@mui/material";
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
 // needs styling - how am i going to alert the user when a step has been added?ß
 
@@ -53,47 +53,42 @@ const AddSteps = ({ user, routineId }) => {
   };
 
   const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
     padding: theme.spacing(1),
-    textAlign: 'center',
+    textAlign: "center",
     color: theme.palette.text.secondary,
   }));
 
   const stepObjs = steps.map((step) => {
     return (
       <>
-        <Stack>
-          <Item>
-          <Card>
-            <CardContent>Added Step Number: {step.number}!</CardContent>
-            <CardContent>Instructions: {step.instructions}</CardContent>
-            <CardContent>Product info?</CardContent>
-          </Card>
-          </Item>
-
-        </Stack>
+        <Container maxWidth='md' sx={{ pt: 4 }}>
+          <Stack>
+            {/* <Item> */}
+              <Card>
+                <CardContent>Added Step Number: {step.number}!</CardContent>
+                <CardContent>Instructions: {step.instructions}</CardContent>
+                <CardContent>Product info?</CardContent>
+              </Card>
+            {/* </Item> */}
+          </Stack>
+        </Container>
       </>
     );
   });
 
-  const sendSteps = (e) => {
-    navigate(`/users/${user.id}/profile`);
-  };
 
   return (
     <>
       <Grid>
-      {stepObjs}
-
         <StepForm
           handleStep={createStep}
           routineId={routineId}
           products={products}
+          user={user}
         />
-        <Button variant="contained" onClick={sendSteps}>
-          Complete Routine
-        </Button>
+        {stepObjs}
       </Grid>
     </>
   );

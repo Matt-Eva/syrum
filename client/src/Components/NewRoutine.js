@@ -14,19 +14,20 @@ const NewRoutine = ({ addNewRoutine, setFormData, formData }) => {
           <Box
             component="form"
             mt={2}
-            bgcolor="primary.main"
+            // bgcolor="primary.main"
             // align="center"
             // justify="center"
             sx={{
               "& > :not(style)": { m: 1, width: "25ch" },
               alignItems: "center",
               alignContent: "center",
+              justifyItems: 'center'
             }}
             noValidate
             autoComplete="off"
           >
             <Typography id="routine-form" variant="h6" component="h2">
-              Create Your New Routine. Add steps on the next page!
+              Create Your New Routine
             </Typography>
             <TextField
               variant="outlined"
@@ -46,7 +47,7 @@ const NewRoutine = ({ addNewRoutine, setFormData, formData }) => {
               placeholder="Routine description"
               value={formData.description}
             />
-            <Button type="submit" variant="contained">
+            <Button type="submit" variant="contained" size='large'>
               Create Routine
             </Button>
           </Box>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Button,
   Typography,
@@ -10,13 +11,20 @@ import {
   InputLabel,
 } from "@mui/material";
 
-const StepForm = ({ handleStep, products }) => {
+const StepForm = ({ handleStep, products, user }) => {
   const [stepFormData, setStepFormData] = useState({
     number: "",
     routine_id: "",
     instructions: "",
     product_id: "",
   });
+
+  let navigate = useNavigate();
+
+
+  const sendSteps = (e) => {
+    navigate(`/users/${user.id}/profile`);
+  };
 
   const handleChange = (e) => {
     console.log(e.target.value);
@@ -43,8 +51,6 @@ const StepForm = ({ handleStep, products }) => {
         <Box
           component="form"
           mt={2}
-          // align="center"
-          // justify="center"
           sx={{
             "& > :not(style)": { m: 1, width: "25ch" },
             alignItems: "center",
@@ -54,7 +60,7 @@ const StepForm = ({ handleStep, products }) => {
           autoComplete="off"
         >
           <Typography id="step-form" variant="h6" component="h2">
-            Create Your New Routine. Add steps on the next page!
+            Add Steps For Your New Routine:
           </Typography>
           <TextField
             label="Step Number"
@@ -98,6 +104,9 @@ const StepForm = ({ handleStep, products }) => {
           <Button type="submit" variant="contained">
             Add a Step
           </Button>
+          <Button variant="contained" onClick={sendSteps}>
+          Complete Routine
+        </Button>
         </Box>
       </FormControl>
     </>
