@@ -40,7 +40,6 @@ const AddSteps = ({ user, routineId }) => {
     return (
       <>
         <h2>Added Step #{step.number}</h2>
-        {/* <h2>{step.instructions}</h2> */}
       </>
     );
   });
@@ -58,7 +57,9 @@ const AddSteps = ({ user, routineId }) => {
         routineId={routineId}
         products={products}
       />
-      <Button variant="contained" onClick={sendSteps}>Done with Steps - Complete Routine</Button>
+      <Button variant="contained" onClick={sendSteps}>
+        Done with Steps - Complete Routine
+      </Button>
     </>
   );
 };

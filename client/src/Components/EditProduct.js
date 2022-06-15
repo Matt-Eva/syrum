@@ -2,7 +2,7 @@ import ProductForm from "./ProductForm";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const EditProduct = ( { user } ) => {
+const EditProduct = ({ user }) => {
   const [currentProduct, setCurrentProduct] = useState("");
   const product = useParams();
 
@@ -31,10 +31,10 @@ const EditProduct = ( { user } ) => {
   };
 
   return (
-      <div>
-          <ProductForm submitFun={editproduct} user={user} />
-      </div>
-  )
+    <div>
+      <ProductForm submitFun={editproduct} user={user} />
+    </div>
+  );
 };
 
 export default EditProduct;

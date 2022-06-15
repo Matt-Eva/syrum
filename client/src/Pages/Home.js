@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 
 const Home = () => {
   let navigate = useNavigate();
@@ -17,8 +18,12 @@ const Home = () => {
     <>
       <h1>Welcome to Your World of Skincare! </h1>
       <h3>What do you wanna do?</h3>
-      <button onClick={addRoutine}>Add a routine</button>
-      <button onClick={addProduct}>Add a product to your collection</button>
+      <Button variant="contained" onClick={addRoutine}>
+        Add a routine
+      </Button>
+      <Button variant="contained" onClick={addProduct}>
+        Add a product
+      </Button>
       <h3>See what products your friends are using the most!</h3>
     </>
   );

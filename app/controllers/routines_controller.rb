@@ -19,6 +19,12 @@ class RoutinesController < ApplicationController
         new_routine = user.routines.create!(routine_params)
         render json: new_routine, status: :created
     end 
+
+    def destroy
+        routine = Routine.find_by(id: params[:id])
+        routine.destroy
+        head :no_content
+    end
     
     private
 
