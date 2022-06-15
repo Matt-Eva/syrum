@@ -82,7 +82,7 @@ const App = () => {
 
   return (
     <>
-      <Container maxWidth="md">
+      <Container align='center' maxWidth="md">
         <NavBar user={user} setUser={setUser} />
         <Routes>
           <Route exact path="/" element={<Home />} />
