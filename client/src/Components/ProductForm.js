@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import Box from "@mui/material/Box";
-import { Button, Typography, FormControl, TextField } from "@mui/material";
+import { useState } from "react";
+import { Button, Typography, FormControl, TextField, Box } from "@mui/material";
 
 const ProductForm = ({ user, submitFun }) => {
   let navigate = useNavigate();
@@ -23,7 +22,7 @@ const ProductForm = ({ user, submitFun }) => {
       image: productData.image,
       user_id: user.id,
     };
-    submitFun(productObj)
+    submitFun(productObj);
     navigate("/my-products");
   };
 

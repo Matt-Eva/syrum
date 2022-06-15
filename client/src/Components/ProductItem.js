@@ -1,12 +1,17 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import { Button, ImageListItem, ImageListItemBar, Modal, Typography } from "@mui/material";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import {
+  Button,
+  ImageListItem,
+  ImageListItemBar,
+  Modal,
+  Typography,
+  Box,
+} from "@mui/material";
 
 const ProductItem = ({ product, user, deleteProduct }) => {
   const { id, name, brand, ingredients, notes, image } = product;
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -16,13 +21,13 @@ const ProductItem = ({ product, user, deleteProduct }) => {
     fetch(`/users/${user.id}/products/${product.id}`, {
       method: "DELETE",
     });
-    deleteProduct(product)
+    deleteProduct(product);
   };
 
   const handleEdit = (e) => {
-      console.log('edit me!')
-      navigate(`/edit-product/${product.id}`)
-  }
+    console.log("edit me!");
+    navigate(`/edit-product/${product.id}`);
+  };
 
   const style = {
     position: "absolute",

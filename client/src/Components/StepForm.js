@@ -37,7 +37,6 @@ const StepForm = ({ handleStep, products }) => {
     });
   };
 
-  console.log(stepFormData);
   return (
     <>
       <FormControl onSubmit={handleSubmit}>
@@ -76,48 +75,26 @@ const StepForm = ({ handleStep, products }) => {
             value={stepFormData.instructions}
           />
           <FormControl>
-          <InputLabel id="select-label">Products</InputLabel>
-          <Select
-            labelId="select-label"
-            id="select-label"
-            name="product_id"
-            value={stepFormData.product_id}
-            onChange={handleChange}
-            label="Products"
-          >
-            {products
-              ? products.map((product) => {
-                  return (
-                    <MenuItem value={product.id} key={product.id}>
-                      {product.name}
-                    </MenuItem>
-                  );
-                })
-              : null}
-          </Select>
-          </FormControl>
-       
-
-          {/* <label>
-            <select
-              name={"product_id"}
+            <InputLabel id="select-label">Products</InputLabel>
+            <Select
+              labelId="select-label"
+              id="select-label"
+              name="product_id"
               value={stepFormData.product_id}
               onChange={handleChange}
+              label="Products"
             >
-              <option>Select a product from your products</option>
               {products
                 ? products.map((product) => {
                     return (
-                      <>
-                        <option value={product.id} key={product.id}>
-                          {product.name}
-                        </option>
-                      </>
+                      <MenuItem value={product.id} key={product.id}>
+                        {product.name}
+                      </MenuItem>
                     );
                   })
                 : null}
-            </select>
-          </label> */}
+            </Select>
+          </FormControl>
           <Button type="submit" variant="contained">
             Add a Step
           </Button>

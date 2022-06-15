@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import RoutineCard from "./RoutineCard";
-import { CardContent, Typography, Button, CardActions, Box, Card } from "@mui/material";
+import { Box, Container } from "@mui/material";
 
 const RoutineCollection = ({ user }) => {
   const [routines, setRoutines] = useState([]);
@@ -13,19 +13,14 @@ const RoutineCollection = ({ user }) => {
     });
   }, []);
 
-
-
   const routineList = routines.map((routine) => {
     return <RoutineCard routine={routine} key={routine.id} />;
   });
 
   console.log(routines);
 
-  return (
-    <Box sx={{ minWidth: 275 }}>
-      {routineList}
-    </Box>
-  );
+  //   return <Box sx={{ maxWidth: 275 }}>{routineList}</Box>;
+  return <Container maxWidth="xl">{routineList}</Container>;
 };
 
 export default RoutineCollection;

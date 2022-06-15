@@ -12,7 +12,6 @@ import AddSteps from "./Components/AddSteps";
 import ProductForm from "./Components/ProductForm";
 import Container from "@mui/material/Container";
 import EditProduct from "./Components/EditProduct";
-import RoutineCard from "./Components/RoutineCard";
 import RoutineDetails from "./Components/RoutineDetails";
 
 const App = () => {
@@ -69,16 +68,15 @@ const App = () => {
     navigate("/add-steps");
   };
 
-
   const addNewProduct = (productObj) => {
     fetch(`/users/${user.id}/products`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(productObj),
-      })
-        .then((response) => response.json())
-        .then((data) => console.log(data));
-  }
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(productObj),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  };
 
   if (!user) return <Login setUser={setUser} />;
 
@@ -91,11 +89,7 @@ const App = () => {
           <Route path="/my-profile" element={<Profile user={user} />} />
           <Route
             path="/my-products"
-            element={
-              <ProductCollection
-                user={user}
-              />
-            }
+            element={<ProductCollection user={user} />}
           />
           <Route
             path="/followers"
@@ -120,9 +114,18 @@ const App = () => {
             path="/add-steps"
             element={<AddSteps user={user} routineId={routineId} />}
           />
-          <Route path="/new-product" element={<ProductForm user={user} submitFun={addNewProduct} />} />
-          <Route path="/edit-product/:id" element={<EditProduct user={user} />} />
-          <Route path="/routine-details/:id" element={<RoutineDetails user={user} />} />
+          <Route
+            path="/new-product"
+            element={<ProductForm user={user} submitFun={addNewProduct} />}
+          />
+          <Route
+            path="/edit-product/:id"
+            element={<EditProduct user={user} />}
+          />
+          <Route
+            path="/routine-details/:id"
+            element={<RoutineDetails user={user} />}
+          />
         </Routes>
       </Container>
     </>

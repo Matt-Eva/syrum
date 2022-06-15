@@ -14,12 +14,19 @@ const ProductCollection = ({ user }) => {
   }, []);
 
   const deleteProduct = (productObj) => {
-    const oneLess = products.filter((product) => productObj !== product)
-    setProducts(oneLess)
-  }
+    const oneLess = products.filter((product) => productObj !== product);
+    setProducts(oneLess);
+  };
 
   const productList = products.map((product) => {
-    return <ProductItem key={product.id} product={product} user={user} deleteProduct={deleteProduct} />;
+    return (
+      <ProductItem
+        key={product.id}
+        product={product}
+        user={user}
+        deleteProduct={deleteProduct}
+      />
+    );
   });
   return (
     <Container>
