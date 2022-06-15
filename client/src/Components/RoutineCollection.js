@@ -17,7 +17,7 @@ const RoutineCollection = ({ user, viewedUserId }) => {
     return <RoutineCard routine={routine} key={routine.id} viewedUserId={viewedUserId} />;
   });
 
-  console.log(routines);
+  // console.log(routines);
 
   //   return <Box sx={{ maxWidth: 275 }}>{routineList}</Box>;
   return <Container maxWidth="xl">{routineList}</Container>;

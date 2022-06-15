@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { ImageList, Container } from "@mui/material";
 import ProductItem from "./ProductItem";
 
 const ProductCollection = ({ user }) => {
   const [products, setProducts] = useState([]);
+  const { userId } = useParams();
+
+  console.log(userId)
 
   useEffect(() => {
     fetch(`/users/${user.id}/products`).then((r) => {

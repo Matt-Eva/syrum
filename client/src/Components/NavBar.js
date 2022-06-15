@@ -29,7 +29,7 @@ const NavBar = ({ user, setUser }) => {
   };
 
   const profile = () => {
-    navigate("/my-profile");
+    navigate(`users/${user.id}/profile`);
   };
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
