@@ -12,6 +12,8 @@ import AddSteps from "./Components/AddSteps";
 import ProductForm from "./Components/ProductForm";
 import Container from "@mui/material/Container";
 import EditProduct from "./Components/EditProduct";
+import RoutineCard from "./Components/RoutineCard";
+import RoutineDetails from "./Components/RoutineDetails";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -120,6 +122,7 @@ const App = () => {
           />
           <Route path="/new-product" element={<ProductForm user={user} submitFun={addNewProduct} />} />
           <Route path="/edit-product/:id" element={<EditProduct user={user} />} />
+          <Route path="/routine-details/:id" element={<RoutineDetails user={user} />} />
         </Routes>
       </Container>
     </>

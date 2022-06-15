@@ -75,6 +75,7 @@ const StepForm = ({ handleStep, products }) => {
             placeholder="instructions"
             value={stepFormData.instructions}
           />
+          <FormControl>
           <InputLabel id="select-label">Products</InputLabel>
           <Select
             labelId="select-label"
@@ -94,6 +95,8 @@ const StepForm = ({ handleStep, products }) => {
                 })
               : null}
           </Select>
+          </FormControl>
+       
 
           {/* <label>
             <select
