@@ -1,31 +1,17 @@
 import * as React from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Grid,
+  Box,
+  Typography,
+  Container,
+} from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
-
-// function Copyright(props) {
-//   return (
-//     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://mui.com/">
-//         Your Website
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
 
 const theme = createTheme();
 
@@ -35,14 +21,6 @@ const SignUp = ({ setUser, setShowLogin }) => {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  //   const handleSubmit = (event) => {
-  //     event.preventDefault();
-  //     const data = new FormData(event.currentTarget);
-  //     console.log({
-  //       email: data.get('email'),
-  //       password: data.get('password'),
-  //     });
-  //   };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -152,14 +130,6 @@ const SignUp = ({ setUser, setShowLogin }) => {
                   autoComplete="current-password"
                 />
               </Grid>
-              {/* <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid> */}
             </Grid>
             <Button
               type="submit"
@@ -169,23 +139,18 @@ const SignUp = ({ setUser, setShowLogin }) => {
             >
               Sign Up
             </Button>
-            {/* <Grid container justifyContent="flex-end">
-              <Grid item> */}
-                {/* <Link href="#" variant="body2">
-                  Already have an account? Sign in
-                </Link> */}
-                 <Typography component="h3" variant="h5">
-                    Already have an account?  
-                </Typography>
-                <Button onClick={() => setShowLogin(true)}
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}>
-                    Log In</Button>
-              {/* </Grid>
-            </Grid> */}
+            <Typography align="center">Already have an account?</Typography>
+            <Button
+              type="submit"
+              fullWidth
+              //   variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick={() => setShowLogin(true)}
+            >
+              Sign In
+            </Button>
           </Box>
         </Box>
-        {/* <Copyright sx={{ mt: 5 }} /> */}
       </Container>
     </ThemeProvider>
   );
