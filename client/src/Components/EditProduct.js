@@ -1,9 +1,11 @@
 import ProductForm from "./ProductForm";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Button, Typography, FormControl, TextField, Box } from "@mui/material";
 
 const EditProduct = ({ user }) => {
   const [currentProduct, setCurrentProduct] = useState("");
+
   const product = useParams();
 
   useEffect(() => {
@@ -32,7 +34,12 @@ const EditProduct = ({ user }) => {
 
   return (
     <div>
-      <ProductForm submitFun={editproduct} user={user} />
+      <Box mt={4}>
+        <Typography id="product-form" variant="h6" component="h2">
+          Update Product:
+        </Typography>
+        <ProductForm submitFun={editproduct} user={user} />
+      </Box>
     </div>
   );
 };

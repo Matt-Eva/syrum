@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
 import Login from "./Pages/Login";
+import AddProduct from "./Pages/AddProduct";
 import Home from "./Pages/Home";
 import NavBar from "./Components/NavBar";
 import Profile from "./Pages/Profile";
@@ -68,15 +69,15 @@ const App = () => {
     navigate("/add-steps");
   };
 
-  const addNewProduct = (productObj) => {
-    fetch(`/users/${user.id}/products`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(productObj),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  };
+  // const addNewProduct = (productObj) => {
+  //   fetch(`/users/${user.id}/products`, {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(productObj),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => console.log(data));
+  // };
 
   if (!user) return <Login setUser={setUser} user={user} />;
 
@@ -120,7 +121,7 @@ const App = () => {
           />
           <Route
             path={`/new-product`}
-            element={<ProductForm user={user} submitFun={addNewProduct} />}
+            element={<AddProduct user={user} />}
           />
           <Route
             path="/edit-product/:id"

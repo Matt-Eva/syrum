@@ -5,7 +5,16 @@ import { Container } from "@mui/system";
 
 const ProductForm = ({ user, submitFun }) => {
   let navigate = useNavigate();
-  const [productData, setProductData] = useState("");
+  // const [productData, setProductData] = useState({
+  //   name: '',
+  //   ingredients: '',
+  //   brand: '',
+  //   notes: '',
+  //   image: '',
+  //   user_id: user.id,
+  // });
+  const [productData, setProductData] = useState('')
+
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -24,16 +33,17 @@ const ProductForm = ({ user, submitFun }) => {
       user_id: user.id,
     };
     submitFun(productObj);
+    // setIsEdit(false)
     navigate(`/users/${user.id}/products`);
   };
 
   return (
     <>
       <FormControl onSubmit={handleSubmit}>
-        <Container maxWidth='xs'>
+        <Container maxWidth="xs">
           <Box
             component="form"
-            mt={3}
+            // mt={2}
             sx={{
               "& > :not(style)": { m: 1, width: "25ch" },
               alignItems: "center",
@@ -42,9 +52,6 @@ const ProductForm = ({ user, submitFun }) => {
             noValidate
             autoComplete="off"
           >
-            <Typography id="product-form" variant="h6" component="h2">
-              Add A Product:
-            </Typography>
             <TextField
               id="outlined-basic"
               label="Product Name"
