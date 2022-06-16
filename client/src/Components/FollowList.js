@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import Box from "@mui/material/Box";
 import {
   Card,
   CardActions,
@@ -8,6 +7,7 @@ import {
   Typography,
   Avatar,
   Container,
+  Box,
 } from "@mui/material";
 
 const FollowList = ({ follow }) => {
@@ -37,9 +37,9 @@ const FollowList = ({ follow }) => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button onClick={visitProfile} variant="contained" size="small">
-                See Profile
-              </Button>
+                <Button onClick={visitProfile} variant="contained" size="small">
+                  See Profile
+                </Button>
             </CardActions>
           </Card>
         </Box>
