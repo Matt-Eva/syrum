@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import StepAccordion from "./StepAccordion";
-import { Button } from "@mui/material";
+import { Button, Box, Container, Typography } from "@mui/material";
 
 const RoutineDetails = ({ user }) => {
   const [currentRoutine, setCurrentRoutine] = useState("");
@@ -31,15 +31,26 @@ const RoutineDetails = ({ user }) => {
   });
 
   const showRemove = () => {
-    return user.id === parseInt(params.userId)
-  }
+    return user.id === parseInt(params.userId);
+  };
 
   return (
     <>
-      {currentRoutine.title}
-      {currentRoutine.description}
-      {stepList}
-      {showRemove() && <Button onClick={removeRoutine}>Remove this routine</Button>}
+      <Box pt={3}>
+        <Box pb={2}>
+          <Typography variant="h4">{currentRoutine.title} Routine</Typography>
+        </Box>
+        <Container maxWidth="xs">
+          <Typography fontWeight='bold'>Description:</Typography>
+          {currentRoutine.description}
+        </Container>
+
+        <Box pt={2}>{stepList}</Box>
+
+        {showRemove() && (
+          <Button onClick={removeRoutine}>Remove this routine</Button>
+        )}
+      </Box>
     </>
   );
 };

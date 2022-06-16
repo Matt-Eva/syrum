@@ -51,8 +51,10 @@ const NavBar = ({ user, setUser }) => {
   };
 
   return (
-    <AppBar position="static" sx={{ borderRadius: 16 }}>
-      <Container maxWidth="xl">
+    // <AppBar position="static" sx={{ borderRadius: 20 }}>
+
+    <AppBar position="static">
+      <Container maxWidth="xl" >
         <Toolbar disableGutters>
           {/* <Box sx={{ flexGrow: 1.1 }}> */}
           <Box>
@@ -94,6 +96,16 @@ const NavBar = ({ user, setUser }) => {
               <MenuItem key="products" onClick={handleCloseNavMenu}>
                 <LinkContainer to={`/users/${user.id}/products`}>
                   <Typography textAlign="center">My Products</Typography>
+                </LinkContainer>
+              </MenuItem>
+              <MenuItem key="products" onClick={handleCloseNavMenu}>
+                <LinkContainer to={`/new-routine`}>
+                  <Typography textAlign="center">Add Routine</Typography>
+                </LinkContainer>
+              </MenuItem>
+              <MenuItem key="products" onClick={handleCloseNavMenu}>
+                <LinkContainer to={`new-product`}>
+                  <Typography textAlign="center">Add Product</Typography>
                 </LinkContainer>
               </MenuItem>
             </Menu>

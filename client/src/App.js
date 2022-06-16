@@ -13,6 +13,7 @@ import ProductForm from "./Components/ProductForm";
 import Container from "@mui/material/Container";
 import EditProduct from "./Components/EditProduct";
 import RoutineDetails from "./Components/RoutineDetails";
+import { Box } from "@mui/system";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -82,8 +83,9 @@ const App = () => {
 
   return (
     <>
-      <Container align='center' maxWidth="md">
-        <NavBar user={user} setUser={setUser} />
+      <NavBar user={user} setUser={setUser} />
+
+      <Container align="center" maxWidth="md">
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route
@@ -96,11 +98,11 @@ const App = () => {
           />
           <Route
             path={"/users/:userId/followers"}
-            element={<FollowList followers={followers} />}
+            element={<FollowList users={followers} />}
           />
           <Route
             path={"/users/:userId/following"}
-            element={<FollowList following={following} />}
+            element={<FollowList users={following} />}
           />
           <Route
             path={`/new-routine`}

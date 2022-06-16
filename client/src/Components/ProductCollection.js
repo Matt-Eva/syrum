@@ -7,8 +7,6 @@ const ProductCollection = ({ user }) => {
   const [products, setProducts] = useState([]);
   const params = useParams();
 
-  console.log(params)
-
   useEffect(() => {
     fetch(`/users/${params.userId}/products`).then((r) => {
       if (r.ok) {
@@ -22,6 +20,7 @@ const ProductCollection = ({ user }) => {
     setProducts(oneLess);
   };
 
+  console.log(products)
   const productList = products.map((product) => {
     return (
       <ProductItem

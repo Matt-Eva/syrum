@@ -61,7 +61,7 @@ const ProductItem = ({ product, user, deleteProduct, viewedUserId }) => {
             Ingredients: {ingredients}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            My notes: {notes}
+            Additional notes: {notes}
           </Typography>
           {showRemove() && <Button onClick={handleEdit}>Edit Product</Button>}
           {showRemove() &&<Button onClick={handleDelete}>Delete Product</Button>}
