@@ -13,6 +13,7 @@ import {
 
 const Profile = ({ user }) => {
   const [viewedUser, setViewedUser] = useState("");
+  const [isFollowing, setIsFollowing] = useState(false)
 
   let navigate = useNavigate();
   const params = useParams();
@@ -38,15 +39,25 @@ const Profile = ({ user }) => {
     return user.id === parseInt(params.userId);
   };
 
+  const followUser = () => {
+    console.log('follow this user')
+  }
+
+  const unfollowUser = () => {
+    console.log('unfollow this user')
+  }
+
   return (
     <>
-      <Container maxWidth="xl">
-        <Box pt={5}>
+      <Container sx={{ pt: 4 }} maxWidth="xl">
+        <Container sx={{ mb: 2}} >
           <Avatar sx={{ width: 65, height: 65 }}>
             {viewedUser && viewedUser.username[0]}
           </Avatar>
+          <Container sx={{pt: 2}}>
           <Button onClick={seeFollowers}>Followers</Button>
           <Button onClick={seeFollowing}>Following</Button>
+          </Container>
           <Box>
             {!showFollowBtn() && (
               <Button onClick={() => console.log("follow me!")}>
@@ -57,7 +68,7 @@ const Profile = ({ user }) => {
           {/* <Typography>
               Routines:
             </Typography> */}
-        </Box>
+        </Container>
         <Card pt={2}>
           <RoutineCollection user={user} viewedUserId={params.userId} />
         </Card>

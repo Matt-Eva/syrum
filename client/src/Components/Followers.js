@@ -21,7 +21,6 @@ const Followers = () => {
 
     return (
         <div>
-            Followers list
             {followerList}
         </div>
     )

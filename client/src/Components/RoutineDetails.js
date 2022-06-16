@@ -2,6 +2,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import StepAccordion from "./StepAccordion";
 import { Button, Box, Container, Typography } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+
 
 const RoutineDetails = ({ user }) => {
   const [currentRoutine, setCurrentRoutine] = useState("");
@@ -48,7 +50,7 @@ const RoutineDetails = ({ user }) => {
         <Box pt={2}>{stepList}</Box>
 
         {showRemove() && (
-          <Button onClick={removeRoutine}>Remove this routine</Button>
+          <Button startIcon={<DeleteIcon />} onClick={removeRoutine}>Remove routine</Button>
         )}
       </Box>
     </>

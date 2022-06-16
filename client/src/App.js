@@ -5,7 +5,6 @@ import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import NavBar from "./Components/NavBar";
 import Profile from "./Pages/Profile";
-import FollowList from "./Components/FollowList";
 import ProductCollection from "./Components/ProductCollection";
 import Routine from "./Pages/Routine";
 import AddSteps from "./Components/AddSteps";
@@ -15,12 +14,14 @@ import EditProduct from "./Components/EditProduct";
 import RoutineDetails from "./Components/RoutineDetails";
 import Followers from "./Components/Followers";
 import Following from "./Components/Following";
+import { orange } from '@mui/material/colors';
+import { createTheme } from '@mui/material/styles';
+
+
 
 
 const App = () => {
   const [user, setUser] = useState(null);
-  const [followers, setFollowers] = useState([]);
-  const [following, setFollowing] = useState([]);
   const [routineId, setRoutineId] = useState("");
   const [formData, setFormData] = useState({
     title: "",
@@ -28,6 +29,17 @@ const App = () => {
   });
 
   let navigate = useNavigate();
+
+  // const theme = createTheme({
+  //   palette: {
+  //     primary: {
+  //       main: orange[500],
+  //     },
+  //     // secondary: {
+  //     //   main: '#f44336',
+  //     // },
+  //   },
+  // });
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -37,21 +49,6 @@ const App = () => {
     });
   }, []);
 
-  useEffect(() => {
-    fetch("/my-followers").then((r) => {
-      if (r.ok) {
-        r.json().then((followers) => setFollowers(followers));
-      }
-    });
-  }, []);
-
-  useEffect(() => {
-    fetch("/my-following").then((r) => {
-      if (r.ok) {
-        r.json().then((following) => setFollowing(following));
-      }
-    });
-  }, []);
 
   const addNewRoutine = (e) => {
     e.preventDefault();
