@@ -38,9 +38,14 @@ const FollowList = ({ follow }) => {
             </CardContent>
             <CardActions sx={{ justifyContent: "center" }}>
               <Button onClick={visitProfile} variant="contained" size="small">
-                See Profile
+                Visit Profile
               </Button>
             </CardActions>
+            {/* <CardActions sx={{ justifyContent: "center" }}>
+              <Button onClick={visitProfile} variant="contained" size="small">
+                See Products
+              </Button>
+            </CardActions> */}
           </Card>
         </Box>
       </Container>
