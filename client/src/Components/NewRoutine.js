@@ -1,4 +1,14 @@
-import { Button, Typography, FormControl, TextField, Box, Container } from "@mui/material";
+import {
+  Button,
+  Typography,
+  FormControl,
+  TextField,
+  Box,
+  Container,
+  InputLabel,
+  Select,
+  MenuItem,
+} from "@mui/material";
 
 const NewRoutine = ({ addNewRoutine, setFormData, formData }) => {
   const handleChange = (e) => {
@@ -10,23 +20,24 @@ const NewRoutine = ({ addNewRoutine, setFormData, formData }) => {
   return (
     <>
       <FormControl onSubmit={addNewRoutine}>
-        <Container align='center' maxWidth='md'>
+        <Container align="center" maxWidth="xs">
           <Box
             component="form"
-            mt={2}
-            bgcolor="primary.main"
+            mt={3}
+            // bgcolor="primary.main"
             // align="center"
             // justify="center"
             sx={{
               "& > :not(style)": { m: 1, width: "25ch" },
               alignItems: "center",
               alignContent: "center",
+              justifyItems: "center",
             }}
             noValidate
             autoComplete="off"
           >
             <Typography id="routine-form" variant="h6" component="h2">
-              Create Your New Routine. Add steps on the next page!
+              Create Your New Routine
             </Typography>
             <TextField
               variant="outlined"
@@ -46,7 +57,22 @@ const NewRoutine = ({ addNewRoutine, setFormData, formData }) => {
               placeholder="Routine description"
               value={formData.description}
             />
-            <Button type="submit" variant="contained">
+            {/* <FormControl>
+              <InputLabel id="select-emoji">Select an Emoji</InputLabel>
+              <Select
+                labelId="select-emoji"
+                id="select-emoji"
+                name="emoji"
+                value={"emoji"}
+                onChange={handleChange}
+                label="Emoji"
+              >
+                <MenuItem value={"emojiiiii"} >
+                &#x1F324;
+                </MenuItem>
+              </Select>
+            </FormControl> */}
+            <Button type="submit" variant="contained" size="large">
               Create Routine
             </Button>
           </Box>
