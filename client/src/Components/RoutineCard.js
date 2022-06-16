@@ -23,6 +23,7 @@ const RoutineCard = ({ routine, viewedUserId }) => {
       sx={{
         width: 300,
         height: 300,
+        
       }}
     >
       <Card variant="outlined">
@@ -40,6 +41,7 @@ const RoutineCard = ({ routine, viewedUserId }) => {
           </Button>
         </CardActions>
       </Card>
+      {/* </Container> */}
     </Box>
   );
 };

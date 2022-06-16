@@ -13,6 +13,11 @@ class UsersController < ApplicationController
         render json: user, status: :ok
     end 
 
+    def show
+        user = User.find(params[:id])
+        render json: user, status: :ok
+    end 
+
     # USERS FOLLOWING ME
     def my_followers
         user = User.find(session[:user_id])

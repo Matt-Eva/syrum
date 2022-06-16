@@ -7,8 +7,6 @@ const ProductCollection = ({ user }) => {
   const [products, setProducts] = useState([]);
   const params = useParams();
 
-  console.log(params)
-
   useEffect(() => {
     fetch(`/users/${params.userId}/products`).then((r) => {
       if (r.ok) {
