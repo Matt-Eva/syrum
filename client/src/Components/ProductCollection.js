@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { ImageList, Container } from "@mui/material";
 import ProductItem from "./ProductItem";
 
-const ProductCollection = ({ user }) => {
+const ProductCollection = ({ user, setIsEdit }) => {
   const [products, setProducts] = useState([]);
   const params = useParams();
 
@@ -29,6 +29,7 @@ const ProductCollection = ({ user }) => {
         user={user}
         deleteProduct={deleteProduct}
         viewedUserId={params.userId}
+        setIsEdit={setIsEdit}
       />
     );
   });

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
 import Login from "./Pages/Login";
+import AddProduct from "./Pages/AddProduct";
 import Home from "./Pages/Home";
 import NavBar from "./Components/NavBar";
 import Profile from "./Pages/Profile";
@@ -23,6 +24,7 @@ import { createTheme } from '@mui/material/styles';
 const App = () => {
   const [user, setUser] = useState(null);
   const [routineId, setRoutineId] = useState("");
+  const [isEdit, setIsEdit] = useState(false);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -68,15 +70,15 @@ const App = () => {
     navigate("/add-steps");
   };
 
-  const addNewProduct = (productObj) => {
-    fetch(`/users/${user.id}/products`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(productObj),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  };
+  // const addNewProduct = (productObj) => {
+  //   fetch(`/users/${user.id}/products`, {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(productObj),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => console.log(data));
+  // };
 
   if (!user) return <Login setUser={setUser} user={user} />;
 
@@ -93,7 +95,7 @@ const App = () => {
           />
           <Route
             path={"/users/:userId/products"}
-            element={<ProductCollection user={user} />}
+            element={<ProductCollection user={user} setIsEdit={setIsEdit} />}
           />
           <Route
             path={"/users/:userId/followers"}
@@ -120,11 +122,11 @@ const App = () => {
           />
           <Route
             path={`/new-product`}
-            element={<ProductForm user={user} submitFun={addNewProduct} />}
+            element={<AddProduct user={user} />}
           />
           <Route
             path="/edit-product/:id"
-            element={<EditProduct user={user} />}
+            element={<EditProduct user={user} setIsEdit={setIsEdit} isEdit={isEdit} />}
           />
           <Route
             path="/users/:userId/routine-details/:id"
