@@ -40,7 +40,7 @@ const Profile = ({ user }) => {
         maxWidth="xl"
       >
         <Box pt={5}>
-          <Avatar sx={{ width: 65, height: 65 }}>{viewedUser.username}</Avatar>
+          <Avatar sx={{ width: 65, height: 65 }}>{viewedUser && viewedUser.username[0]}</Avatar>
           <Button onClick={seeFollowers}>Followers</Button>
           <Button onClick={seeFollowing}>Following</Button>
           {/* <Typography>

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import StepForm from "./StepForm";
 import {
   Button,
@@ -17,13 +16,9 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-// needs styling - how am i going to alert the user when a step has been added?ß
-
 const AddSteps = ({ user, routineId }) => {
   const [products, setProducts] = useState("");
   const [steps, setSteps] = useState([]);
-
-  let navigate = useNavigate();
 
   useEffect(() => {
     fetch(`/users/${user.id}/products`).then((r) => {
@@ -95,21 +90,3 @@ const AddSteps = ({ user, routineId }) => {
 };
 
 export default AddSteps;
-
-// <Box
-//           sx={{
-//             width: 300,
-//             height: 300,
-//           }}
-//         >
-//           <Card variant="outlined">
-//             <CardContent>
-//               <Typography variant="h5" component="div">
-//                 Added Step Number: {step.number}
-//               </Typography>
-//               <Typography variant="h10" component="div">
-//                 Instructions: {step.instructions}
-//               </Typography>
-//             </CardContent>
-//           </Card>
-//         </Box>
