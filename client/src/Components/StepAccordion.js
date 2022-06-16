@@ -12,7 +12,6 @@ import { Container } from "@mui/system";
 
 const StepAccordion = ({ step }) => {
   const { number, instructions, product } = step;
-  console.log(product);
 
   return (
     <div>
@@ -27,7 +26,6 @@ const StepAccordion = ({ step }) => {
               <Typography>Step {number}</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              {/* <Typography>{product.name}</Typography> */}
               <ImageList>
                 <Typography>{instructions}</Typography>
                 <ImageListItem>
@@ -37,12 +35,6 @@ const StepAccordion = ({ step }) => {
                     alt={product.name}
                     loading="lazy"
                   ></img>
-                  {/* <img
-                    src={`${product.image}?w=248&fit=crop&auto=format`}
-                    srcSet={`${product.image}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                    alt={product.name}
-                    loading="lazy"
-                  ></img> */}
                 </ImageListItem>
               </ImageList>
             </AccordionDetails>

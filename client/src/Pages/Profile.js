@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import RoutineCollection from "../Components/RoutineCollection";
+import FollowList from "../Components/FollowList";
 import {
   Avatar,
   Container,
@@ -11,38 +12,48 @@ import {
 } from "@mui/material";
 
 const Profile = ({ user }) => {
-  const [viewedUser, setViewedUser] = useState('')
+  const [viewedUser, setViewedUser] = useState("");
 
   let navigate = useNavigate();
   const params = useParams();
-  
+
   useEffect(() => {
     fetch(`/users/${params.userId}`)
-    .then(r => r.json())
-    .then(data => setViewedUser(data))
-  }, [params.userId])
+      .then((r) => r.json())
+      .then((data) => setViewedUser(data));
+  }, [params.userId]);
 
-  // console.log(viewedUser);
 
   const seeFollowers = () => {
-    navigate("/followers");
+    navigate(`/users/${params.userId}/followers`);
     console.log("see your followers");
   };
 
   const seeFollowing = () => {
-    navigate("/following");
+    navigate(`/users/${params.userId}/following`);
     console.log("see your following");
+  };
+
+  const showFollowBtn = () => {
+    return user.id === parseInt(params.userId);
   };
 
   return (
     <>
-      <Container
-        maxWidth="xl"
-      >
+      <Container maxWidth="xl">
         <Box pt={5}>
-          <Avatar sx={{ width: 65, height: 65 }}>{viewedUser && viewedUser.username[0]}</Avatar>
+          <Avatar sx={{ width: 65, height: 65 }}>
+            {viewedUser && viewedUser.username[0]}
+          </Avatar>
           <Button onClick={seeFollowers}>Followers</Button>
           <Button onClick={seeFollowing}>Following</Button>
+          <Box>
+            {!showFollowBtn() && (
+              <Button onClick={() => console.log("follow me!")}>
+                Follow {viewedUser.username}
+              </Button>
+            )}
+          </Box>
           {/* <Typography>
               Routines:
             </Typography> */}

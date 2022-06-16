@@ -98,11 +98,11 @@ const App = () => {
           />
           <Route
             path={"/users/:userId/followers"}
-            element={<FollowList followers={followers} />}
+            element={<FollowList users={followers} />}
           />
           <Route
             path={"/users/:userId/following"}
-            element={<FollowList following={following} />}
+            element={<FollowList users={following} />}
           />
           <Route
             path={`/new-routine`}

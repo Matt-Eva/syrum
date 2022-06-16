@@ -41,7 +41,8 @@ const RoutineDetails = ({ user }) => {
           <Typography variant="h4">{currentRoutine.title} Routine</Typography>
         </Box>
         <Container maxWidth="xs">
-          Description: {currentRoutine.description}
+          <Typography fontWeight='bold'>Description:</Typography>
+          {currentRoutine.description}
         </Container>
 
         <Box pt={2}>{stepList}</Box>
