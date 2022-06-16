@@ -23,7 +23,7 @@ const ProductItem = ({ product, user, deleteProduct, viewedUserId }) => {
     });
     deleteProduct(product);
   };
-
+//startIcon={<DeleteIcon />}
   const handleEdit = (e) => {
     console.log("edit me!");
     navigate(`/edit-product/${product.id}`);
