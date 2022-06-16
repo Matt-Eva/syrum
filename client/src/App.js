@@ -24,7 +24,6 @@ import { createTheme } from '@mui/material/styles';
 const App = () => {
   const [user, setUser] = useState(null);
   const [routineId, setRoutineId] = useState("");
-  const [isEdit, setIsEdit] = useState(false);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -95,7 +94,7 @@ const App = () => {
           />
           <Route
             path={"/users/:userId/products"}
-            element={<ProductCollection user={user} setIsEdit={setIsEdit} />}
+            element={<ProductCollection user={user} />}
           />
           <Route
             path={"/users/:userId/followers"}
@@ -126,7 +125,7 @@ const App = () => {
           />
           <Route
             path="/edit-product/:id"
-            element={<EditProduct user={user} setIsEdit={setIsEdit} isEdit={isEdit} />}
+            element={<EditProduct user={user} />}
           />
           <Route
             path="/users/:userId/routine-details/:id"

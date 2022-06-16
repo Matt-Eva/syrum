@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button, Typography, FormControl, TextField, Box } from "@mui/material";
 import { Container } from "@mui/system";
 
-const ProductForm = ({ user, submitFun, isEdit }) => {
+const ProductForm = ({ user, submitFun }) => {
   let navigate = useNavigate();
   // const [productData, setProductData] = useState({
   //   name: '',
@@ -15,7 +15,7 @@ const ProductForm = ({ user, submitFun, isEdit }) => {
   // });
   const [productData, setProductData] = useState('')
 
-  
+
   const handleChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;

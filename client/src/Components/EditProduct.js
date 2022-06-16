@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Button, Typography, FormControl, TextField, Box } from "@mui/material";
 
-const EditProduct = ({ user, isEdit, setIsEdit }) => {
+const EditProduct = ({ user }) => {
   const [currentProduct, setCurrentProduct] = useState("");
 
   const product = useParams();
@@ -26,7 +26,6 @@ const EditProduct = ({ user, isEdit, setIsEdit }) => {
         res.json().then((user) => {
           console.log("success");
         });
-        setIsEdit(false);
       } else {
         res.json().then((json) => console.log("wrong"));
       }
@@ -39,12 +38,7 @@ const EditProduct = ({ user, isEdit, setIsEdit }) => {
         <Typography id="product-form" variant="h6" component="h2">
           Update Product:
         </Typography>
-        <ProductForm
-          submitFun={editproduct}
-          user={user}
-          isEdit={isEdit}
-          setIsEdit={setIsEdit}
-        />
+        <ProductForm submitFun={editproduct} user={user} />
       </Box>
     </div>
   );

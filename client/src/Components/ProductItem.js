@@ -11,7 +11,7 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 
-const ProductItem = ({ product, user, deleteProduct, viewedUserId, setIsEdit }) => {
+const ProductItem = ({ product, user, deleteProduct, viewedUserId }) => {
   const { id, name, brand, ingredients, notes, image } = product;
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -27,7 +27,6 @@ const ProductItem = ({ product, user, deleteProduct, viewedUserId, setIsEdit }) 
   };
   const handleEdit = (e) => {
     console.log("edit me!");
-    setIsEdit(true)
     navigate(`/edit-product/${product.id}`);
   };
 
