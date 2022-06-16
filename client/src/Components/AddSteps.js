@@ -1,16 +1,10 @@
 import { useState, useEffect } from "react";
 import StepForm from "./StepForm";
 import {
-  Button,
   Container,
-  Typography,
   Card,
   CardContent,
-  Box,
-  ListItem,
   Grid,
-  ListItemText,
-  List,
   Stack,
   Paper,
 } from "@mui/material";
@@ -58,15 +52,15 @@ const AddSteps = ({ user, routineId }) => {
   const stepObjs = steps.map((step) => {
     return (
       <>
-        <Container maxWidth='md' sx={{ pt: 4 }}>
+        <Container maxWidth='sm' sx={{ pt: 4 }}>
           <Stack>
-            {/* <Item> */}
+            <Item>
               <Card>
                 <CardContent>Added Step Number: {step.number}!</CardContent>
                 <CardContent>Instructions: {step.instructions}</CardContent>
-                <CardContent>Product info?</CardContent>
+                {/* <CardContent>Product info?</CardContent> */}
               </Card>
-            {/* </Item> */}
+            </Item>
           </Stack>
         </Container>
       </>

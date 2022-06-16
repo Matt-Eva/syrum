@@ -29,7 +29,7 @@ const RoutineCard = ({ routine, viewedUserId }) => {
       <Card variant="outlined">
         <CardContent>
           <Typography sx={{ fontSize: 50 }} color="text.secondary" gutterBottom>
-            🍋
+            {/* 🍋 */}
           </Typography>
           <Typography variant="h5" component="div">
             title: {title}

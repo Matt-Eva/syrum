@@ -20,7 +20,7 @@ const RoutineCollection = ({ user, viewedUserId }) => {
   // console.log(routines);
 
   //   return <Box sx={{ maxWidth: 275 }}>{routineList}</Box>;
-  return <Container maxWidth="xl">{routineList}</Container>;
+  return <Container sx={{ pt: 4 }} maxWidth="xl">{routineList}</Container>;
 };
 
 export default RoutineCollection;

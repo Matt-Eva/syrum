@@ -8,6 +8,8 @@ import {
   Typography,
   Box,
 } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 
 const ProductItem = ({ product, user, deleteProduct, viewedUserId }) => {
   const { id, name, brand, ingredients, notes, image } = product;
@@ -23,7 +25,6 @@ const ProductItem = ({ product, user, deleteProduct, viewedUserId }) => {
     });
     deleteProduct(product);
   };
-//startIcon={<DeleteIcon />}
   const handleEdit = (e) => {
     console.log("edit me!");
     navigate(`/edit-product/${product.id}`);
@@ -42,8 +43,8 @@ const ProductItem = ({ product, user, deleteProduct, viewedUserId }) => {
   };
 
   const showRemove = () => {
-    return user.id === parseInt(viewedUserId)
-  }
+    return user.id === parseInt(viewedUserId);
+  };
 
   return (
     <>
@@ -63,8 +64,18 @@ const ProductItem = ({ product, user, deleteProduct, viewedUserId }) => {
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             Additional notes: {notes}
           </Typography>
-          {showRemove() && <Button onClick={handleEdit}>Edit Product</Button>}
-          {showRemove() &&<Button onClick={handleDelete}>Delete Product</Button>}
+          <Box>
+            {showRemove() && (
+              <Button startIcon={<EditIcon />} onClick={handleEdit}>
+                Edit
+              </Button>
+            )}
+              {showRemove() && (
+                <Button startIcon={<DeleteIcon />} onClick={handleDelete}>
+                  Delete
+                </Button>
+              )}
+          </Box>
         </Box>
       </Modal>
 
