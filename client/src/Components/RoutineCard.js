@@ -25,7 +25,6 @@ const RoutineCard = ({ routine, viewedUserId }) => {
         height: 300,
       }}
     >
-      {/* // <Container> */}
       <Card variant="outlined">
         <CardContent>
           <Typography sx={{ fontSize: 50 }} color="text.secondary" gutterBottom>
@@ -41,7 +40,6 @@ const RoutineCard = ({ routine, viewedUserId }) => {
           </Button>
         </CardActions>
       </Card>
-      {/* </Container> */}
     </Box>
   );
 };

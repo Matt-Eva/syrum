@@ -1,4 +1,14 @@
-import { Button, Typography, FormControl, TextField, Box, Container } from "@mui/material";
+import {
+  Button,
+  Typography,
+  FormControl,
+  TextField,
+  Box,
+  Container,
+  InputLabel,
+  Select,
+  MenuItem,
+} from "@mui/material";
 
 const NewRoutine = ({ addNewRoutine, setFormData, formData }) => {
   const handleChange = (e) => {
@@ -10,10 +20,10 @@ const NewRoutine = ({ addNewRoutine, setFormData, formData }) => {
   return (
     <>
       <FormControl onSubmit={addNewRoutine}>
-        <Container align='center' maxWidth='md'>
+        <Container align="center" maxWidth="xs">
           <Box
             component="form"
-            mt={2}
+            mt={3}
             // bgcolor="primary.main"
             // align="center"
             // justify="center"
@@ -21,7 +31,7 @@ const NewRoutine = ({ addNewRoutine, setFormData, formData }) => {
               "& > :not(style)": { m: 1, width: "25ch" },
               alignItems: "center",
               alignContent: "center",
-              justifyItems: 'center'
+              justifyItems: "center",
             }}
             noValidate
             autoComplete="off"
@@ -47,7 +57,22 @@ const NewRoutine = ({ addNewRoutine, setFormData, formData }) => {
               placeholder="Routine description"
               value={formData.description}
             />
-            <Button type="submit" variant="contained" size='large'>
+            {/* <FormControl>
+              <InputLabel id="select-emoji">Select an Emoji</InputLabel>
+              <Select
+                labelId="select-emoji"
+                id="select-emoji"
+                name="emoji"
+                value={"emoji"}
+                onChange={handleChange}
+                label="Emoji"
+              >
+                <MenuItem value={"emojiiiii"} >
+                &#x1F324;
+                </MenuItem>
+              </Select>
+            </FormControl> */}
+            <Button type="submit" variant="contained" size="large">
               Create Routine
             </Button>
           </Box>
