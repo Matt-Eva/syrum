@@ -1,8 +1,9 @@
-class UserSerializer < ActiveModel::Serializer
+class ShowSerializer < ActiveModel::Serializer
   attributes :id, :username, :password_digest, :products, :following
 
   def following
-    true #@options[:following] || false
+    puts @options
+   false
   end
 
 end
