@@ -1,7 +1,15 @@
 class FollowsController < ApplicationController
 
-    # def popular_products
+    # users following this user
+    def my_followers
+        user = User.find(params[:id])
+        render json: user.followers, status: :ok
+    end
 
-    # end
+     # USERS this user is FOLLOWING
+    def my_following
+        user = User.find(params[:id])
+        render json: user.followed_users
+    end
 
 end

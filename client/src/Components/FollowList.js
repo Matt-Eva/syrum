@@ -11,7 +11,6 @@ import {
 } from "@mui/material";
 
 const FollowList = ({ follow }) => {
-  console.log(follow);
   let navigate = useNavigate();
 
   const visitProfile = () => {

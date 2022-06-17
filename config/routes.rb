@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   # resources :users
   
   get '/me', to: 'users#me'
-  get '/followers', to: 'users#my_followers'
-  get '/following', to: 'users#my_following'
+  get '/users/:id/followers', to: 'follows#my_followers'
+  get '/users/:id/following', to: 'follows#my_following'
   # get '/routine-steps', to: 'routines#routine_steps'
 
   # post '/new-step', to: 'steps#new_step'
