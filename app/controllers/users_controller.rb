@@ -20,16 +20,16 @@ class UsersController < ApplicationController
     end 
 
     # USERS FOLLOWING ME
-    def my_followers
-        user = User.find(session[:user_id])
-        render json: user.followers, status: :ok
-    end 
+    # def my_followers
+    #     user = User.find(session[:user_id])
+    #     render json: user.followers, status: :ok
+    # end 
 
-    # USERS I AM FOLLOWING
-    def my_following
-        user = User.find(session[:user_id])
-        render json: user.followed_users
-    end
+    # # USERS I AM FOLLOWING
+    # def my_following
+    #     user = User.find(session[:user_id])
+    #     render json: user.followed_users
+    # end
 
     private
 

@@ -8,6 +8,7 @@ import {
   Card,
   Container,
 } from "@mui/material";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const RoutineCard = ({ routine, viewedUserId }) => {
   const { id, title } = routine;
@@ -40,6 +41,7 @@ const RoutineCard = ({ routine, viewedUserId }) => {
             See Routine Details
           </Button>
         </CardActions>
+        {/* <Button startIcon={FavoriteIcon} ></Button> */}
       </Card>
       {/* </Container> */}
     </Box>

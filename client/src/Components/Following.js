@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import FollowList from "./FollowList";
 
 const Following = () => {
     const [following, setFollowing] = useState([]);
+    const params = useParams();
+
+    console.log(params)
+    console.log(following)
 
     useEffect(() => {
-        fetch("/following").then((r) => {
+        fetch(`/users/${params.userId}/following`).then((r) => {
           if (r.ok) {
             r.json().then((following) => setFollowing(following));
           }

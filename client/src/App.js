@@ -15,11 +15,8 @@ import EditProduct from "./Components/EditProduct";
 import RoutineDetails from "./Components/RoutineDetails";
 import Followers from "./Components/Followers";
 import Following from "./Components/Following";
-import { orange } from '@mui/material/colors';
-import { createTheme } from '@mui/material/styles';
-
-
-
+import { orange } from "@mui/material/colors";
+import { createTheme } from "@mui/material/styles";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -50,7 +47,6 @@ const App = () => {
     });
   }, []);
 
-
   const addNewRoutine = (e) => {
     e.preventDefault();
     const newRoutine = {
@@ -69,16 +65,6 @@ const App = () => {
     navigate("/add-steps");
   };
 
-  // const addNewProduct = (productObj) => {
-  //   fetch(`/users/${user.id}/products`, {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(productObj),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => console.log(data));
-  // };
-
   if (!user) return <Login setUser={setUser} user={user} />;
 
   return (
@@ -96,14 +82,8 @@ const App = () => {
             path={"/users/:userId/products"}
             element={<ProductCollection user={user} />}
           />
-          <Route
-            path={"/users/:userId/followers"}
-            element={<Followers />}
-          />
-          <Route
-            path={"/users/:userId/following"}
-            element={<Following />}
-          />
+          <Route path={"/users/:userId/followers"} element={<Followers />} />
+          <Route path={"/users/:userId/following"} element={<Following />} />
           <Route
             path={`/new-routine`}
             element={
@@ -119,10 +99,7 @@ const App = () => {
             path={`/add-steps`}
             element={<AddSteps user={user} routineId={routineId} />}
           />
-          <Route
-            path={`/new-product`}
-            element={<AddProduct user={user} />}
-          />
+          <Route path={`/new-product`} element={<AddProduct user={user} />} />
           <Route
             path="/edit-product/:id"
             element={<EditProduct user={user} />}
