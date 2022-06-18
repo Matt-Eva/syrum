@@ -1,8 +1,8 @@
 class ShowSerializer < ActiveModel::Serializer
-  attributes :id, :username, :password_digest, :products, :following
+  attributes :id, :username, :password_digest, :products, :show_follow
 
-  def following
-    @instance_options[:following]
+  def show_follow
+    @instance_options[:show_follow]
   end
 
 end

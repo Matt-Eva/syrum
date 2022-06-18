@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     def show
         user = User.find(params[:id])
         current_user = User.find(session[:user_id])
-        render json: user, status: :ok, serializer: ShowSerializer, following: current_user.following?(user)
+        render json: user, status: :ok, serializer: ShowSerializer, show_follow: current_user.show_follow?(user)
     end 
 
   

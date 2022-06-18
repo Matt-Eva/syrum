@@ -4,14 +4,14 @@ import { useState, useEffect } from "react";
 import { Typography, Box } from "@mui/material";
 
 const EditProduct = ({ user }) => {
-  const [currentProduct, setCurrentProduct] = useState("");
+  const [productFormData, setProductFormData] = useState(null);
 
   const product = useParams();
 
   useEffect(() => {
     fetch(`/users/${user.id}/products/${product.id}`).then((r) => {
       if (r.ok) {
-        r.json().then((product) => setCurrentProduct(product));
+        r.json().then((product) => setProductFormData(product));
       }
     });
   }, [product.id, user.id]);
@@ -32,13 +32,22 @@ const EditProduct = ({ user }) => {
     });
   };
 
+  if (!productFormData) {
+    return <></>;
+  }
+
   return (
     <div>
       <Box mt={4}>
         <Typography id="product-form" variant="h6" component="h2">
           Update Product:
         </Typography>
-        <ProductForm submitFun={editproduct} user={user} />
+        <ProductForm
+          submitFun={editproduct}
+          user={user}
+          productFormData={productFormData}
+          setProductFormData={setProductFormData}
+        />
       </Box>
     </div>
   );
