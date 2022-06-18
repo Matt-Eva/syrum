@@ -1,35 +1,29 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import { Button, FormControl, TextField, Box } from "@mui/material";
 import { Container } from "@mui/system";
 
-const ProductForm = ({ user, submitFun }) => {
+const ProductForm = ({
+  user,
+  submitFun,
+  productFormData,
+  setProductFormData,
+}) => {
   let navigate = useNavigate();
-  // const [productData, setProductData] = useState({
-  //   name: '',
-  //   ingredients: '',
-  //   brand: '',
-  //   notes: '',
-  //   image: '',
-  //   user_id: user.id,
-  // });
-  const [productData, setProductData] = useState('')
-
 
   const handleChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
-    setProductData({ ...productData, [name]: value });
+    setProductFormData({ ...productFormData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const productObj = {
-      name: productData.name,
-      ingredients: productData.ingredients,
-      brand: productData.brand,
-      notes: productData.notes,
-      image: productData.image,
+      name: productFormData.name,
+      ingredients: productFormData.ingredients,
+      brand: productFormData.brand,
+      notes: productFormData.notes,
+      image: productFormData.image,
       user_id: user.id,
     };
     submitFun(productObj);
@@ -59,7 +53,7 @@ const ProductForm = ({ user, submitFun }) => {
               type="text"
               name="name"
               placeholder="Name"
-              value={productData.name}
+              value={productFormData.name}
             />
             <TextField
               label="Product Ingredients"
@@ -68,7 +62,7 @@ const ProductForm = ({ user, submitFun }) => {
               type="text"
               name="ingredients"
               placeholder="ingredients"
-              value={productData.ingredients}
+              value={productFormData.ingredients}
             />
             <TextField
               label="Product Brand"
@@ -77,7 +71,7 @@ const ProductForm = ({ user, submitFun }) => {
               type="text"
               name="brand"
               placeholder="Brand"
-              value={productData.brand}
+              value={productFormData.brand}
             />
             <TextField
               label="Product Image"
@@ -86,7 +80,7 @@ const ProductForm = ({ user, submitFun }) => {
               type="text"
               name="image"
               placeholder="Image"
-              value={productData.image}
+              value={productFormData.image}
             />
             <TextField
               label="Additional Notes"
@@ -95,7 +89,7 @@ const ProductForm = ({ user, submitFun }) => {
               type="text"
               name="notes"
               placeholder="Notes"
-              value={productData.notes}
+              value={productFormData.notes}
             />
             <Button type="submit" variant="contained">
               Create

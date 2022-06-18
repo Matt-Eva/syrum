@@ -1,6 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import RoutineCollection from "../Components/RoutineCollection";
 import { Avatar, Container, Box, Card, Button } from "@mui/material";
 import ProfileTabs from "../Components/ProfileTabs";
 
@@ -16,7 +15,7 @@ const Profile = ({ user }) => {
       .then((r) => r.json())
       .then((data) => {
         setViewedUser(data)
-        setShowFollow(!data.following)
+        setShowFollow(data.show_follow)
       });
   }, [params.userId]);
 
