@@ -31,10 +31,6 @@ const Profile = ({ user }) => {
     return user.id === parseInt(params.userId);
   };
 
-  // const seeProducts = () => {
-  //   navigate(`/users/${params.userId}/products`)
-  // }
-
   const followUser = () => {
     console.log("follow this user");
   };
@@ -72,12 +68,7 @@ const Profile = ({ user }) => {
               Routines:
             </Typography> */}
         </Container>
-        {/* <Card pt={2}>
-          <Container maxWidth="xl" sx={{ pt: 4 }}> */}
-          {/* <RoutineCollection user={user} viewedUserId={params.userId} /> */}
-          <ProfileTabs user={user} viewedUserId={params.userId} />
-          {/* </Container>
-        </Card> */}
+        <ProfileTabs user={user} viewedUserId={params.userId} />
       </Container>
     </>
   );

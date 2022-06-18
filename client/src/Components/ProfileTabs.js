@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import RoutineCard from "./RoutineCard";
+import { useState } from "react";
 import { Container, Box, Tabs, Tab, Card } from "@mui/material";
 import ProductCollection from "./ProductCollection";
 import TabPanel from "./TabPanel";

@@ -21,7 +21,6 @@ const StepForm = ({ handleStep, products, user }) => {
 
   let navigate = useNavigate();
 
-
   const sendSteps = (e) => {
     navigate(`/users/${user.id}/profile`);
   };
@@ -106,8 +105,8 @@ const StepForm = ({ handleStep, products, user }) => {
             Add a Step
           </Button>
           <Button variant="contained" onClick={sendSteps}>
-          Complete Routine
-        </Button>
+            Complete Routine
+          </Button>
         </Box>
       </FormControl>
     </>

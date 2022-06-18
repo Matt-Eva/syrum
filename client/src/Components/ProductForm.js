@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Button, Typography, FormControl, TextField, Box } from "@mui/material";
+import { Button, FormControl, TextField, Box } from "@mui/material";
 import { Container } from "@mui/system";
 
 const ProductForm = ({ user, submitFun }) => {
@@ -33,7 +33,6 @@ const ProductForm = ({ user, submitFun }) => {
       user_id: user.id,
     };
     submitFun(productObj);
-    // setIsEdit(false)
     navigate(`/users/${user.id}/products`);
   };
 

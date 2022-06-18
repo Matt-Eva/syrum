@@ -21,7 +21,7 @@ const AddSteps = ({ user, routineId }) => {
         r.json().then((products) => setProducts(products));
       }
     });
-  }, []);
+  }, [user.id]);
 
   const createStep = (stepData) => {
     const newStep = {

@@ -3,31 +3,27 @@ import { useParams } from "react-router-dom";
 import FollowList from "./FollowList";
 
 const Following = () => {
-    const [following, setFollowing] = useState([]);
-    const params = useParams();
+  const [following, setFollowing] = useState([]);
+  const params = useParams();
 
-    console.log(params)
-    console.log(following)
+  useEffect(() => {
+    fetch(`/users/${params.userId}/following`).then((r) => {
+      if (r.ok) {
+        r.json().then((following) => setFollowing(following));
+      }
+    });
+  }, [params.userId]);
 
-    useEffect(() => {
-        fetch(`/users/${params.userId}/following`).then((r) => {
-          if (r.ok) {
-            r.json().then((following) => setFollowing(following));
-          }
-        });
-      }, []);
+  const followingList = following.map((following) => {
+    return <FollowList follow={following} key={following.id} />;
+  });
 
-      const followingList = following.map((following) => {
-        return <FollowList follow={following} key={following.id}/>
-      })
+  return (
+    <div>
+      following list
+      {followingList}
+    </div>
+  );
+};
 
-
-    return (
-        <div>
-            following list
-            {followingList}
-        </div>
-    )
-}
-
-export default Following
+export default Following;

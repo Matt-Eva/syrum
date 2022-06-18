@@ -1,7 +1,7 @@
 import ProductForm from "./ProductForm";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Button, Typography, FormControl, TextField, Box } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 
 const EditProduct = ({ user }) => {
   const [currentProduct, setCurrentProduct] = useState("");
