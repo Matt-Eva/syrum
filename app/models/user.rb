@@ -23,8 +23,8 @@ class User < ApplicationRecord
 
     has_secure_password
 
-    def following?(followed_user_id)
-        Follow.where(follower_id: self.id, followed_user_id: followed_user_id).any?
+    def following?(followed_user)
+        Follow.where(follower: self, followed_user: followed_user).any?
     end
 
 end
