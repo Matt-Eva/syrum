@@ -9,7 +9,6 @@ import Profile from "./Pages/Profile";
 import ProductCollection from "./Components/ProductCollection";
 import Routine from "./Pages/Routine";
 import AddSteps from "./Components/AddSteps";
-import ProductForm from "./Components/ProductForm";
 import Container from "@mui/material/Container";
 import EditProduct from "./Components/EditProduct";
 import RoutineDetails from "./Components/RoutineDetails";
@@ -17,6 +16,7 @@ import Followers from "./Components/Followers";
 import Following from "./Components/Following";
 import { orange } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
+import AllUsers from "./Components/AllUsers";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -70,6 +70,7 @@ const App = () => {
   return (
     <>
       <NavBar user={user} setUser={setUser} />
+      <AllUsers/>
 
       <Container align="center" maxWidth="md">
         <Routes>

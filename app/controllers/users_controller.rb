@@ -13,11 +13,18 @@ class UsersController < ApplicationController
         render json: user, status: :ok
     end 
 
+    def index
+        users = User.all
+        render json: users
+    end
+
     def show
         user = User.find(params[:id])
         current_user = User.find(session[:user_id])
         render json: user, status: :ok, serializer: ShowSerializer, following: current_user.following?(user.id)
     end 
+
+  
 
     # USERS FOLLOWING ME
     # def my_followers
