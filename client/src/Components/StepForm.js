@@ -66,7 +66,7 @@ const StepForm = ({ handleStep, products, user }) => {
             label="Step Number"
             variant="outlined"
             onChange={handleChange}
-            type="text"
+            type="number"
             name="number"
             placeholder="Step Number"
             value={stepFormData.number}
@@ -76,6 +76,7 @@ const StepForm = ({ handleStep, products, user }) => {
             variant="outlined"
             onChange={handleChange}
             type="text"
+            multiline
             name="instructions"
             placeholder="instructions"
             value={stepFormData.instructions}

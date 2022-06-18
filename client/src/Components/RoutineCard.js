@@ -6,7 +6,6 @@ import {
   CardActions,
   Box,
   Card,
-  Container,
 } from "@mui/material";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
@@ -22,8 +21,8 @@ const RoutineCard = ({ routine, viewedUserId }) => {
   return (
     <Box
       sx={{
-        width: 300,
-        height: 300,
+        width: 200,
+        height: 200,
         
       }}
     >
@@ -33,17 +32,16 @@ const RoutineCard = ({ routine, viewedUserId }) => {
             {/* 🍋 */}
           </Typography>
           <Typography variant="h5" component="div">
-            title: {title}
+            {title}
           </Typography>
         </CardContent>
-        <CardActions>
+        <CardActions sx={{ justifyContent: "center" }}>
           <Button onClick={routineDetails} size="small">
             See Routine Details
           </Button>
         </CardActions>
         {/* <Button startIcon={FavoriteIcon} ></Button> */}
       </Card>
-      {/* </Container> */}
     </Box>
   );
 };

@@ -53,6 +53,7 @@ const NewRoutine = ({ addNewRoutine, setFormData, formData }) => {
               label="Description"
               onChange={handleChange}
               type="text"
+              multiline
               name="description"
               placeholder="Routine description"
               value={formData.description}

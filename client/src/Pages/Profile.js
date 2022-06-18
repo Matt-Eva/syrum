@@ -2,10 +2,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import RoutineCollection from "../Components/RoutineCollection";
 import { Avatar, Container, Box, Card, Button } from "@mui/material";
+import ProfileTabs from "../Components/ProfileTabs";
 
 const Profile = ({ user }) => {
   const [viewedUser, setViewedUser] = useState("");
-  const [isFollowing, setIsFollowing] = useState(false);
+  // const [isFollowing, setIsFollowing] = useState(false);
 
   let navigate = useNavigate();
   const params = useParams();
@@ -30,9 +31,9 @@ const Profile = ({ user }) => {
     return user.id === parseInt(params.userId);
   };
 
-  const seeProducts = () => {
-    navigate(`/users/${params.userId}/products`)
-  }
+  // const seeProducts = () => {
+  //   navigate(`/users/${params.userId}/products`)
+  // }
 
   const followUser = () => {
     console.log("follow this user");
@@ -59,21 +60,24 @@ const Profile = ({ user }) => {
                 Follow {viewedUser.username}
               </Button>
             )}
-            <Box>
+            {/* <Box>
               {!showFollowBtn() && (
                 <Button onClick={seeProducts}>
                   See {viewedUser.username}'s Products
                 </Button>
               )}
-            </Box>
+            </Box> */}
           </Box>
           {/* <Typography>
               Routines:
             </Typography> */}
         </Container>
-        <Card pt={2}>
-          <RoutineCollection user={user} viewedUserId={params.userId} />
-        </Card>
+        {/* <Card pt={2}>
+          <Container maxWidth="xl" sx={{ pt: 4 }}> */}
+          {/* <RoutineCollection user={user} viewedUserId={params.userId} /> */}
+          <ProfileTabs user={user} viewedUserId={params.userId} />
+          {/* </Container>
+        </Card> */}
       </Container>
     </>
   );

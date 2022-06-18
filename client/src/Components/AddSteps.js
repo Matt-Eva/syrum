@@ -7,6 +7,7 @@ import {
   Grid,
   Stack,
   Paper,
+  Typography,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
@@ -52,13 +53,15 @@ const AddSteps = ({ user, routineId }) => {
   const stepObjs = steps.map((step) => {
     return (
       <>
-        <Container maxWidth='sm' sx={{ pt: 4 }}>
+        <Container maxWidth="sm" sx={{ pt: 4 }}>
           <Stack>
             <Item>
               <Card>
-                <CardContent>Added Step Number: {step.number}!</CardContent>
+                <CardContent>
+                  <Typography>Step Number: {step.number}</Typography>
+                </CardContent>
                 <CardContent>Instructions: {step.instructions}</CardContent>
-                {/* <CardContent>Product info?</CardContent> */}
+                <CardContent>Product: {step.product.image}</CardContent>
               </Card>
             </Item>
           </Stack>
@@ -66,7 +69,6 @@ const AddSteps = ({ user, routineId }) => {
       </>
     );
   });
-
 
   return (
     <>
