@@ -70,7 +70,7 @@ const App = () => {
   return (
     <>
       <NavBar user={user} setUser={setUser} />
-      <AllUsers/>
+      {/* <AllUsers/> */}
 
       <Container align="center" maxWidth="md">
         <Routes>

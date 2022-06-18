@@ -2,10 +2,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import RoutineCollection from "../Components/RoutineCollection";
 import { Avatar, Container, Box, Card, Button } from "@mui/material";
+import ProfileTabs from "../Components/ProfileTabs";
 
 const Profile = ({ user }) => {
   const [viewedUser, setViewedUser] = useState("");
-  const [isFollowing, setIsFollowing] = useState(false);
+  // const [isFollowing, setIsFollowing] = useState(false);
 
   let navigate = useNavigate();
   const params = useParams();
@@ -71,9 +72,12 @@ const Profile = ({ user }) => {
               Routines:
             </Typography> */}
         </Container>
-        <Card pt={2}>
-          <RoutineCollection user={user} viewedUserId={params.userId} />
-        </Card>
+        {/* <Card pt={2}>
+          <Container maxWidth="xl" sx={{ pt: 4 }}> */}
+          {/* <RoutineCollection user={user} viewedUserId={params.userId} /> */}
+          <ProfileTabs user={user} viewedUserId={params.userId} />
+          {/* </Container>
+        </Card> */}
       </Container>
     </>
   );
