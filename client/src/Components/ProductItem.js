@@ -70,11 +70,11 @@ const ProductItem = ({ product, user, deleteProduct, viewedUserId }) => {
                 Edit
               </Button>
             )}
-              {showRemove() && (
-                <Button startIcon={<DeleteIcon />} onClick={handleDelete}>
-                  Delete
-                </Button>
-              )}
+            {showRemove() && (
+              <Button startIcon={<DeleteIcon />} onClick={handleDelete}>
+                Delete
+              </Button>
+            )}
           </Box>
         </Box>
       </Modal>

@@ -54,7 +54,7 @@ const NavBar = ({ user, setUser }) => {
     // <AppBar position="static" sx={{ borderRadius: 20 }}>
 
     <AppBar position="static">
-      <Container maxWidth="xl" >
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <Box sx={{ flexGrow: 1.1 }}> */}
           <Box>
@@ -124,7 +124,9 @@ const NavBar = ({ user, setUser }) => {
               color: "inherit",
               textDecoration: "none",
             }}
-          >SYRUM</Typography>
+          >
+            SYRUM
+          </Typography>
           <Box sx={{ flexGrow: 0 }}>
             <Button
               onClick={handleCloseNavMenu}
@@ -134,7 +136,9 @@ const NavBar = ({ user, setUser }) => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt={user.name} src={user.name}>{user.username[0]}</Avatar>
+                <Avatar alt={user.name} src={user.name}>
+                  {user.username[0]}
+                </Avatar>
               </IconButton>
             </Tooltip>
             <Menu

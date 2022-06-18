@@ -4,7 +4,6 @@ import StepAccordion from "./StepAccordion";
 import { Button, Box, Container, Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-
 const RoutineDetails = ({ user }) => {
   const [currentRoutine, setCurrentRoutine] = useState("");
   let navigate = useNavigate();
@@ -17,7 +16,7 @@ const RoutineDetails = ({ user }) => {
         r.json().then((routine) => setCurrentRoutine(routine));
       }
     });
-  }, []);
+  }, [params.id, params.userId]);
 
   const removeRoutine = () => {
     fetch(`/users/${user.id}/routines/${params.id}`, {
@@ -43,14 +42,16 @@ const RoutineDetails = ({ user }) => {
           <Typography variant="h4">{currentRoutine.title} Routine</Typography>
         </Box>
         <Container maxWidth="xs">
-          <Typography fontWeight='bold'>Description:</Typography>
+          <Typography fontWeight="bold">Description:</Typography>
           {currentRoutine.description}
         </Container>
 
         <Box pt={2}>{stepList}</Box>
 
         {showRemove() && (
-          <Button startIcon={<DeleteIcon />} onClick={removeRoutine}>Remove routine</Button>
+          <Button startIcon={<DeleteIcon />} onClick={removeRoutine}>
+            Remove routine
+          </Button>
         )}
       </Box>
     </>
