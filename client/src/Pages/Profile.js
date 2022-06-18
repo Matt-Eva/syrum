@@ -30,9 +30,9 @@ const Profile = ({ user }) => {
     return user.id === parseInt(params.userId);
   };
 
-  const seeProducts = () => {
-    navigate(`/users/${params.userId}/products`)
-  }
+  // const seeProducts = () => {
+  //   navigate(`/users/${params.userId}/products`)
+  // }
 
   const followUser = () => {
     console.log("follow this user");
@@ -59,13 +59,13 @@ const Profile = ({ user }) => {
                 Follow {viewedUser.username}
               </Button>
             )}
-            <Box>
+            {/* <Box>
               {!showFollowBtn() && (
                 <Button onClick={seeProducts}>
                   See {viewedUser.username}'s Products
                 </Button>
               )}
-            </Box>
+            </Box> */}
           </Box>
           {/* <Typography>
               Routines:
