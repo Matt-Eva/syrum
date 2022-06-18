@@ -6,7 +6,7 @@ import ProfileTabs from "../Components/ProfileTabs";
 
 const Profile = ({ user }) => {
   const [viewedUser, setViewedUser] = useState("");
-  // const [isFollowing, setIsFollowing] = useState(false);
+  const [showFollow, setShowFollow] = useState(null)
 
   let navigate = useNavigate();
   const params = useParams();
@@ -14,7 +14,10 @@ const Profile = ({ user }) => {
   useEffect(() => {
     fetch(`/users/${params.userId}`)
       .then((r) => r.json())
-      .then((data) => setViewedUser(data));
+      .then((data) => {
+        setViewedUser(data)
+        setShowFollow(!data.following)
+      });
   }, [params.userId]);
 
   const seeFollowers = () => {
@@ -32,7 +35,17 @@ const Profile = ({ user }) => {
   };
 
   const followUser = () => {
-    console.log("follow this user");
+    fetch("/follows", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        followed_user_id: viewedUser.id,
+      }),
+    })
+        .then((r) => r.json())
+        .then(data => setShowFollow(false));
   };
 
   const unfollowUser = () => {
@@ -51,10 +64,10 @@ const Profile = ({ user }) => {
             <Button onClick={seeFollowing}>Following</Button>
           </Container>
           <Box>
-            {!showFollowBtn() && (
-              <Button onClick={() => console.log("follow me!")}>
-                Follow {viewedUser.username}
-              </Button>
+            {showFollow && (
+                <Button onClick={followUser}>
+                  Follow {viewedUser.username}
+                </Button>
             )}
             {/* <Box>
               {!showFollowBtn() && (

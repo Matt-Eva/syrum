@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   # post '/new-step', to: 'steps#new_step'
 
+  resources :follows, only: [:create]
+
   resources :users, only: [:show, :index] do
     resources :products, only: [:index, :show, :create, :update, :destroy]
     resources :routines, only: [:index, :show, :create, :destroy] do

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import RoutineCard from "./RoutineCard";
-import { Container, Card } from "@mui/material";
+import { Container, Card, Typography } from "@mui/material";
 
 const RoutineCollection = ({ user, viewedUserId }) => {
   const [routines, setRoutines] = useState([]);
@@ -26,7 +26,6 @@ const RoutineCollection = ({ user, viewedUserId }) => {
           />
         );
       })}
-      ;
       {/* </Container>
       </Card> */}
     </>
