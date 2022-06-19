@@ -1,14 +1,26 @@
 import { useState, useEffect } from "react";
+import FavoriteCard from "./FavoriteCard";
 
 
-const FavoritedRoutines = () => {
+const FavoritedRoutines = ( { user } ) => {
 
     const [favorites, setFavorites] = useState([])
 
+    useEffect(() => {
+        fetch(`/users/${user.id}/favorites`)
+        .then(r => r.json())
+        .then(data => setFavorites(data))
+    }, [])
+
+    console.log(favorites) 
+
+    const favList = favorites.map((favorite) => {
+        return <FavoriteCard favorite={favorite} key={favorite.id} />
+    })
 
     return (
         <>
-        this is where your favs will live!
+        {favList}
         </>
     )
 }
