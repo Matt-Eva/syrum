@@ -26,6 +26,10 @@ const RoutineCard = ({ routine }) => {
     // console.log(routine.id);
   };
 
+  const handleClick = () => {
+    console.log('fav me!')
+  }
+
   return (
     <Box
       sx={{
@@ -48,7 +52,7 @@ const RoutineCard = ({ routine }) => {
           </Button>
           {/* <Box> */}
           <CardActions sx={{ justifyContent: "center" }}>
-            {favorited ? <FavoriteIcon/> : <FavoriteBorderIcon/>}
+            {favorited ? <FavoriteIcon onClick={handleClick}/> : <FavoriteBorderIcon/>}
           </CardActions>
 
           {/* </Box> */}

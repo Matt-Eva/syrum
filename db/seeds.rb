@@ -12,6 +12,7 @@ alex_follower3 = Follow.create(follower: daniel, followed_user: alex)
 sean_follower = Follow.create(follower: alex, followed_user: sean)
 james_follower = Follow.create(follower: alex, followed_user: james)
 
+
 # alex_follower = Follow.create(follower_id: sean.id, followed_user_id: alex.id)
 # sean_follower = Follow.create(follower_id: alex.id, followed_user_id: sean.id)
 
@@ -69,3 +70,8 @@ step_sean_1 = Step.create!(number: 1, instructions: "Wash face with lukewarm wat
 step_sean_2 = Step.create!(number: 2, instructions: "Apply evenly to face and neck daily. After fully absorbed, follow with C-Rush Brightening Gel Crème", product: truth_serum, routine: sean_routine_1)
 step_sean_3 = Step.create!(number: 3, instructions: "Apply evenly to face and neck AM and PM after Truth Serum. Gently massage in an upward, circular motion.", product: brightening_cream, routine: sean_routine_1)
 step_sean_4 = Step.create!(number: 4, instructions: "Apply to entire eye area with ring finger ONLY!", product: banana_eye_cream, routine: sean_routine_1)
+
+
+#FAVORITES
+fav_1 = Favorite.create(user: alex, routine: alice_routine1)
+# fav_2 = Favorite.create(user: alex, routine: sean_routine_1)
