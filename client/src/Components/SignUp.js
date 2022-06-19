@@ -10,6 +10,7 @@ import {
   Container,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 
@@ -55,8 +56,8 @@ const SignUp = ({ setUser, setShowLogin }) => {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
+          <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
+            <LockTwoToneIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up

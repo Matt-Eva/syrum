@@ -18,6 +18,10 @@ const RoutineCard = ({ routine, viewedUserId }) => {
     console.log(routine.id);
   };
 
+  // const backToProfile = () => {
+  //   navigate(`/users/${viewedUserId}/profile`)
+  // }
+
   return (
     <Box
       sx={{
@@ -39,6 +43,9 @@ const RoutineCard = ({ routine, viewedUserId }) => {
           <Button onClick={routineDetails} size="small">
             See Routine Details
           </Button>
+          {/* <Button onClick={backToProfile} size="small">
+            Profile
+          </Button> */}
         </CardActions>
         {/* <Button startIcon={FavoriteIcon} ></Button> */}
       </Card>

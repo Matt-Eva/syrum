@@ -9,10 +9,7 @@ Rails.application.routes.draw do
   get '/me', to: 'users#me'
   get '/users/:id/followers', to: 'follows#my_followers'
   get '/users/:id/following', to: 'follows#my_following'
-  # get '/routine-steps', to: 'routines#routine_steps'
-
-  # post '/new-step', to: 'steps#new_step'
-
+  get '/discover-routines', to: 'routines#discover'
   resources :follows, only: [:create]
 
   resources :users, only: [:show, :index] do

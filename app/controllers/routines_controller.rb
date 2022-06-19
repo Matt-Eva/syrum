@@ -25,6 +25,11 @@ class RoutinesController < ApplicationController
         routine.destroy
         head :no_content
     end
+
+    def discover
+        random_routines = Routine.order("RANDOM()").first(3)
+        render json: random_routines
+    end 
     
     private
 

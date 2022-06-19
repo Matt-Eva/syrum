@@ -74,7 +74,7 @@ const App = () => {
 
       <Container align="center" maxWidth="md">
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<Home user={user}/>} />
           <Route
             path="/users/:userId/profile"
             element={<Profile user={user} />}
