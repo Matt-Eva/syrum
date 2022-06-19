@@ -12,17 +12,17 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const RoutineCard = ({ routine }) => {
-  const { id, title, user_id } = routine;
+  const { id, title, user } = routine;
   let navigate = useNavigate();
 
-  const [favorited, setFavorited] = useState(true)
+  const [favorited, setFavorited] = useState(false)
   // const params = useParams();
 
   // console.log(params)
 
   console.log(routine);
   const routineDetails = () => {
-    navigate(`/users/${user_id}/routine-details/${id}`);
+    navigate(`/users/${user.id}/routine-details/${id}`);
     // console.log(routine.id);
   };
 

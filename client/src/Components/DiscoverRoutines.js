@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import RoutineCard from "./RoutineCard";
 import { Box } from "@mui/material";
+import DiscoverRoutineCard from "./DiscoverRoutineCard";
 
 
 const DiscoverRoutines = ( { user } ) => {
@@ -15,7 +16,7 @@ const DiscoverRoutines = ( { user } ) => {
   console.log(routines);
 
   const randomRoutineList = routines.map((routine) => {
-    return <RoutineCard routine={routine} key={routine.id} viewedUserId={user.id} />;
+    return <DiscoverRoutineCard routine={routine} key={routine.id} viewedUserId={user.id} />;
   });
 
   return (
