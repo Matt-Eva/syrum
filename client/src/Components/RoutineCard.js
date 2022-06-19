@@ -1,4 +1,5 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
 import {
   CardContent,
   Typography,
@@ -7,16 +8,27 @@ import {
   Box,
   Card,
 } from "@mui/material";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const RoutineCard = ({ routine }) => {
   const { id, title, user_id } = routine;
   let navigate = useNavigate();
+
+  const [favorited, setFavorited] = useState(true)
+  // const params = useParams();
+
+  // console.log(params)
 
   console.log(routine);
   const routineDetails = () => {
     navigate(`/users/${user_id}/routine-details/${id}`);
     // console.log(routine.id);
   };
+
+  const handleClick = () => {
+    console.log('fav me!')
+  }
 
   return (
     <Box
@@ -38,9 +50,12 @@ const RoutineCard = ({ routine }) => {
           <Button onClick={routineDetails} size="small">
             See Routine Details
           </Button>
-          {/* <Button onClick={backToProfile} size="small">
-            Profile
-          </Button> */}
+          {/* <Box> */}
+          <CardActions sx={{ justifyContent: "center" }}>
+            {favorited ? <FavoriteIcon onClick={handleClick}/> : <FavoriteBorderIcon/>}
+          </CardActions>
+
+          {/* </Box> */}
         </CardActions>
       </Card>
     </Box>

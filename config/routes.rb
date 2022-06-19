@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :favorites
   # resources :follows
   # resources :steps, only: [:create]
   # resources :routines
