@@ -7,27 +7,22 @@ import {
   Box,
   Card,
 } from "@mui/material";
-import FavoriteIcon from '@mui/icons-material/Favorite';
 
-const RoutineCard = ({ routine, viewedUserId }) => {
-  const { id, title } = routine;
+const RoutineCard = ({ routine }) => {
+  const { id, title, user_id } = routine;
   let navigate = useNavigate();
 
+  console.log(routine);
   const routineDetails = () => {
-    navigate(`/users/${viewedUserId}/routine-details/${id}`);
-    console.log(routine.id);
+    navigate(`/users/${user_id}/routine-details/${id}`);
+    // console.log(routine.id);
   };
-
-  // const backToProfile = () => {
-  //   navigate(`/users/${viewedUserId}/profile`)
-  // }
 
   return (
     <Box
       sx={{
         width: 200,
         height: 200,
-        
       }}
     >
       <Card variant="outlined">
@@ -47,7 +42,6 @@ const RoutineCard = ({ routine, viewedUserId }) => {
             Profile
           </Button> */}
         </CardActions>
-        {/* <Button startIcon={FavoriteIcon} ></Button> */}
       </Card>
     </Box>
   );

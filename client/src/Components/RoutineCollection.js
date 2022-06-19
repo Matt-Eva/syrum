@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import RoutineCard from "./RoutineCard";
 import { Container, Card, Typography } from "@mui/material";
 
-const RoutineCollection = ({ user, viewedUserId }) => {
+const RoutineCollection = ({ viewedUserId }) => {
   const [routines, setRoutines] = useState([]);
 
   useEffect(() => {
@@ -22,7 +22,6 @@ const RoutineCollection = ({ user, viewedUserId }) => {
           <RoutineCard
             routine={routine}
             key={routine.id}
-            viewedUserId={viewedUserId}
           />
         );
       })}
