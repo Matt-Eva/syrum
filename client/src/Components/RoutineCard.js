@@ -7,6 +7,8 @@ import {
   Box,
   Card,
 } from "@mui/material";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+
 
 const RoutineCard = ({ routine }) => {
   const { id, title, user_id } = routine;
@@ -38,9 +40,9 @@ const RoutineCard = ({ routine }) => {
           <Button onClick={routineDetails} size="small">
             See Routine Details
           </Button>
-          {/* <Button onClick={backToProfile} size="small">
-            Profile
-          </Button> */}
+          <Box>
+          <FavoriteIcon />
+        </Box>
         </CardActions>
       </Card>
     </Box>
