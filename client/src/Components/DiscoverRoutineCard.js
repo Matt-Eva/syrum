@@ -8,16 +8,16 @@ import {
   Box,
   Card,
 } from "@mui/material";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const DiscoverRoutineCard = ( { routine } ) => {
     const { id, title, user } = routine;
+    let navigate = useNavigate();
+
 
     console.log(user)
 
     const visitProfile = () => {
-        console.log('profuleeee')
+            navigate(`/users/${user.id}/profile`)
     }
     return (
     //     <Box
