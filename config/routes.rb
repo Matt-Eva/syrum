@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get '/discover-routines', to: 'routines#discover'
 
   resources :follows, only: [:create]
+  resources :favorites, only: [:create]
+
   resources :users, only: [:show, :index] do
-    resources :favorites, only: [:index]
     resources :products, only: [:index, :show, :create, :update, :destroy]
     resources :routines, only: [:index, :show, :create, :destroy] do
       resources :steps, only: [:index, :create]

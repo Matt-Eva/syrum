@@ -2,8 +2,13 @@ class RoutinesController < ApplicationController
 
     def index
         user = User.find(params[:user_id])
+        current_user = User.find(session[:user_id])
 
         routines = user.routines
+        routines = routines.map do |r|
+            r[:favorited] = current_user.favorited?(r)
+        end
+
         render json: routines
     end
 
