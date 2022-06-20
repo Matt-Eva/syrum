@@ -10,7 +10,7 @@ const FavoriteButton = ({ routine }) => {
 
   console.log(routine)
 
-  const [favorited, setFavorited] = useState(false);
+  const [favorited, setFavorited] = useState(routine.favorited);
 
 //   const favoriteRoutine = (e) => {
 //     console.log("fav me!");
@@ -77,6 +77,7 @@ const FavoriteButton = ({ routine }) => {
         setFavorited(true)
       }
     };
+
 
     console.log(favorited)
 
