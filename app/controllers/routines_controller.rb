@@ -10,6 +10,10 @@ class RoutinesController < ApplicationController
         # end
 
         render json: routines
+        # each_serializer: ProfileRoutineSerializer, 
+        # favorited: routines.map do |r|
+        #     r[:favorited] = current_user.favorited?(r)
+        # end 
     end
 
     def show

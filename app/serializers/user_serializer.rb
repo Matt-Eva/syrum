@@ -5,4 +5,8 @@ class UserSerializer < ActiveModel::Serializer
     true #@options[:following] || false
   end
 
+  # def favorited
+  #   # true
+  # end
+
 end

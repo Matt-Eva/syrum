@@ -13,11 +13,6 @@ class UsersController < ApplicationController
         render json: user, status: :ok
     end 
 
-    # def index
-    #     users = User.all
-    #     render json: users
-    # end
-
     def show
         user = User.find(params[:id])
         current_user = User.find(session[:user_id])
