@@ -7,7 +7,7 @@ const FavoritedRoutines = ( { user } ) => {
     const [favorites, setFavorites] = useState([])
 
     useEffect(() => {
-        fetch(`/users/${user.id}/favorites`)
+        fetch(`/favorites`)
         .then(r => r.json())
         .then(data => setFavorites(data))
     }, [])
