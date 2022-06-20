@@ -1,32 +1,18 @@
-import { useNavigate } from "react-router-dom";
-import { Button, Typography, Box } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import DiscoverRoutines from "../Components/DiscoverRoutines";
 import FavoritedRoutines from "../Components/FavoritedRoutines";
 
-const Home = ( { user } ) => {
-  let navigate = useNavigate();
-
-  // const addRoutine = () => {
-  //   console.log("add routine!");
-  //   navigate("/new-routine");
-  // };
-
-  // const addProduct = () => {
-  //   console.log("add product!");
-  //   navigate("/new-product");
-  // };
-
+const Home = ({ user }) => {
   return (
     <>
-    <Typography>Welcome {user.username}!</Typography>
+      <h1> &#9734; Welcome {user.username} &#9734;</h1>
       <Box>
-        <Typography variant="h4">Discover Routines</Typography>
+        <Typography variant="h4">Discover New Routines</Typography>
         <Box>
           <DiscoverRoutines user={user} />
         </Box>
       </Box>
-      <h1>Welcome to Your World of Skincare! </h1>
-      <h3>What do you wanna do?</h3>
+      <h3>&#10084; See your favorites below! &#10084;</h3>
       <FavoritedRoutines user={user} />
     </>
   );
