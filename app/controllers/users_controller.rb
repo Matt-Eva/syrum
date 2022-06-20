@@ -24,7 +24,6 @@ class UsersController < ApplicationController
         render json: user, status: :ok, serializer: ShowSerializer, show_follow: current_user.show_follow?(user)
     end 
 
-  
 
     # USERS FOLLOWING ME
     # def my_followers
