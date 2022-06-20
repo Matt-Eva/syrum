@@ -36,7 +36,6 @@ const ProductForm = ({
         <Container maxWidth="xs">
           <Box
             component="form"
-            // mt={2}
             sx={{
               "& > :not(style)": { m: 1, width: "25ch" },
               alignItems: "center",

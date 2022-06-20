@@ -3,6 +3,7 @@ import { Container, Box, Tabs, Tab, Card } from "@mui/material";
 import ProductCollection from "./ProductCollection";
 import TabPanel from "./TabPanel";
 import RoutineCollection from "./RoutineCollection";
+import Followers from "./Followers";
 
 const a11yProps = (index) => {
   return {
@@ -40,7 +41,7 @@ const ProfileTabs = ({ user, viewedUserId }) => {
             {<ProductCollection user={user} viewedUserId={viewedUserId} />}
           </TabPanel>
           {/* <TabPanel value={value} index={2}>
-          Item Three
+          {<Followers />}
         </TabPanel> */}
         </Box>
       </Container>

@@ -37,7 +37,6 @@ const AddSteps = ({ user, routineId }) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setSteps([...steps, data]);
       });
   };
@@ -61,7 +60,7 @@ const AddSteps = ({ user, routineId }) => {
                   <Typography>Step Number: {step.number}</Typography>
                 </CardContent>
                 <CardContent>Instructions: {step.instructions}</CardContent>
-                <CardContent>Product: {step.product.image}</CardContent>
+                <CardContent>Product: {step.product.name}</CardContent>
               </Card>
             </Item>
           </Stack>

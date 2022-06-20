@@ -3,14 +3,11 @@ import { useEffect, useState } from "react";
 import StepAccordion from "./StepAccordion";
 import { Button, Box, Container, Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const RoutineDetails = ({ user }) => {
   const [currentRoutine, setCurrentRoutine] = useState("");
   let navigate = useNavigate();
-
   const params = useParams();
-  console.log(params);
 
   useEffect(() => {
     fetch(`/users/${params.userId}/routines/${params.id}`).then((r) => {
@@ -56,10 +53,6 @@ const RoutineDetails = ({ user }) => {
         <Box>
           <Button onClick={backToProfile}>Back To Profile</Button>
         </Box>
-        {/* <Box>
-          <FavoriteIcon />
-        </Box> */}
-
         {showRemove() && (
           <Button startIcon={<DeleteIcon />} onClick={removeRoutine}>
             Remove routine

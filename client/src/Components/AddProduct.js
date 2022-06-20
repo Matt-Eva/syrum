@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ProductForm from "./ProductForm";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";

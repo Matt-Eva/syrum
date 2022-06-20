@@ -9,8 +9,7 @@ import {
   Typography,
   Container,
 } from "@mui/material";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
+import LockTwoToneIcon from "@mui/icons-material/LockTwoTone";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 

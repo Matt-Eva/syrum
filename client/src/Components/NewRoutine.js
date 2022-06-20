@@ -5,9 +5,6 @@ import {
   TextField,
   Box,
   Container,
-  InputLabel,
-  Select,
-  MenuItem,
 } from "@mui/material";
 
 const NewRoutine = ({ addNewRoutine, setFormData, formData }) => {
@@ -24,9 +21,6 @@ const NewRoutine = ({ addNewRoutine, setFormData, formData }) => {
           <Box
             component="form"
             mt={3}
-            // bgcolor="primary.main"
-            // align="center"
-            // justify="center"
             sx={{
               "& > :not(style)": { m: 1, width: "25ch" },
               alignItems: "center",
@@ -58,21 +52,6 @@ const NewRoutine = ({ addNewRoutine, setFormData, formData }) => {
               placeholder="Routine description"
               value={formData.description}
             />
-            {/* <FormControl>
-              <InputLabel id="select-emoji">Select an Emoji</InputLabel>
-              <Select
-                labelId="select-emoji"
-                id="select-emoji"
-                name="emoji"
-                value={"emoji"}
-                onChange={handleChange}
-                label="Emoji"
-              >
-                <MenuItem value={"emojiiiii"} >
-                &#x1F324;
-                </MenuItem>
-              </Select>
-            </FormControl> */}
             <Button type="submit" variant="contained" size="large">
               Create Routine
             </Button>

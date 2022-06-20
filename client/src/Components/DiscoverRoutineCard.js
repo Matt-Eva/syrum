@@ -7,6 +7,7 @@ import {
   Card,
   Box,
 } from "@mui/material";
+import * as React from "react";
 import PropTypes from "prop-types";
 
 function Item(props) {
@@ -44,18 +45,8 @@ Item.propTypes = {
 };
 
 const DiscoverRoutineCard = ({ routine }) => {
-  const { id, title, user } = routine;
+  const { title, user } = routine;
   let navigate = useNavigate();
-
-  console.log(user);
-
-  // const Item = styled(Paper)(({ theme }) => ({
-  //   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  //   ...theme.typography.body2,
-  //   padding: theme.spacing(1),
-  //   textAlign: "center",
-  //   color: theme.palette.text.secondary,
-  // }));
 
   const visitProfile = () => {
     navigate(`/users/${user.id}/profile`);
