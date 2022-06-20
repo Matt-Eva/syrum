@@ -20,7 +20,6 @@ const Following = () => {
 
   return (
     <div>
-      following list
       {followingList}
     </div>
   );

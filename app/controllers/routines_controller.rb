@@ -5,7 +5,7 @@ class RoutinesController < ApplicationController
         current_user = User.find(session[:user_id])
 
         routines = user.routines
-        # routines = routines.map do |r|
+        # fav_routines = routines.each do |r|
         #     r[:favorited] = current_user.favorited?(r)
         # end
 

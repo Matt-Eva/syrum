@@ -58,21 +58,21 @@ const FavoriteButton = ({ routine }) => {
         // setFavorited(false)
 
       } else {
-        // fetch(`/favorites`, {
-        //     method: 'POST',
-        //     headers: {
-        //       "Content-type": "application/json",
-        //     },
-        //     body: JSON.stringify({
-        //       routine_id: routine.id
-        //     }),
-        //   }).then((r) => {
-        //     if (r.ok) {
-        //       r.json().then((user) => setFavorited(true));
-        //     } else {
-        //       r.json().then((err) => console.log(err.errors));
-        //     }
-        //   });
+        fetch(`/favorites`, {
+            method: 'POST',
+            headers: {
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify({
+              routine_id: routine.id
+            }),
+          }).then((r) => {
+            if (r.ok) {
+              r.json().then((user) => setFavorited(true));
+            } else {
+              r.json().then((err) => console.log(err.errors));
+            }
+          });
         console.log('fav false = setting to true')
         setFavorited(true)
       }
@@ -90,17 +90,6 @@ const FavoriteButton = ({ routine }) => {
         >
           <FavoriteIcon />
         </ToggleButton>
-        {/* {favorited ? <ToggleButton onChange={favoriteRoutine}>
-          <FavoriteBorderIcon />
-        </ToggleButton> :
-        <ToggleButton onChange={unfavoriteRoutine}>
-          <FavoriteIcon />
-        </ToggleButton>} */}
-        {/* {favorited ? (
-          <FavoriteIcon onClick={unfavoriteRoutine} />
-        ) : (
-          <FavoriteBorderIcon onClick={favoriteRoutine} />
-        )} */}
       </CardActions>
     </>
   );
