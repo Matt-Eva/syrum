@@ -16,7 +16,6 @@ import Followers from "./Components/Followers";
 import Following from "./Components/Following";
 import { orange } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
-import AllUsers from "./Components/AllUsers";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -70,11 +69,9 @@ const App = () => {
   return (
     <>
       <NavBar user={user} setUser={setUser} />
-      {/* <AllUsers/> */}
-
       <Container align="center" maxWidth="md">
         <Routes>
-          <Route exact path="/" element={<Home user={user}/>} />
+          <Route exact path="/" element={<Home user={user} />} />
           <Route
             path="/users/:userId/profile"
             element={<Profile user={user} />}

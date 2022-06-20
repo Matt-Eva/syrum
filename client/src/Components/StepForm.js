@@ -38,7 +38,6 @@ const StepForm = ({ handleStep, products, user }) => {
     handleStep(stepFormData);
     setStepFormData({
       number: "",
-      // routine_id: "",
       instructions: "",
       product_id: "",
     });
