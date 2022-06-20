@@ -27,7 +27,7 @@ const Home = ( { user } ) => {
       </Box>
       <h1>Welcome to Your World of Skincare! </h1>
       <h3>What do you wanna do?</h3>
-      <FavoritedRoutines />
+      <FavoritedRoutines user={user} />
     </>
   );
 };

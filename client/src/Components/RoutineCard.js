@@ -8,27 +8,46 @@ import {
   Box,
   Card,
 } from "@mui/material";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+// import FavoriteIcon from "@mui/icons-material/Favorite";
+// import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteButton from "./FavoriteButton";
 
 const RoutineCard = ({ routine }) => {
   const { id, title, user } = routine;
   let navigate = useNavigate();
 
-  const [favorited, setFavorited] = useState(false)
+  // const [favorited, setFavorited] = useState(false)
   // const params = useParams();
 
   // console.log(params)
 
-  console.log(routine);
   const routineDetails = () => {
     navigate(`/users/${user.id}/routine-details/${id}`);
     // console.log(routine.id);
   };
 
-  const handleClick = () => {
-    console.log('fav me!')
-  }
+  // const favoriteRoutine = () => {
+  //   console.log('fav me!')
+  //   fetch(`/favorites`, {
+  //     method: 'POST',
+  //     headers: {
+  //       "Content-type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       routine_id: routine.id
+  //     }),
+  //   }).then((r) => {
+  //     if (r.ok) {
+  //       r.json().then((user) => setFavorited(true));
+  //     } else {
+  //       r.json().then((err) => console.log(err.errors));
+  //     }
+  //   });
+  // }
+
+  // const unfavoriteRoutine = () => {
+  //   console.log('unfav me')
+  // }
 
   return (
     <Box
@@ -50,10 +69,11 @@ const RoutineCard = ({ routine }) => {
           <Button onClick={routineDetails} size="small">
             See Routine Details
           </Button>
+          <FavoriteButton routine={routine}/>
           {/* <Box> */}
-          <CardActions sx={{ justifyContent: "center" }}>
-            {favorited ? <FavoriteIcon onClick={handleClick}/> : <FavoriteBorderIcon/>}
-          </CardActions>
+          {/* <CardActions sx={{ justifyContent: "center" }}>
+            {favorited ? <FavoriteIcon onClick={unfavoriteRoutine}/> : <FavoriteBorderIcon onClick={favoriteRoutine}/>}
+          </CardActions> */}
 
           {/* </Box> */}
         </CardActions>
