@@ -16,12 +16,12 @@ const FavoriteButton = ({ routine }) => {
     if (favorited) {
       fetch(`/favorites/${favorited}`, {
         method: "DELETE",
-      }).then((r) => {
-        if (r.ok) {
-          r.json().then((data) => console.log(data));
-        } else {
-          r.json().then((err) => console.log(err.errors));
-        }
+      }).then((r) => { console.log(r)
+        // if (r.ok) {
+        //   r.json().then((data) => console.log(data));
+        // } else {
+        //   r.json().then((err) => console.log(err.errors));
+        // }
       });
     } else {
       fetch(`/favorites`, {
