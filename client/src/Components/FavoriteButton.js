@@ -6,87 +6,55 @@ import ToggleButton from "@mui/material/ToggleButton";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 
 const FavoriteButton = ({ routine }) => {
-  const { id, title, user } = routine;
+  const { id, title, user_id } = routine;
 
-  console.log(routine)
+  console.log(routine);
 
   const [favorited, setFavorited] = useState(routine.favorited);
 
-//   const favoriteRoutine = (e) => {
-//     console.log("fav me!");
-//     console.log(e.target);
-
-//     fetch(`/favorites`, {
-//       method: 'POST',
-//       headers: {
-//         "Content-type": "application/json",
-//       },
-//       body: JSON.stringify({
-//         routine_id: routine.id
-//       }),
-//     }).then((r) => {
-//       if (r.ok) {
-//         r.json().then((user) => setFavorited(true));
-//       } else {
-//         r.json().then((err) => console.log(err.errors));
-//       }
-//     });
-//     if (!favorited) {
-//       setFavorited(true);
-//     } else {
-//       return null;
-//     }
-//   };
-
-  const unfavoriteRoutine = (e) => {
-    console.log("unfav me");
-    console.log(e.target);
+  const favRoutine = (e) => {
     if (favorited) {
-      setFavorited(false);
+      fetch(`/favorites/${favorited}`, {
+        method: "DELETE",
+      }).then((r) => {
+        if (r.ok) {
+          r.json().then((data) => console.log(data));
+        } else {
+          r.json().then((err) => console.log(err.errors));
+        }
+      });
     } else {
-      return null;
+      fetch(`/favorites`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          routine_id: routine.id,
+        }),
+      }).then((r) => {
+        if (r.ok) {
+          r.json().then((data) => {
+            console.log(data);
+            setFavorited(data.id);
+          });
+        } else {
+          r.json().then((err) => console.log(err.errors));
+        }
+      });
+      // console.log('fav false = setting to true')
+      // setFavorited(true)
     }
   };
 
-    const favRoutine = (e) => {
-      if (favorited) {
-        setFavorited(false);
-        console.log(routine)
-        // fetch(`/favorites/${favorite.id}`, {
-        //     method: 'DELETE'
-        // });
-        // setFavorited(false)
-
-      } else {
-        fetch(`/favorites`, {
-            method: 'POST',
-            headers: {
-              "Content-type": "application/json",
-            },
-            body: JSON.stringify({
-              routine_id: routine.id
-            }),
-          }).then((r) => {
-            if (r.ok) {
-              r.json().then((user) => setFavorited(true));
-            } else {
-              r.json().then((err) => console.log(err.errors));
-            }
-          });
-        console.log('fav false = setting to true')
-        setFavorited(true)
-      }
-    };
-
-
-    console.log(favorited)
+  console.log(favorited);
 
   return (
     <>
       <CardActions sx={{ justifyContent: "center" }}>
         <ToggleButton
           value="check"
-          selected={favorited}
+          selected={favorited !== null}
           onChange={favRoutine}
         >
           <FavoriteIcon />

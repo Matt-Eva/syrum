@@ -29,8 +29,8 @@ class User < ApplicationRecord
         self != followed_user && Follow.where(follower: self, followed_user: followed_user).none?
     end
 
-    # def favorited?(routine)
-    #     favorited_routines.where(id: routine.id).any?
-    # end
+    def favorited?(routine)
+        favorited_routines.where(id: routine.id).any?
+    end
 
 end

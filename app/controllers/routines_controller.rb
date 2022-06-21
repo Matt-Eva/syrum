@@ -4,16 +4,15 @@ class RoutinesController < ApplicationController
         user = User.find(params[:user_id])
         current_user = User.find(session[:user_id])
 
-        routines = user.routines
-        # fav_routines = routines.each do |r|
-        #     r[:favorited] = current_user.favorited?(r)
-        # end
+        routines_to_show =  user.routines.each_with_object([]) do |r, arr|
+            routine = r.as_json
+            favorite = current_user.favorited_routines.find_by(id: r.id)
+            # puts favorite.id
+            routine["favorited"] = favorite ? favorite.id : nil
+            arr << routine
+        end
 
-        render json: routines
-        # each_serializer: ProfileRoutineSerializer, 
-        # favorited: routines.map do |r|
-        #     r[:favorited] = current_user.favorited?(r)
-        # end 
+        render json: routines_to_show
     end
 
     def show
