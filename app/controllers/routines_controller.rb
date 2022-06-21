@@ -35,7 +35,8 @@ class RoutinesController < ApplicationController
     end
 
     def discover
-        random_routines = Routine.order("RANDOM()").first(3)
+        current_user = User.find(session[:user_id])
+        random_routines = Routine.where.not(user: current_user).order("RANDOM()").first(3)
         render json: random_routines
     end 
     
