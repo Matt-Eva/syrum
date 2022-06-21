@@ -10,6 +10,8 @@ alex_follower1 = Follow.create(follower: sean, followed_user: alex)
 alex_follower2 = Follow.create(follower: alice, followed_user: alex)
 alex_follower3 = Follow.create(follower: daniel, followed_user: alex)
 sean_follower = Follow.create(follower: alex, followed_user: sean)
+sean_follower_1 = Follow.create(follower: jeff, followed_user: sean)
+sean_follower_2 = Follow.create(follower: daniel, followed_user: sean)
 james_follower = Follow.create(follower: alex, followed_user: james)
 
 
@@ -30,14 +32,14 @@ lipid_restore = Product.create(name: "Triple Lipid Restore", brand: "Skin Ceutic
 
 
 
-am_routine1 = Routine.create!(user: alex, title: "Daily AM", description: "Everyday morning routine. Completed when I wake up or after a morning workout")
+am_routine1 = Routine.create!(user: alex, title: "Daily-AM", description: "Everyday morning routine. Completed when I wake up or after a morning workout")
 
 step1 = Step.create!(number: 1, instructions: "Wash face with lukewarm water. Pat dry afterwards with towel", product: cleanser, routine: am_routine1)
 step2 = Step.create(number: 2, instructions: "Apply 3-5 drops to fingertips before lightly gently applying to the skin. Use any access on neck and chest", product: vit_c, routine: am_routine1)
 step3 = Step.create(number: 3, instructions: "Follow up serum with moisturizer. I tend to glob on a nickle amount. I find this moisturizer absorbs well in the skin and takes away any stickiness left over from the CE Ferulic.", product: moisturizer, routine: am_routine1)
 step4 = Step.create(number: 4, instructions: "LATHER on and repeat", product: sunscreen1, routine: am_routine1)
 
-pm_routine1 = Routine.create!(user: alex, title: "Daily PM", description: "A nightly routine done before bed. Our skin renews itself overnight, so this is where the magic happens!")
+pm_routine1 = Routine.create!(user: alex, title: "Daily-PM", description: "A nightly routine done before bed. Our skin renews itself overnight, so this is where the magic happens!")
 
 step_a_1 = Step.create!(number: 1, instructions: "Double cleanse time! Use the oil cleanser on dry face to wash those pores free of makeup, sunscreen, and pollution", product: oilcleanse, routine: pm_routine1)
 step_a_2 = Step.create!(number: 2, instructions: "Second cleanse, this time with a wet face and lukewarm water. Pat dry afterwards", product: cleanser, routine: pm_routine1)
@@ -45,7 +47,7 @@ step_a_3 = Step.create!(number: 3, instructions: "Pea sized amount over face. So
 step_a_4 = Step.create!(number: 4, instructions: "I'll give the differin anywhere from 5-20 mins to really sink in before going to this. After that, I'll lather on as much as my skin feels like it needs, applying excess to neck and chest", product: lipid_restore, routine: pm_routine1)
 
 
-alice_routine1 = Routine.create!(user: alice, title: "Daily AM", description: "everyday morning routine")
+alice_routine1 = Routine.create!(user: alice, title: "My Morning Routine", description: "everyday morning routine")
 
 
 cleanser1 = Product.create(name: "Foaming Face Wash", brand: "CeraVe", ingredients: "a unique formula with three essential ceramides (1, 3, 6-II)", notes: "twice daily after an oil cleanser", user_id: alice.id, image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRKq92h1doqUjZ6E74HC4VkAT93S3nGIPbZvaFlXDzA4h5mT9-Vyo6cPxUl_M46bo6HAN_LpIWXcb8G4wx8HXzG4PQlFz4syQ")
@@ -56,7 +58,7 @@ step_alice_1 = Step.create!(number: 1, instructions: "Wash face with lukewarm wa
 step_alice_1 = Step.create!(number: 2, instructions: "Apply small amount to face and neck while skin is still damp. Depending on what city I'm in, sometimes I'll skip this step and use a moisturizing sunscreen instead.", product: moisturizer1, routine: alice_routine1)
 step_alice_1 = Step.create!(number: 3, instructions: "Sunscreen always! Since this one is moisturizing, sometimes I'll only use this.", product: sunscreen1, routine: alice_routine1)
 
-sean_routine_1 = Routine.create!(user: sean, title: "Daily AM/PM", description: "My everyday brightening routine")
+sean_routine_1 = Routine.create!(user: sean, title: "Everyday x2", description: "My everyday brightening routine")
 
 cleanser2 = Product.create(name: "Foaming Face Wash", brand: "CeraVe", ingredients: "a unique formula with three essential ceramides (1, 3, 6-II)", notes: "twice daily after an oil cleanser", user_id: sean.id, image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRKq92h1doqUjZ6E74HC4VkAT93S3nGIPbZvaFlXDzA4h5mT9-Vyo6cPxUl_M46bo6HAN_LpIWXcb8G4wx8HXzG4PQlFz4syQ")
 truth_serum = Product.create(name: "Truth Serum", brand: "Ole Henriksen", ingredients: "Complex stabilized vitamin C derivatives, Collagen, Orange and green tea extracts, Aloe juice", notes: "Brightens, firms, fights visible signs of aging and delivers all-day hydration", user_id: sean.id, image: "https://www.olehenriksen.com/dw/image/v2/AAXW_PRD/on/demandware.static/-/Sites-itemmaster_OLE/default/dw84a2fed1/hi-res/Truth-Serum-Silo.jpg?sw=550")

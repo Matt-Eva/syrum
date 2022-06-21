@@ -10,11 +10,11 @@ import {
 import FavoriteButton from "./FavoriteButton";
 
 const RoutineCard = ({ routine }) => {
-  const { id, title, user } = routine;
+  const { id, title, user_id } = routine;
   let navigate = useNavigate();
 
   const routineDetails = () => {
-    navigate(`/users/${user.id}/routine-details/${id}`);
+    navigate(`/users/${user_id}/routine-details/${id}`);
   };
 
   return (
@@ -26,9 +26,6 @@ const RoutineCard = ({ routine }) => {
     >
       <Card variant="outlined">
         <CardContent>
-          <Typography sx={{ fontSize: 50 }} color="text.secondary" gutterBottom>
-            {/* 🍋 */}
-          </Typography>
           <Typography variant="h5" component="div">
             {title}
           </Typography>
