@@ -11,7 +11,7 @@ alex_follower1 = Follow.create(follower: sean, followed_user: alex)
 alex_follower2 = Follow.create(follower: alice, followed_user: alex)
 alex_follower3 = Follow.create(follower: daniel, followed_user: alex)
 alex_follower4 = Follow.create(follower: haley, followed_user: alex)
-alex_follower5 = Follow.create(follower: alice, followed_user: alice)
+# alex_follower5 = Follow.create(follower: alice, followed_user: alice)
 haley_follower = Follow.create(follower: alex, followed_user: haley)
 sean_follower = Follow.create(follower: alex, followed_user: sean)
 sean_follower_1 = Follow.create(follower: jeff, followed_user: sean)
@@ -96,7 +96,7 @@ haley_routine_1 = Routine.create!(user: haley, title: "Gua Sha AM", description:
 haley_cleanser = Product.create(name: "Hydrating Facial Cleanser", brand: "CeraVe", ingredients: "Ceramides and Hyaluronic Acid", notes: "A perfect gentle cleanser for in the morning.", user_id: haley.id, image: "https://m.media-amazon.com/images/I/51DbQev1thL._SL1000_.jpg")
 haley_vitc_oil = Product.create(name: "SQUALANE + VITAMIN C ROSE OIL", brand: "Biossance", ingredients: "Vitamin C, Squalane, Rose Oil, Damascena Flower Extract, Chois Crystal Oil", notes: "Amazing product. Just amazing", user_id: haley.id, image: "https://cdn.shopify.com/s/files/1/0806/5829/products/22_0404_WB_PDP_GlamourBadge_RoseOil_580x.jpg?v=1652201716")
 haley_sunscreen = Product.create(name: "Unseen Sunscreen SPF 40", brand: "SuperGoop", ingredients: "Frankincense, Complex Derived from Meadowfoam Seed, Avobenzone, 3%, Homosalate 8%, Octisalate 5%, Octocrylene 4%", notes: "Perfect sunscreen for everyday use. Reapplies well!", user_id: haley.id, image: "https://supergoop.com/_cdn/A5I9PbaFjQo69uIottl6Hz/output=format:webp/cache=expiry:max/resize=width:1296%2cfit:max/quality=value:75/no_metadata/compress/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MTcwNjY3MDAwMH0=%2csignature:f034073138d5fea4e3cdcc943c6336f6899d8d906c060f48c013cc698b176f60/https%3A/cdn.shopify.com/s/files/1/1503/5658/products/supergoop-unseen-sunscreen-spf-40-20ml.jpg?v=1652109558")
-gua_sha = Product.create(name: "Gua Sha Facial Lifting Tool", brand: "Mount Lai", ingredients: "Rose Quartz", notes: "Only to be used with a facial oil!", user_id: haley.id, image: "https://www.sephora.com/productimages/sku/s2113561-main-zoom.jpg?imwidth=612")
+gua_sha = Product.create(name: "Gua Sha Facial Lifting Tool", brand: "Mount Lai", ingredients: "Rose Quartz", notes: "Only to be used with a facial oil!", user_id: haley.id, image: "https://m.media-amazon.com/images/I/41-sHI7lkML._SL1000_.jpg")
 
 
 haley_step_1 = Step.create!(number: 1, instructions: "Massage in with gentle strokes and lukewarm water. Sometimes, if I'm feeling super dry, I'll skip this step and just use water instead", product: haley_cleanser, routine: haley_routine_1)
@@ -107,7 +107,7 @@ haley_step_4 = Step.create!(number: 4, instructions: "Lather on three fingers fu
 
 
 #FAVORITES
-fav_1 = Favorite.create(user: alex, routine: alice_routine_1)
-fav_2 = Favorite.create(user: alex, routine: sean_routine_1)
-fav_3 = Favorite.create(user: alex, routine: haley_routine_1)
-fav_4 = Favorite.create(user: alex, routine: sean_routine_2)
+# fav_1 = Favorite.create(user: alex, routine: alice_routine_1)
+# fav_2 = Favorite.create(user: alex, routine: sean_routine_1)
+# fav_3 = Favorite.create(user: alex, routine: haley_routine_1)
+# fav_4 = Favorite.create(user: alex, routine: sean_routine_2)

@@ -17,11 +17,11 @@ const FavoritedRoutines = ({ user }) => {
       <Box
         sx={{
           display: "flex",
-          gap: 1,
-          py: 1,
+          gap: 3,
+          py: 5,
           overflow: "auto",
-          width: 700,
-        //   border: 3,
+          width: 750,
+        //   border: 5,
         //   borderColor: 'text.primary',
           scrollSnapType: "x mandatory",
           "& > *": {
@@ -42,8 +42,8 @@ const FavoritedRoutines = ({ user }) => {
           >
             <AspectRatio
               ratio="3"
-              //   minHeight={150}
-              //   maxHeight={200}
+                // minHeight={150}
+                // maxHeight={200}
               sx={{ minWidth: 150, borderRadius: "sm", overflow: "auto" }}
             >
               <Box sx={{ whiteSpace: "nowrap" }}>
