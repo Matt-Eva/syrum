@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import FavoriteCard from "./FavoriteCard";
-import { Box, Button, CardActions, Link } from "@mui/material";
+import { Box, Link } from "@mui/material";
 import AspectRatio from "@mui/joy/AspectRatio";
-import Typography from "@mui/joy/Typography";
 import Card from "@mui/joy/Card";
 
 const FavoritedRoutines = ({ user }) => {
@@ -14,10 +12,6 @@ const FavoritedRoutines = ({ user }) => {
       .then((data) => setFavorites(data));
   }, []);
 
-  //   const favList = favorites.map((favorite) => {
-  //     return <FavoriteCard favorite={favorite} key={favorite.id} />;
-  //   });
-
   return (
     <>
       <Box
@@ -27,6 +21,8 @@ const FavoritedRoutines = ({ user }) => {
           py: 1,
           overflow: "auto",
           width: 700,
+        //   border: 3,
+        //   borderColor: 'text.primary',
           scrollSnapType: "x mandatory",
           "& > *": {
             scrollSnapAlign: "center",

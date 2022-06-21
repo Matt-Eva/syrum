@@ -8,7 +8,7 @@ import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 const FavoriteButton = ({ routine }) => {
   const { id, title, user_id } = routine;
 
-  console.log(routine);
+//   console.log(routine);
 
   const [favorited, setFavorited] = useState(routine.favorited);
 
@@ -47,7 +47,7 @@ const FavoriteButton = ({ routine }) => {
     }
   };
 
-  console.log(favorited);
+//   console.log(favorited);
 
   return (
     <>

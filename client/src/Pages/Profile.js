@@ -1,11 +1,13 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Avatar, Container, Box, Card, Button } from "@mui/material";
+import { Avatar, Container, Box, Button } from "@mui/material";
 import ProfileTabs from "../Components/ProfileTabs";
 
 const Profile = ({ user }) => {
   const [viewedUser, setViewedUser] = useState("");
-  const [showFollow, setShowFollow] = useState(null)
+  const [showFollow, setShowFollow] = useState(null);
+  console.log(viewedUser);
+  console.log(showFollow);
 
   let navigate = useNavigate();
   const params = useParams();
@@ -14,8 +16,9 @@ const Profile = ({ user }) => {
     fetch(`/users/${params.userId}`)
       .then((r) => r.json())
       .then((data) => {
-        setViewedUser(data)
-        setShowFollow(data.show_follow)
+        console.log(data);
+        setViewedUser(data);
+        setShowFollow(data.show_follow);
       });
   }, [params.userId]);
 
@@ -29,10 +32,6 @@ const Profile = ({ user }) => {
     console.log("see your following");
   };
 
-  const showFollowBtn = () => {
-    return user.id === parseInt(params.userId);
-  };
-
   const followUser = () => {
     fetch("/follows", {
       method: "POST",
@@ -43,13 +42,14 @@ const Profile = ({ user }) => {
         followed_user_id: viewedUser.id,
       }),
     })
-        .then((r) => r.json())
-        .then(data => setShowFollow(false));
+      .then((r) => r.json())
+      .then((data) => setShowFollow(false));
   };
 
-  const unfollowUser = () => {
-    console.log("unfollow this user");
-  };
+  // const unfollowUser = () => {
+  //   console.log("unfollow this user");
+  //   fetch(`/users/${params.}`)
+  // };
 
   return (
     <>
@@ -64,21 +64,10 @@ const Profile = ({ user }) => {
           </Container>
           <Box>
             {showFollow && (
-                <Button onClick={followUser}>
-                  Follow {viewedUser.username}
-                </Button>
+              <Button onClick={followUser}>Follow {viewedUser.username}</Button>
             )}
-            {/* <Box>
-              {!showFollowBtn() && (
-                <Button onClick={seeProducts}>
-                  See {viewedUser.username}'s Products
-                </Button>
-              )}
-            </Box> */}
+            {/* {!showFollow && (<Button onClick={unfollowUser}>Unfollow {viewedUser.username}</Button>)} */}
           </Box>
-          {/* <Typography>
-              Routines:
-            </Typography> */}
         </Container>
         <ProfileTabs user={user} viewedUserId={params.userId} />
       </Container>
