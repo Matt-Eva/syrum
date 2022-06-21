@@ -13,6 +13,8 @@ const FavoriteButton = ({ routine }) => {
   const [favorited, setFavorited] = useState(routine.favorited);
 
   const favRoutine = (e) => {
+    console.log(routine)
+    console.log(favorited)
     if (favorited) {
       fetch(`/favorites/${favorited}`, {
         method: "DELETE",
