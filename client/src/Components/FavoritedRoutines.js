@@ -21,8 +21,8 @@ const FavoritedRoutines = ({ user }) => {
           py: 5,
           overflow: "auto",
           width: 750,
-        //   border: 5,
-        //   borderColor: 'text.primary',
+          //   border: 5,
+          //   borderColor: 'text.primary',
           scrollSnapType: "x mandatory",
           "& > *": {
             scrollSnapAlign: "center",
@@ -42,8 +42,8 @@ const FavoritedRoutines = ({ user }) => {
           >
             <AspectRatio
               ratio="3"
-                // minHeight={150}
-                // maxHeight={200}
+              // minHeight={150}
+              // maxHeight={200}
               sx={{ minWidth: 150, borderRadius: "sm", overflow: "auto" }}
             >
               <Box sx={{ whiteSpace: "nowrap" }}>
@@ -58,22 +58,6 @@ const FavoritedRoutines = ({ user }) => {
           </Card>
         ))}
       </Box>
-      {/* <div style={{ width: "100%" }}>
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            // flexDirection: "row",
-            p: 1,
-            m: 1,
-            bgcolor: "background.paper",
-            borderRadius: 4,
-            justifyContent: "center",
-          }}
-        >
-          {favList}
-        </Box>
-      </div> */}
     </>
   );
 };

@@ -6,7 +6,7 @@ import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Box from "@mui/material/Box";
-import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
+import LockTwoToneIcon from "@mui/icons-material/LockTwoTone";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -35,7 +35,7 @@ const SignIn = ({ setShowLogin, setUser }) => {
       }
     });
   }
-
+  console.log(errors);
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">

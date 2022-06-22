@@ -15,12 +15,7 @@ const RoutineCollection = ({ viewedUserId }) => {
   return (
     <>
       {routines.map((routine) => {
-        return (
-          <RoutineCard
-            routine={routine}
-            key={routine.id}
-          />
-        );
+        return <RoutineCard routine={routine} key={routine.id} />;
       })}
     </>
   );
