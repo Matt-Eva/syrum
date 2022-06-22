@@ -146,6 +146,7 @@ const SignUp = ({ setUser, setShowLogin }) => {
             >
               Sign In
             </Button>
+            <Typography align='center'>{errors}</Typography>
           </Box>
         </Box>
       </Container>
