@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Box, Link } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Card from "@mui/joy/Card";
 
@@ -30,10 +30,10 @@ const FavoritedRoutines = ({ user }) => {
           "::-webkit-scrollbar": { display: "none" },
         }}
       >
-        {favorites.map((item) => (
+        {favorites.map((routine) => (
           <Card
             row
-            key={item.title}
+            key={routine.title}
             variant="outlined"
             sx={{
               gap: 2,
@@ -48,10 +48,10 @@ const FavoritedRoutines = ({ user }) => {
             >
               <Box sx={{ whiteSpace: "nowrap" }}>
                 <Link
-                  href={`/users/${item.user.id}/routine-details/${item.id}`}
+                  href={`/users/${routine.user.id}/routine-details/${routine.id}`}
                   fontWeight="md"
                 >
-                  {item.title}
+                  {routine.title}
                 </Link>
               </Box>
             </AspectRatio>
