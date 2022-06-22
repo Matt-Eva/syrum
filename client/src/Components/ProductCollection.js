@@ -20,7 +20,7 @@ const ProductCollection = ({ user }) => {
     setProducts(oneLess);
   };
 
-  console.log(products)
+  console.log(products);
   const productList = products.map((product) => {
     return (
       <ProductItem

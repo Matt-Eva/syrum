@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Box, Link } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Card from "@mui/joy/Card";
 
@@ -21,8 +21,8 @@ const FavoritedRoutines = ({ user }) => {
           py: 5,
           overflow: "auto",
           width: 750,
-        //   border: 5,
-        //   borderColor: 'text.primary',
+          //   border: 5,
+          //   borderColor: 'text.primary',
           scrollSnapType: "x mandatory",
           "& > *": {
             scrollSnapAlign: "center",
@@ -30,10 +30,10 @@ const FavoritedRoutines = ({ user }) => {
           "::-webkit-scrollbar": { display: "none" },
         }}
       >
-        {favorites.map((item) => (
+        {favorites.map((routine) => (
           <Card
             row
-            key={item.title}
+            key={routine.title}
             variant="outlined"
             sx={{
               gap: 2,
@@ -42,38 +42,22 @@ const FavoritedRoutines = ({ user }) => {
           >
             <AspectRatio
               ratio="3"
-                // minHeight={150}
-                // maxHeight={200}
+              // minHeight={150}
+              // maxHeight={200}
               sx={{ minWidth: 150, borderRadius: "sm", overflow: "auto" }}
             >
               <Box sx={{ whiteSpace: "nowrap" }}>
                 <Link
-                  href={`/users/${item.user.id}/routine-details/${item.id}`}
+                  href={`/users/${routine.user.id}/routine-details/${routine.id}`}
                   fontWeight="md"
                 >
-                  {item.title}
+                  {routine.title}
                 </Link>
               </Box>
             </AspectRatio>
           </Card>
         ))}
       </Box>
-      {/* <div style={{ width: "100%" }}>
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            // flexDirection: "row",
-            p: 1,
-            m: 1,
-            bgcolor: "background.paper",
-            borderRadius: 4,
-            justifyContent: "center",
-          }}
-        >
-          {favList}
-        </Box>
-      </div> */}
     </>
   );
 };
