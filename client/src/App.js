@@ -14,8 +14,7 @@ import EditProduct from "./Components/EditProduct";
 import RoutineDetails from "./Components/RoutineDetails";
 import Followers from "./Components/Followers";
 import Following from "./Components/Following";
-import { orange } from "@mui/material/colors";
-import { createTheme } from "@mui/material/styles";
+
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -26,17 +25,6 @@ const App = () => {
   });
 
   let navigate = useNavigate();
-
-  // const theme = createTheme({
-  //   palette: {
-  //     primary: {
-  //       main: orange[500],
-  //     },
-  //     // secondary: {
-  //     //   main: '#f44336',
-  //     // },
-  //   },
-  // });
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -68,46 +56,46 @@ const App = () => {
 
   return (
     <>
-      <NavBar user={user} setUser={setUser} />
-      <Container align="center" maxWidth="md">
-        <Routes>
-          <Route exact path="/" element={<Home user={user} />} />
-          <Route
-            path="/users/:userId/profile"
-            element={<Profile user={user} />}
-          />
-          <Route
-            path={"/users/:userId/products"}
-            element={<ProductCollection user={user} />}
-          />
-          <Route path={"/users/:userId/followers"} element={<Followers />} />
-          <Route path={"/users/:userId/following"} element={<Following />} />
-          <Route
-            path={`/new-routine`}
-            element={
-              <Routine
-                addNewRoutine={addNewRoutine}
-                formData={formData}
-                setFormData={setFormData}
-                user={user}
-              />
-            }
-          />
-          <Route
-            path={`/add-steps`}
-            element={<AddSteps user={user} routineId={routineId} />}
-          />
-          <Route path={`/new-product`} element={<AddProduct user={user} />} />
-          <Route
-            path="/edit-product/:id"
-            element={<EditProduct user={user} />}
-          />
-          <Route
-            path="/users/:userId/routine-details/:id"
-            element={<RoutineDetails user={user} />}
-          />
-        </Routes>
-      </Container>
+        <NavBar user={user} setUser={setUser} />
+        <Container align="center" maxWidth="md">
+          <Routes>
+            <Route exact path="/" element={<Home user={user} />} />
+            <Route
+              path="/users/:userId/profile"
+              element={<Profile user={user} />}
+            />
+            <Route
+              path={"/users/:userId/products"}
+              element={<ProductCollection user={user} />}
+            />
+            <Route path={"/users/:userId/followers"} element={<Followers />} />
+            <Route path={"/users/:userId/following"} element={<Following />} />
+            <Route
+              path={`/new-routine`}
+              element={
+                <Routine
+                  addNewRoutine={addNewRoutine}
+                  formData={formData}
+                  setFormData={setFormData}
+                  user={user}
+                />
+              }
+            />
+            <Route
+              path={`/add-steps`}
+              element={<AddSteps user={user} routineId={routineId} />}
+            />
+            <Route path={`/new-product`} element={<AddProduct user={user} />} />
+            <Route
+              path="/edit-product/:id"
+              element={<EditProduct user={user} />}
+            />
+            <Route
+              path="/users/:userId/routine-details/:id"
+              element={<RoutineDetails user={user} />}
+            />
+          </Routes>
+        </Container>
     </>
   );
 };

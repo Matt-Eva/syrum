@@ -6,8 +6,6 @@ import ProfileTabs from "../Components/ProfileTabs";
 const Profile = ({ user }) => {
   const [viewedUser, setViewedUser] = useState("");
   const [showFollow, setShowFollow] = useState(null);
-  // console.log(viewedUser);
-  // console.log(showFollow);
 
   let navigate = useNavigate();
   const params = useParams();
@@ -16,7 +14,6 @@ const Profile = ({ user }) => {
     fetch(`/users/${params.userId}`)
       .then((r) => r.json())
       .then((data) => {
-        // console.log(data);
         setViewedUser(data);
         setShowFollow(data.show_follow);
       });
@@ -66,7 +63,6 @@ const Profile = ({ user }) => {
             {showFollow && (
               <Button onClick={followUser}>Follow {viewedUser.username}</Button>
             )}
-            {/* {!showFollow && (<Button onClick={unfollowUser}>Unfollow {viewedUser.username}</Button>)} */}
           </Box>
         </Container>
         <ProfileTabs user={user} viewedUserId={params.userId} />
