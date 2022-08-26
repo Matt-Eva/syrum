@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
     end 
   
     def render_not_found(err)
-      render json: { errors: err.errors.full_messages }, status: 404
+      render json: { errors: "#{err.model} not found." }, status: 404
     end 
   
     def render_unauthorized
